@@ -65,7 +65,6 @@ table {
 }
 .footer__socials-link svg {
   width: 20px;
-  color: #ffffff;
   margin-right: 5px;
 }
 .footer__socials-link svg path {
@@ -125,12 +124,12 @@ table {
   top: 60px;
   width: 100%;
   background-color: #ffffff;
-  overflow: visible;
+  overflow: hidden;
   max-height: 0;
   padding: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   opacity: 0;
-  transition: max-height 1s ease-in-out, opacity 0.2s ease-in-out, border-radius 5s ease;
+  transition: max-height 0.2s ease-in-out, opacity 0.2s ease-in-out, border-radius 5s ease;
 }
 @media (min-width: 992px) {
   .header__nav-list {
@@ -147,18 +146,48 @@ table {
     width: auto;
   }
 }
-.header__nav-item {
+.header__nav-langlist {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-in-out, border-radius 5s ease;
+  padding: 0.1rem;
+  margin-top: 5px;
+}
+.header__nav-langlist .header__nav-langitem {
+  margin-top: 0px;
+}
+.header__nav-langlist .header__nav-langitem {
+  margin: 10px;
+}
+@media (min-width: 992px) {
+  .header__nav-langlist {
+    opacity: 0;
+    margin-top: 0px;
+    overflow: hidden;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 3rem;
+    border-radius: 15px;
+    max-height: 0px;
+    padding: 0.1rem;
+    background-color: #ffffff;
+  }
+}
+.header__nav-item, .header__nav-lang {
   margin: 1rem;
 }
 @media (min-width: 992px) {
-  .header__nav-item {
+  .header__nav-item, .header__nav-lang {
     opacity: 1;
     font-size: 1.125rem;
     font-weight: 600;
     display: inline-block;
     position: relative;
   }
-  .header__nav-item::after {
+  .header__nav-item::after, .header__nav-lang::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -170,22 +199,40 @@ table {
     transition: transform 0.25s ease-out;
   }
 }
-.header__nav-item a {
+.header__nav-item a,
+.header__nav-item p, .header__nav-lang a,
+.header__nav-lang p {
   color: #1e1e1e;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 @media (max-width: 991px) {
-  .header__nav-item a {
+  .header__nav-item a,
+  .header__nav-item p, .header__nav-lang a,
+  .header__nav-lang p {
     opacity: 0;
     transition: opacity 0.2s ease;
   }
 }
 @media (min-width: 992px) {
-  .header__nav-item a:hover {
+  .header__nav-item a:hover,
+  .header__nav-item p:hover, .header__nav-lang a:hover,
+  .header__nav-lang p:hover {
     transition: color 0.2s ease;
     color: #fb7d51;
   }
+}
+.header__nav-langmenu {
+  display: flex;
+  align-items: center;
+}
+.header__nav-langmenu span {
+  margin-right: 5px;
+}
+.header__nav-langmenu img {
+  transition: transform 0.1s ease-in-out;
+  width: 14px;
+  fill: #f8f7f2;
 }
 @media (min-width: 992px) {
   .header__nav-burguer {
@@ -222,24 +269,47 @@ table {
 }
 
 @media (max-width: 991px) {
-  .header__nav--active {
+  .header__nav--active,
+  .header__nav-langlist--active {
     display: block;
     box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.1);
     opacity: 1;
     max-height: 1100px;
     border-radius: 0 0 15px 15px;
-    transition: max-height 0.5s ease-in-out, opacity 0.2s ease;
   }
-  .header__nav--active a {
+  .header__nav--active a,
+  .header__nav--active p,
+  .header__nav-langlist--active a,
+  .header__nav-langlist--active p {
     opacity: 1;
-    transition: opacity 0.5s ease-in-out;
   }
 }
 @media (min-width: 992px) {
-  .header__nav--active {
+  .header__nav--active,
+  .header__nav-langlist--active {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
     display: flex;
     flex-direction: row;
+  }
+}
+
+.header__nav-langlist--active {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+}
+@media (min-width: 992px) {
+  .header__nav-langlist--active {
+    transition: max-height 0s ease-in-out opacity 0s ease-in-out, border-radius 0.15s ease;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    top: 3rem;
+    border-radius: 15px;
+    max-height: 100px;
+    padding: 0.1rem;
+  }
+  .header__nav-langlist--active .header__nav-langitem {
+    margin: 10px;
   }
 }
 
@@ -248,6 +318,11 @@ table {
 }
 .item--active::after {
   transform: scaleX(1);
+}
+
+.header__nav-langmenu--active img {
+  transform: rotate(180deg);
+  transition: transform 0.1s ease-in-out;
 }
 
 html, .body {
