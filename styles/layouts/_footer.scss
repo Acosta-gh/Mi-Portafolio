@@ -1,0 +1,29 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.footer {
+    background-color: $secondary-color;
+    padding: 2% 15%;
+    color: $white;
+
+    &__socials {
+        margin: 1rem 0;
+
+        margin: 10px 0;
+        list-style-type: none;
+        &-link {
+            margin: 10px 0;
+            color: $white;
+            display: flex;
+            align-items: center;
+            svg{
+                width: 20px;
+                color: $white;
+                margin-right: 5px;
+                path{
+                    fill: $white;
+                }
+            }
+        }
+    }
+}

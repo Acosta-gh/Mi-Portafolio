@@ -1,0 +1,13 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Mi portafolio",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass styles/main.scss styles/css/main.css --watch",
+    "build": "sass styles/main.scss styles/css/main.css --style compressed"
+  },
+  "author": "Cristian Darío Acosta",
+  "license": "Apache License 2.0"
+}

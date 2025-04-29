@@ -1,0 +1,199 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.header {
+    background-color: $white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: .5rem;
+    width: calc(100vw - 1rem);
+    /* 1rem = .5rem (izq) + .5rem (der) */
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    transition: border-radius 0.1s ease-in-out;
+
+    font-family: $primary-font;
+
+    &__nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+
+        @include respond-to(large) {
+            flex-direction: row;
+            margin-left: 18%;
+            margin-right: 18%;
+        }
+
+        &-logo {
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            font-size: 24px;
+            font-weight: bold;
+
+            img {
+                width: 35px;
+                height: auto;
+                margin-right: 10px;
+
+                filter: invert(12%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(12%) contrast(100%);
+
+                @include respond-to(large) {
+                    width: 40px;
+                    cursor: pointer;
+                }
+
+            }
+        }
+
+        &-list {
+            position: absolute;
+            left: 0;
+            padding: 1rem;
+            top: 60px;
+            width: 100%;
+            background-color: $white;
+            overflow: visible;
+            max-height: 0;
+            padding: 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: max-height 1s ease-in-out, opacity 0.2s ease-in-out, border-radius 5s ease;
+
+            @include respond-to(large) {
+                position: static;
+                opacity: 1;
+                display: flex;
+                flex-direction: row;
+                max-height: none;
+                height: auto;
+                padding: 0;
+                overflow: visible;
+                background-color: rgba(245, 222, 179, 0);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+                width: auto;
+            }
+        }
+
+        &-item {
+            margin: 1rem;
+
+            @include respond-to(large, min) {
+                opacity: 1;
+                font-size: $font-size-medium;
+                font-weight: $font-weight-semibold;
+
+                display: inline-block;
+                position: relative;
+                
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    transform: scaleX(0);
+                    height: 2px;
+                    bottom: -5px;
+                    left: 0;
+                    background-color: $accent-color;
+                    transition: transform 0.25s ease-out;
+                }
+
+                
+
+            }
+
+            a {
+                color: $secondary-color;
+                text-decoration: none;
+                transition: color 0.2s ease;
+
+                @include respond-to(large, max) {
+                    opacity: 0;
+                    transition: opacity 0.2s ease;
+                }
+
+                @include respond-to(large, min) {
+                    &:hover {
+                        transition: color 0.2s ease;
+                        color: $accent-color;
+                    }
+                }
+            }
+        }
+
+        &-burguer {
+            @include respond-to(large) {
+                display: none;
+            }
+        }
+
+        &-burguer-line {
+            @include respond-to(large, max) {
+                display: block;
+                background-color: $secondary-color;
+                width: 30px;
+                height: 2px;
+                margin: 5px 0;
+                transition: all 0.3s ease;
+            }
+        }
+    }
+}
+
+// Actives de JS 
+.header--active {
+    @include respond-to(large, max) {
+        border-radius: 15px 15px 0px 0px;
+    }
+}
+
+.header__nav-burguer--active {
+    @include respond-to(large, max) {
+        span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        span:nth-child(2) {
+            opacity: 0;
+        }
+
+        span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+    }
+}
+
+.header__nav--active {
+    @include respond-to(large, max) {
+        display: block;
+        box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.1);
+        opacity: 1;
+        max-height: 1100px;
+        border-radius: 0 0 15px 15px;
+        transition: max-height .5s ease-in-out, opacity 0.2s ease;
+
+        a {
+            opacity: 1;
+            transition: opacity .5s ease-in-out;
+        }
+    }
+
+    @include respond-to(large) {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.item--active{
+    a{
+        color: $accent-color;
+    }
+    &::after {
+        transform: scaleX(1);
+    }
+}
