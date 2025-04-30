@@ -2,19 +2,22 @@
 @use '../abstracts/mixins' as *;
 
 .header {
-    background-color: $white;
- 
+    background-color: $primary-color;
     position: fixed;
     top: 0;
     left: 0;
-    margin: .5rem;
-    width: calc(100vw - 1rem);
-    /* 1rem = .5rem (izq) + .5rem (der) */
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    transition: border-radius 0.1s ease-in-out;
 
+    //margin: .5rem;
+    //width: calc(100vw - 1rem);
+    /* 1rem = .5rem (izq) + .5rem (der) */
+    //border-radius: 15px;
+    //box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    width: 100%;
+    z-index: 1000;
+    
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transition: border-radius 0.1s ease-in-out;
     font-family: $primary-font;
 
     &__nav {
@@ -52,16 +55,22 @@
         }
 
         &-list {
+            background-color: $primary-color;
+
             position: absolute;
+
             left: 0;
             padding: 1rem;
             top: 60px;
             width: 100%;
-            background-color: $white;
+            
             overflow: hidden;
             max-height: 0;
             padding: 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            //box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 12px 20px -10px rgba(149, 157, 165, 0.2);
+
+
             opacity: 0;
             transition: max-height 0.2s ease-in-out, opacity 0.2s ease-in-out, border-radius 5s ease;
 
@@ -75,7 +84,9 @@
                 padding: 0;
                 overflow: visible;
                 background-color: rgba(245, 222, 179, 0);
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+                //box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+                box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
                 width: auto;
             }
         }
@@ -89,7 +100,7 @@
 
             padding: .1rem;
             margin-top: 5px;
-
+            
             .header__nav-langitem {
                 margin-top: 0px;
                 margin: 10px;
@@ -104,7 +115,7 @@
                 display: flex;
                 flex-direction: column;
                 top: 3rem;
-                border-radius: 15px;
+                //border-radius: 15px;
                 max-height: 0px;
                 padding: .1rem;
                 background-color: $white;
@@ -115,10 +126,11 @@
         &-lang {
             margin: 1rem;
             cursor: pointer;
+            
             @include respond-to(large, min) {
                 opacity: 1;
                 font-size: $font-size-medium;
-                font-weight: $font-weight-semibold;
+               
 
                 display: inline-block;
                 position: relative;
@@ -133,6 +145,7 @@
                     left: 0;
                     background-color: $accent-color;
                     transition: transform 0.25s ease-out;
+                    //pointer-events: none;
                 }
             }
 
@@ -141,6 +154,9 @@
                 color: $secondary-color;
                 text-decoration: none;
                 transition: color 0.2s ease;
+
+                font-size: $font-size-medium;
+                //font-weight: $font-weight-medium;
 
                 @include respond-to(large, max) {
                     opacity: 0;
@@ -159,7 +175,6 @@
         &-langmenu {
             display: flex;
             align-items: center;
-
 
             span {
                 margin-right: 5px;
@@ -194,7 +209,7 @@
 // Actives de JS 
 .header--active {
     @include respond-to(large, max) {
-        border-radius: 15px 15px 0px 0px;
+        //border-radius: 15px 15px 0px 0px;
     }
 }
 
@@ -218,16 +233,17 @@
 .header__nav-langlist--active {
     @include respond-to(large, max) {
         display: block;
-        box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.1);
+        //box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.1);
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
         opacity: 1;
         max-height: 1100px;
-        border-radius: 0 0 15px 15px;
-        //transition: max-height .5s ease-in-out, opacity 0.2s ease;
+        //border-radius: 0 0 15px 15px;
+        transition: max-height 1s ease-in-out, opacity 0.2s ease;
 
         a,
         p {
             opacity: 1;
-            //transition: opacity .5s ease-in-out;
+            transition: opacity .5s ease-in-out;
         }
     }
 
@@ -236,6 +252,9 @@
         display: flex;
         flex-direction: row;
     }
+}
+.header__nav--active{
+    box-shadow: 0px 12px 20px -10px rgba(149, 157, 165, 0.2);
 }
 
 .header__nav-langlist--active {
@@ -248,7 +267,7 @@
         flex-direction: column;
         opacity: 1;
         top: 3rem;
-        border-radius: 15px;
+        //border-radius: 15px;
         max-height: 100px;
         padding: .1rem;
 

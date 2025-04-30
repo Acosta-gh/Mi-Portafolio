@@ -23,4 +23,5 @@ Este es mi portafolio personal, diseñado y desarrollado con un enfoque en la si
 ### Imagenes e iconos:
 - **Code SVG Vector**: [Fuente](https://www.svgrepo.com/svg/487218/code) | Autor: Neuicons | Licencia: MIT License
 - **Arrow Down SVG Vector**: [Fuente](https://www.svgrepo.com/svg/521469/arrow-down) | Autor: Konstantin Filatov | Licencia: CC Attribution License
-- **Iconos**: Proporcionados por [SimpleIcons](https://simpleicons.org) y [Bootstrap Icons](https://icons.getbootstrap.com)
+- **Iconos**: Proporcionados por [SimpleIcons](https://simpleicons.org), [Bootstrap Icons](https://icons.getbootstrap.com) y [Devicon](https://devicon.dev)
+    

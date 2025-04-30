@@ -1,0 +1,17 @@
+@use "../abstracts/variables" as *;
+
+.title{
+
+}
+.subtitle{
+    text-align: center;
+
+    font-size: $font-size-large;
+    font-family: $secondary-font;
+    color: $secondary-color;
+    margin: 1rem;
+    font-weight: $font-weight-medium;
+}
+.paragraph{
+
+}
