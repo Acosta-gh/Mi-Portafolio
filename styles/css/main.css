@@ -157,9 +157,8 @@ table {
 }
 .header__nav-langlist .header__nav-langitem {
   margin-top: 0px;
-}
-.header__nav-langlist .header__nav-langitem {
   margin: 10px;
+  cursor: pointer;
 }
 @media (min-width: 992px) {
   .header__nav-langlist {
@@ -178,6 +177,7 @@ table {
 }
 .header__nav-item, .header__nav-lang {
   margin: 1rem;
+  cursor: pointer;
 }
 @media (min-width: 992px) {
   .header__nav-item, .header__nav-lang {
