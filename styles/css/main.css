@@ -49,8 +49,9 @@ table {
 
 .footer {
   background-color: #1e1e1e;
-  padding: 2% 15%;
+  padding: 7% 15%;
   color: #ffffff;
+  margin-top: auto;
 }
 .footer__socials {
   margin: 1rem 0;
@@ -340,8 +341,47 @@ html, .body {
   flex-direction: column;
 }
 
-.footer {
-  margin-top: auto;
+.main__intro {
+  font-family: "Playfair Display", serif;
+  padding: 1rem;
+  padding-top: 7rem;
+  color: #1e1e1e;
+}
+.main__intro-salutations {
+  font-size: 1.125rem;
+}
+.main__intro-name {
+  margin-top: 0.1rem;
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+.main__intro-position {
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+}
+.main__intro-position--type {
+  color: #fb7d51;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.01);
+}
+.main__description {
+  padding: 1rem;
+  margin-top: 2rem;
+  color: #1e1e1e;
+}
+.main__description img {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%/30%;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 4px 3px 17px -11px rgba(0, 0, 0, 0.411);
+}
+.main__description h3 {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 1.125rem;
 }
 
 /*# sourceMappingURL=main.css.map */

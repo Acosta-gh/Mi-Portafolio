@@ -1,4 +1,4 @@
-export function burguerAnimation() {
+export function navbarAnimations() {
     const header = document.querySelector('.header');
     const burguer = document.querySelector('.header__nav-burguer');
     const navItems = document.querySelectorAll('.header__nav-item');
@@ -43,7 +43,6 @@ export function burguerAnimation() {
         toggleLangMenu()
     });
 
-    // Si hace click en algún item, el menú cierra automaticamente / If a nav item is clicked, the menu closes automatically
     navItems.forEach((item) => {
         item.addEventListener('click', () => {
             toggleMenuElements();
@@ -54,7 +53,49 @@ export function burguerAnimation() {
 
     langItems.forEach((item) => {
         item.addEventListener('click', () => {
+            console.log(item)
             toggleLangMenu()
         });
     });
 }
+
+export function typeEffect(element, words) {
+    const typingSpeed = 100;
+    const deletingSpeed = 50;
+    const pauseAfterTyping = 1000;
+    const pauseAfterDeleting = 500;
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+        const currentWord = words[wordIndex];
+        const isWordComplete = charIndex === currentWord.length;
+        const isWordEmpty = charIndex === 0;
+    
+        if (!isDeleting && !isWordComplete) {
+            charIndex++;
+        } else if (isDeleting && !isWordEmpty) {
+            charIndex--;
+        }
+    
+        element.textContent = currentWord.substring(0, charIndex);
+    
+        let delay = isDeleting ? deletingSpeed : typingSpeed;
+    
+        if (!isDeleting && isWordComplete) {
+            delay = pauseAfterTyping;
+            isDeleting = true;
+        } else if (isDeleting && isWordEmpty) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            delay = pauseAfterDeleting;
+        }
+    
+        setTimeout(type, delay);
+    }
+
+    type();
+}
+
