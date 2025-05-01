@@ -2,11 +2,11 @@ console.log("Script principal cargado");
 
 import { navbarAnimations, typeEffect } from "./modules/animations.js";
 import { getGreetingBasedOnTime } from "./modules/timeUtils.js";
+import {initSkillsCarousel} from "./modules/skillsCarousel.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     // Cargamos animaciones del navbar
     navbarAnimations();
-
     // Saluda al usuario dependiendo la hora del día
     const introSalutations = document.querySelector(".main__intro-salutations");
     const introJobPositions = document.querySelector(".main__intro-position--type");
@@ -16,4 +16,5 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.warn("No se encontró el elemento .main__intro-salutations");
     }
+    initSkillsCarousel();
 });
