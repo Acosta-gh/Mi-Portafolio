@@ -24,11 +24,11 @@
         flex-wrap: wrap;
         justify-content: space-evenly;
         gap: 1rem;
-        svg{
+        svg,img{
             width: 5rem;
-            path{
-                fill: $secondary-color;
-            }
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.15));
+
         }
+       
     }
 }

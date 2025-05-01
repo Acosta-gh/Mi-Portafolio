@@ -82,11 +82,9 @@ table {
   justify-content: space-evenly;
   gap: 1rem;
 }
-.card__svg svg {
+.card__svg svg, .card__svg img {
   width: 5rem;
-}
-.card__svg svg path {
-  fill: #1e1e1e;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.15));
 }
 
 .footer {
