@@ -32,7 +32,6 @@ export function initSkillsCarousel() {
         }
     }
 
-    // https://webdesign.tutsplus.com/how-to-build-a-simple-carousel-with-vanilla-javascript--cms-41734t
     rightArrow.addEventListener('click', () => {
         container.scrollLeft += cardWidth;
     });

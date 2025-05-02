@@ -442,7 +442,7 @@ html,
 @media (min-width: 992px) {
   .main__intro {
     margin-top: 7%;
-    min-height: 30vh;
+    min-height: 28vh;
   }
 }
 .main__intro-salutations {
