@@ -129,6 +129,7 @@ html,
             scroll-behavior: smooth;
             scroll-snap-type: x mandatory;
             gap: 2rem;
+            height: 35vh;
             .card {
                 scroll-snap-align: start;
                 width: 100%;
