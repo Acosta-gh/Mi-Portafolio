@@ -1,17 +1,15 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
-.title{
-
-}
-.subtitle{
+.subtitle {
     text-align: center;
-
     font-size: $font-size-large;
     font-family: $secondary-font;
     color: $secondary-color;
-    margin: 1rem;
+    margin: 2rem;
     font-weight: $font-weight-medium;
-}
-.paragraph{
 
+    @include respond-to(large) {
+        font-size: $font-size-xxlarge;
+    }
 }

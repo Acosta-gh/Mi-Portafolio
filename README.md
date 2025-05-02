@@ -19,9 +19,10 @@ Este es mi portafolio personal, diseñado y desarrollado con un enfoque en la si
 
 *(Próximamente)*
 
-## 🗒 Créditos
-### Imagenes e iconos:
+## 🗒 Recursos Externos
+### Imágenes e Iconos:
 - **Code SVG Vector**: [Fuente](https://www.svgrepo.com/svg/487218/code) | Autor: Neuicons | Licencia: MIT License
 - **Arrow Down SVG Vector**: [Fuente](https://www.svgrepo.com/svg/521469/arrow-down) | Autor: Konstantin Filatov | Licencia: CC Attribution License
-- **Iconos**: Proporcionados por [SimpleIcons](https://simpleicons.org), [Bootstrap Icons](https://icons.getbootstrap.com) y [Devicon](https://devicon.dev)
-    
+- **Iconos**: [Bootstrap Icons](https://icons.getbootstrap.com) y [Skill Icons](https://skillicons.dev)
+### Código:
+- **Animación al hacer scroll**: [Fuente](https://codepen.io/Jemimaabu/pen/MWbqLZy)

@@ -73,17 +73,17 @@ export function typeEffect(element, words) {
         const currentWord = words[wordIndex];
         const isWordComplete = charIndex === currentWord.length;
         const isWordEmpty = charIndex === 0;
-    
+
         if (!isDeleting && !isWordComplete) {
             charIndex++;
         } else if (isDeleting && !isWordEmpty) {
             charIndex--;
         }
-    
+
         element.textContent = currentWord.substring(0, charIndex);
-    
+
         let delay = isDeleting ? deletingSpeed : typingSpeed;
-    
+
         if (!isDeleting && isWordComplete) {
             delay = pauseAfterTyping;
             isDeleting = true;
@@ -92,10 +92,57 @@ export function typeEffect(element, words) {
             wordIndex = (wordIndex + 1) % words.length;
             delay = pauseAfterDeleting;
         }
-    
+
         setTimeout(type, delay);
     }
 
     type();
 }
 
+/* jsScroll:
+Based on code by Jemima (https://codepen.io/Jemimaabu/pen/MWbqLZy)
+Licensed under the MIT License
+*/
+export function jsScroll() {
+    console.log("Scroll js")
+    const scrollElements = document.querySelectorAll(".js-scroll");
+
+    const elementInView = (el, dividend = 1) => {
+        const elementTop = el.getBoundingClientRect().top;
+
+        return (
+            elementTop <=
+            (window.innerHeight || document.documentElement.clientHeight) / dividend
+        );
+    };
+
+    const elementOutofView = (el) => {
+        const elementTop = el.getBoundingClientRect().top;
+
+        return (
+            elementTop > (window.innerHeight || document.documentElement.clientHeight)
+        );
+    };
+
+    const displayScrollElement = (element) => {
+        element.classList.add("scrolled");
+    };
+
+    const hideScrollElement = (element) => {
+        element.classList.remove("scrolled");
+    };
+
+    const handleScrollAnimation = () => {
+        scrollElements.forEach((el) => {
+            if (elementInView(el, 1.25)) {
+                displayScrollElement(el);
+            } else if (elementOutofView(el)) {
+                hideScrollElement(el)
+            }
+        })
+    }
+
+    window.addEventListener("scroll", () => {
+        handleScrollAnimation();
+    });
+}

@@ -1,0 +1,15 @@
+.scroll-container {
+    .js-scroll {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .js-scroll.scrolled {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 500ms ease;
+    }
+    .js-scroll.scrolled.slideup {
+      transition: opacity 500ms ease, transform 500ms ease;
+    }
+  }
+  

@@ -2,15 +2,14 @@ export function initSkillsCarousel() {
     const container = document.querySelector('.main__skills-cards');
     const leftArrow = document.querySelector('.arrow-left');
     const rightArrow = document.querySelector('.arrow-right');
-    
+
     const cards = document.querySelectorAll(".main__skills-cards .card");
     const dots = document.querySelectorAll(".main__skills .dot");
 
-    const cardsNo = cards.length;
-    let cardIndex = 0;
-    let isScrolling = false;
+    if (!container || !leftArrow || !rightArrow || !cards.length || !dots.length) return;
 
-    if (!container || !leftArrow || !rightArrow || !cards || !dots) return;
+    const cardWidth = cards[0].clientWidth;
+    let cardIndex = 0;
 
     function updateDots() {
         dots.forEach((dot, index) => {
@@ -18,39 +17,32 @@ export function initSkillsCarousel() {
         });
     }
 
-    function debounceScroll(callback) {
-        if (isScrolling) return;
-        isScrolling = true;
-        callback();
-        setTimeout(() => {
-            isScrolling = false;
-        }, 350);
+    /*
+    Se usa Math.round() para redondear al índice más cercano.
+        Ej.: Si cada tarjeta mide 200px:
+        scrollLeft = 0 :. newIndex = 0
+        scrollLeft = 205 :. newIndex = 1 (cerca de la segunda tarjeta)
+    */
+    function updateCardIndexFromScroll() {
+        const scrollLeft = container.scrollLeft;
+        const newIndex = Math.round(scrollLeft / cardWidth);
+        if (newIndex !== cardIndex) {
+            cardIndex = newIndex;
+            updateDots();
+        }
     }
 
+    // https://webdesign.tutsplus.com/how-to-build-a-simple-carousel-with-vanilla-javascript--cms-41734t
     rightArrow.addEventListener('click', () => {
-        debounceScroll(() => {
-            const card = container.querySelector('.card');
-            if (!card) return;
-            const cardWidth = card.offsetWidth + 32;
-            container.scrollBy({ left: cardWidth, behavior: 'smooth' });
-            if (cardIndex < cardsNo - 1) {
-                cardIndex++;
-                updateDots();
-            }
-        });
+        container.scrollLeft += cardWidth;
+    });
+    leftArrow.addEventListener('click', () => {
+        container.scrollLeft -= cardWidth;
     });
 
-    leftArrow.addEventListener('click', () => {
-        debounceScroll(() => {
-            const card = container.querySelector('.card');
-            if (!card) return;
-            const cardWidth = card.offsetWidth + 32;
-            container.scrollBy({ left: -cardWidth, behavior: 'smooth' });
-            if (cardIndex > 0) {
-                cardIndex--;
-                updateDots();
-            }
-        });
+    // Detectar cambio de slide al hacer scroll manual
+    container.addEventListener('scroll', () => {
+        window.requestAnimationFrame(updateCardIndexFromScroll);
     });
 
     updateDots();

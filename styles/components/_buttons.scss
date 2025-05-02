@@ -1,0 +1,30 @@
+@use "../abstracts/variables" as *;
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 1rem 1rem 1.2rem;
+
+    background-color: $accent-color;
+    color: $secondary-color;
+    font-weight: $font-weight-black;
+    border: none;
+    border-radius: 999px;
+    font-size: 1rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    span{
+        position: relative;
+        top: 2px;
+    }
+    svg {
+        margin: 0 0 0 10px;
+        width: 25px; 
+        height: 25px;
+        path {
+            stroke: $secondary-color;
+            stroke-width: .5px;
+        }
+    }
+}

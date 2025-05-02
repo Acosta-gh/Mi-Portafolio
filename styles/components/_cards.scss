@@ -4,20 +4,20 @@
     font-family: $primary-font;
     color: $secondary-color;
     background-color: $tertiary-color;
-    padding: 1rem;
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.025) 0px 3px 5px;
+    
     &__title{
         text-align: center;
         font-size: $font-size-large;
-        margin-top: .5rem;
+        margin: 1rem;
         font-weight: $font-weight-medium;
     }
     &__paragraph{
         text-align: center;
         font-size: $font-size-medium;
     }
-    &__svg{
+    &__pics{
         margin-top: 2rem;
         display: flex;
         flex-direction: row;
@@ -25,9 +25,9 @@
         justify-content: space-evenly;
         gap: 1rem;
         svg,img{
-            width: 5rem;
+            min-width: 4.5rem;
             filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.15));
-
+            margin: 1rem;
         }
        
     }

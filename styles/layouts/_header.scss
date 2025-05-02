@@ -74,9 +74,7 @@
                 height: auto;
                 padding: 0;
                 overflow: visible;
-                background-color: rgba(245, 222, 179, 0);
-                box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-
+                box-shadow: 0px 12px 20px -10px rgba(149, 157, 165, 0);
                 width: auto;
             }
         }
@@ -98,6 +96,7 @@
             }
 
             @include respond-to(large) {
+                transition: max-height .35s cubic-bezier(0.4, 0, 0.2, 1), opacity .5s ease-in-out, border-radius 5s ease, box-shadow 1s ease;
                 opacity: 0;
                 margin-top: 0px;
                 overflow: hidden;
@@ -107,7 +106,9 @@
                 top: 3rem;
                 max-height: 0px;
                 padding: .1rem;
-                background-color: $white;
+                background-color: $primary-color;
+                box-shadow: 0px 12px 20px -10px rgba(149, 157, 165, 0);
+                border-radius: 15px;
             }
         }
 
@@ -246,15 +247,16 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
 
     @include respond-to(large) {
-        transition: max-height 0s ease-in-out opacity 0s ease-in-out, border-radius .15s ease;
-        background-color: $white;
+        transition: max-height 0s ease-in-out opacity 0s ease-in-out, border-radius .15s ease, box-shadow .15s ease;
+        background-color: $primary-color;
         display: flex;
         flex-direction: column;
         opacity: 1;
         top: 3rem;
         max-height: 100px;
         padding: .1rem;
-
+        border-radius: 15px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
         .header__nav-langitem {
             margin: 10px;
         }
