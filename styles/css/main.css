@@ -57,7 +57,7 @@ table {
 }
 @media (min-width: 992px) {
   .subtitle {
-    font-size: 3rem;
+    font-size: 2.2rem;
   }
 }
 
@@ -90,7 +90,7 @@ table {
 }
 .button span {
   position: relative;
-  top: 2px;
+  top: 1px;
 }
 .button svg {
   margin: 0 0 0 10px;
@@ -442,7 +442,7 @@ html,
 @media (min-width: 992px) {
   .main__intro {
     margin-top: 7%;
-    min-height: 35vh;
+    min-height: 30vh;
   }
 }
 .main__intro-salutations {
@@ -487,6 +487,11 @@ html,
   font-family: "Open Sans", sans-serif;
   margin-bottom: 5vh;
 }
+@media (min-width: 992px) {
+  .main__description {
+    margin-bottom: 10vh;
+  }
+}
 .main__description img {
   width: 150px;
   height: 200px;
@@ -501,6 +506,17 @@ html,
     width: 225px;
     height: 300px;
   }
+}
+.main__description svg {
+  object-fit: cover;
+  display: block;
+  opacity: 0.9;
+  width: 10rem;
+  height: 10rem;
+  margin: 0 auto;
+}
+.main__description svg path {
+  fill: #1e1e1e;
 }
 .main__description p {
   margin-top: 1rem;
@@ -533,6 +549,12 @@ html,
   scroll-snap-type: x mandatory;
   gap: 2rem;
   height: 35vh;
+}
+@media (min-width: 992px) {
+  .main__skills-cards {
+    width: 50%;
+    margin: 0 auto;
+  }
 }
 .main__skills-cards .card {
   scroll-snap-align: start;
@@ -584,8 +606,18 @@ html,
 .main__skills-arrows .arrow-left {
   left: -10px;
 }
+@media (min-width: 992px) {
+  .main__skills-arrows .arrow-left {
+    left: 21%;
+  }
+}
 .main__skills-arrows .arrow-right {
   right: -10px;
+}
+@media (min-width: 992px) {
+  .main__skills-arrows .arrow-right {
+    right: 21%;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

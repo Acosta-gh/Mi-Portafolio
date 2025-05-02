@@ -10,6 +10,6 @@
     font-weight: $font-weight-medium;
 
     @include respond-to(large) {
-        font-size: $font-size-xxlarge;
+        font-size: calc($font-size-xlarge * 1.1);
     }
 }

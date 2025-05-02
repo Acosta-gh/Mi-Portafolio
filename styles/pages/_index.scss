@@ -34,7 +34,7 @@ html,
 
         @include respond-to(large) {
             margin-top: 7%;
-            min-height: 35vh;
+            min-height: 30vh;
         }
 
         &-salutations {
@@ -81,7 +81,9 @@ html,
         color: $secondary-color;
         font-family: $primary-font;
         margin-bottom: 5vh;
-
+        @include respond-to(large) {
+            margin-bottom: 10vh;
+        }
         img {
             width: 150px;
             height: 200px;
@@ -96,7 +98,17 @@ html,
                 width: calc(150px * 1.5);
                 height: calc(200px * 1.5);
             }
-
+        }
+        svg{
+            object-fit: cover;
+            display: block;
+            opacity: .9;
+            width: 10rem;
+            height: 10rem;
+            margin: 0 auto;
+            path{
+                fill: $secondary-color;
+            }
         }
 
         p {
@@ -116,6 +128,7 @@ html,
         position: relative;
         padding: 1rem;
         overflow: hidden;
+       
         &-cards {
             scrollbar-width: none;
             height: calc(100vh - 2rem);
@@ -130,6 +143,10 @@ html,
             scroll-snap-type: x mandatory;
             gap: 2rem;
             height: 35vh;
+            @include respond-to(large) {
+                width: 50%;
+                margin: 0 auto;
+            }
             .card {
                 scroll-snap-align: start;
                 width: 100%;
@@ -192,10 +209,16 @@ html,
 
             .arrow-left {
                 left: -10px;
+                @include respond-to(large) {
+                    left: 21%;
+                }
             }
 
             .arrow-right {
                 right: -10px;
+                @include respond-to(large) {
+                    right: 21%;
+                }
             }
         }
 
