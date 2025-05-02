@@ -116,7 +116,6 @@ html,
         position: relative;
         padding: 1rem;
         overflow: hidden;
-
         &-cards {
             scrollbar-width: none;
             height: calc(100vh - 2rem);
@@ -126,6 +125,7 @@ html,
             margin: 0;
             padding: 0;
             overflow: scroll;
+            overflow-y: hidden;
             scroll-behavior: smooth;
             scroll-snap-type: x mandatory;
             gap: 2rem;
