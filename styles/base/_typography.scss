@@ -2,14 +2,23 @@
 @use "../abstracts/mixins" as *;
 
 .subtitle {
-    text-align: center;
-    font-size: $font-size-large;
+    text-align: left;
+    font-size: $font-size-xxlarge;
     font-family: $secondary-font;
     color: $secondary-color;
-    margin: 2rem;
+    margin: 2rem 2rem 1.3rem 0rem;
     font-weight: $font-weight-medium;
+}
 
-    @include respond-to(large) {
-        font-size: calc($font-size-xlarge * 1.1);
-    }
+.paragraph{
+    color: $secondary-color;
+    font-family: $primary-font;
+    font-size: $font-size-medium;
+    line-height: 22px;
+}
+
+.underline{
+    text-decoration: underline; 
+    color: $accent-color; 
+    font-weight: $font-weight-bold;
 }

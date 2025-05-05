@@ -23,6 +23,9 @@ Este es mi portafolio personal, diseñado y desarrollado con un enfoque en la si
 ### Imágenes e Iconos:
 - **Code SVG Vector**: [Fuente](https://www.svgrepo.com/svg/487218/code) | Autor: Neuicons | Licencia: MIT License
 - **Arrow Down SVG Vector**: [Fuente](https://www.svgrepo.com/svg/521469/arrow-down) | Autor: Konstantin Filatov | Licencia: CC Attribution License
-- **Iconos**: [Bootstrap Icons](https://icons.getbootstrap.com) y [Skill Icons](https://skillicons.dev)
+- **Iconos**: [Flowbite Icons - Free and open-source SVG icons](https://flowbite.com/icons/)
 ### Código:
-- **Animación al hacer scroll**: [Fuente](https://codepen.io/Jemimaabu/pen/MWbqLZy)
+- **Animate on Scroll with Vanilla Javascript**: [Fuente](https://codepen.io/Jemimaabu/pen/MWbqLZy)
+- **Scroll down dude**: [Fuente](https://codepen.io/mikewagz/pen/PGXqOg)
+### Otros:
+- **Paleta de colores**: [Fuente](https://www.behance.net/gallery/153938039/Milray-Park)

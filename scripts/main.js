@@ -1,10 +1,11 @@
 console.log("Script principal cargado");
 
-import { navbarAnimations, typeEffect,jsScroll } from "./modules/animations.js";
+import { navbarAnimations, typeEffect, jsScroll, fadeIn } from "./modules/animations.js";
 import { getGreetingBasedOnTime } from "./modules/timeUtils.js";
-import {initSkillsCarousel} from "./modules/skillsCarousel.js";
+//import { initSkillsCarousel } from "./modules/skillsCarousel.js";
 
 document.addEventListener('DOMContentLoaded', () => {
+    fadeIn();
     navbarAnimations();
 
     // Saluda al usuario dependiendo la hora del día
@@ -16,7 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.warn("No se encontró el elemento .main__intro-salutations");
     }
-    
-    initSkillsCarousel();
+
+    //initSkillsCarousel();
     jsScroll();
+
 });

@@ -1,0 +1,16 @@
+
+@use "../abstracts/variables" as *;
+
+.tag1,.tag2{
+    background-color: $sand;
+    border-radius: 999px;
+    margin: .2rem 0;
+    padding: .5rem;
+    font-weight: $font-weight-medium;
+}
+.tag2{
+    background-color: $primary-color;
+    padding: .2rem .4rem;
+    font-size: $font-size-small; 
+    letter-spacing: 2px;
+}

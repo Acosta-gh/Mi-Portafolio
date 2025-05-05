@@ -13,28 +13,34 @@ html,
 
 .body {
     background-color: $primary-color;
+
     flex: 1;
     display: flex;
     flex-direction: column;
+    opacity: 0;
 }
 
 .main {
-
-    @include respond-to(large) {
-        margin-left: 18%;
-        margin-right: 18%;
-    }
 
     &__intro {
         padding: 1rem;
         padding-top: 7rem;
         margin-top: 5%;
         color: $secondary-color;
-        margin-bottom: 3vh;
+        min-height: 90vh;
 
         @include respond-to(large) {
             margin-top: 7%;
-            min-height: 28vh;
+            min-height: 74.5vh;
+            margin-left: 18%;
+            margin-right: 18%;
+        }
+
+        @include respond-to(medium) {
+            margin-top: 7%;
+            min-height: 80vh;
+            margin-left: 13%;
+            margin-right: 13%;
         }
 
         &-salutations {
@@ -76,151 +82,207 @@ html,
         }
     }
 
-    &__description {
-        padding: 1rem;
+    .description {
+        padding: $padding-section;
         color: $secondary-color;
         font-family: $primary-font;
-        margin-bottom: 5vh;
-        @include respond-to(large) {
-            margin-bottom: 10vh;
+        font-size: $font-size-large;
+        background-color: $tertiary-color;
+        .divider{
+            display: none;
         }
-        img {
-            width: 150px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 50% / 30%;
-
-            display: block;
-            margin: 0 auto;
-            box-shadow: 4px 3px 17px -11px rgba(0, 0, 0, 0.411);
-
-            @include respond-to(large) {
-                width: calc(150px * 1.5);
-                height: calc(200px * 1.5);
+        @include respond-to(medium) {
+            padding-left: 13%;
+            padding-right: 13%;
+            padding-bottom: 0px;
+            .divider{
+                display: block;
             }
+
         }
-        svg{
-            object-fit: cover;
-            display: block;
-            opacity: .9;
-            width: 10rem;
-            height: 10rem;
-            margin: 0 auto;
-            path{
-                fill: $secondary-color;
+
+        &__intro {
+            @include respond-to(medium) {
+                p{
+                    width: 60%;
+                    margin: 0 0 1rem 0;
+                }
             }
         }
 
-        p {
-            margin-top: 1rem;
-            text-align: center;
-            font-size: $font-size-medium;
-            line-height: 22px;
+        &__media {
+            gap: 3rem;
 
-            @include respond-to(large) {
-                margin: 2rem 20%;
-                font-size: calc($font-size-medium * 1.25);
+            @include respond-to(medium) {
+                display: flex;
+                flex-direction: row-reverse;
+            }
+
+            p {
+                margin-bottom: 3rem;
+                text-align: left;
+
+                @include respond-to(large) {
+                    line-height: 25px;
+                    width: 60%;
+                    margin: 0;
+                }
+            }
+
+            img {
+                width: 180px;
+                height: 250px;
+                object-fit: cover;
+                border-radius: 50% / 30%;
+
+                display: block;
+                margin: 3rem auto;
+                box-shadow: 4px 3px 17px -11px rgba(0, 0, 0, 0.411);
+
+
+                @include respond-to(medium) {
+                    width: calc(180px * 1.6);
+                    height: calc(250px * 1.6);
+
+                    position: relative;
+                    bottom: 8rem;
+                    left: 2rem;
+                    margin: 0 auto;
+                    
+                }
+
             }
         }
     }
 
-    &__skills {
-        position: relative;
-        padding: 1rem;
-        overflow: hidden;
-       
-        &-cards {
-            scrollbar-width: none;
-            height: calc(100vh - 2rem);
-            width: 100%;
+    .skills {
+        padding: $padding-section;
+      
+        @include respond-to(medium) {
+            padding-left: 13%;
+            padding-right: 13%;
+            margin-bottom: 2rem;
+        }
+
+        &__category-title {
             display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            overflow: scroll;
-            overflow-y: hidden;
-            scroll-behavior: smooth;
-            scroll-snap-type: x mandatory;
-            gap: 2rem;
-            height: 35vh;
-            @include respond-to(large) {
-                width: 50%;
+            align-items: center;
+            font-family: $primary-font;
+            font-size: $font-size-large;
+            margin: 1rem 0;
+
+            svg {
+                width: 2rem;
+                height: 2rem;
+                margin-right: .5rem;
+
+            }
+        }
+
+        &__list {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        &__item {
+            margin: .2rem;
+            width: 6rem;
+            background-color: $sand;
+            height: 2rem;
+            line-height: 2rem;
+            border-radius: 999px;
+            text-align: center;
+            font-family: $primary-font;
+            font-weight: $font-weight-medium;
+        }
+    }
+
+    .projects {
+        background-color: $tertiary-color;
+        padding: $padding-section;
+
+        @include respond-to(large) {}
+
+        @include respond-to(medium) {
+            padding-left: 13%;
+            padding-right: 13%;
+        }
+
+        &__intro {
+            margin-bottom: 2rem;
+        }
+
+        &__item {
+            margin-bottom: 3.7rem;
+        }
+
+        &__title {
+            text-align: left;
+            margin-bottom: 1rem;
+            font-family: $secondary-font;
+            font-size: $font-size-large;
+            font-weight: $font-weight-medium;
+        }
+
+        &__paragraph {
+            margin-bottom: 1rem;
+        }
+
+        &__image {
+            width: 100%;
+            border-radius: 15px;
+            //border: .122em solid $secondary-color;
+            filter: drop-shadow(5px 5px 5px #222);
+
+            @include respond-to(medium) {
+                height: auto;
+                width: 70%;
+                display: block;
                 margin: 0 auto;
             }
-            .card {
-                scroll-snap-align: start;
-                width: 100%;
-                height: 100%;
-                flex: 1 0 100%;
-            }
+
         }
 
-        &-dots {
-            margin: 1rem;
+        &__description {
+            //border: .122em solid $secondary-color;
+            border-radius: 15px;
+            padding: .5rem;
+            margin-top: 5px;
+        }
+
+        &__tags {
             display: flex;
-            justify-content: center;
-
-            .dot {
-                cursor: pointer;
-                height: 15px;
-                width: 15px;
-                margin: 0 2px;
-                background-color: $accent-color;
-                opacity: .3;
-                border-radius: 50%;
-                display: inline-block;
-                transition: background-color 0.6s ease;
-            }
-
-            .dot.active {
-                background-color: $accent-color;
-                opacity: 1;
-            }
+            flex-wrap: wrap;
+            font-family: $primary-font;
         }
 
-        &-arrows {
+        &__tag {
+            margin-right: 5px;
+        }
 
-            .arrow-left,
-            .arrow-right {
+        &__buttons {
+            margin: 1rem 0;
+            position: relative;
+            right: 3px;
 
-                cursor: pointer;
-                position: absolute;
-                top: 50%;
+            .button {
+                border: 2px solid $secondary-color;
+            }
 
-                width: auto;
-                margin-top: -22px;
-
-                padding: 16px;
-                color: $accent-color;
-                font-weight: bold;
-
-                transition: 0.6s ease;
-                border-radius: 0 3px 3px 0;
-                user-select: none;
-
-                z-index: 1;
+            .button:last-child {
+                background-color: rgba(255, 0, 0, 0);
+                border: 2px solid $secondary-color;
+                color: $secondary-color;
+                margin-left: .6rem;
 
                 svg {
-                    width: 50px;
-                    height: 50px;
-                    opacity: 0.5;
-                }
-            }
-
-            .arrow-left {
-                left: -10px;
-                @include respond-to(large) {
-                    left: 21%;
-                }
-            }
-
-            .arrow-right {
-                right: -10px;
-                @include respond-to(large) {
-                    right: 21%;
+                    path {
+                        stroke: $secondary-color;
+                    }
                 }
             }
         }
-
     }
 }

@@ -16,6 +16,11 @@
 <link rel="stylesheet" href="styles/css/main.css">
 
 <body class="body">
+    <!-- BORRAR AL TERMINAR -->
+    <div class="in_construction"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+       <span>Página en constante desarrollo.</span></div>
     <header class="header">
         <nav class="header__nav">
             <div class="header__nav-logo">
@@ -57,99 +62,264 @@
             </h1>
             <h2 class="main__intro-position">Y soy un desarrollador <span class="main__intro-position--type"></span>
             </h2>
-            <button class="button"><span>Descargar CV</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-filetype-pdf" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z" />
+            <button class="mainbutton"><span>Descargar CV</span>
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 13V4M7 14H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-2m-1-5-4 5-4-5m9 8h.01" />
                 </svg>
             </button>
+            <div class="scroll-down-indicator"></div>
         </section>
-        <section class="main__description scroll-container">
+        <section class="description scroll-container">
             <div class="js-scroll slideup"> <!-- js-scroll | Solo para animación-->
                 <h3 class="subtitle">Sobre mi</h3>
-                <!-- <img src="./assets/images/me.jpg"> -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-                  </svg>
-                <p>Soy programador junior con conocimientos en MERN y LAMP. Me apasiona el desarrollo web, el código
-                    abierto y siempre estoy buscando nuevos desafíos para seguir aprendiendo y mejorando mis
-                    habilidades.
-                </p>
-            </div>
-        </section>
-        <section class="main__skills scroll-container">
-            <div class="js-scroll"> <!-- js-scroll | Solo para animación-->
-                <h4 class="subtitle">Tecnologías y herramientas que manejo</h4>
-                <div class="main__skills-arrows">
-                    <div class="arrow-left">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
-                            <path
-                                d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
-                        </svg>
+                <div class="description__content">
+                    <div class="description__intro">
+                        <p class="paragraph">Soy un programador junior con conocimientos en MERN y LAMP. Me apasiona el
+                            desarrollo web, el código
+                            abierto y siempre estoy buscando nuevos desafíos para seguir aprendiendo y mejorando mis
+                            habilidades.
+                        </p>
                     </div>
-                    <div class="arrow-right">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
-                            <path
-                                d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
-                        </svg>
+                    <span class="divider"></span>
+                    <div class="description__media">
+                        <img src="./assets/images/me.jpg">
+                        <p class="paragraph">Actualmente, estoy por egresar como <span class="underline">técnico
+                                programador</span> de la Universidad Nacional de Lomas de
+                            Zamora. A lo largo de mi formación, he tenido la oportunidad de adquirir conocimientos
+                            sólidos
+                            en
+                            programación y desarrollo web. Además, he completado <span class="underline">dos
+                                diplomaturas en
+                                programación web full
+                                stack</span>, una en la UTN del Chaco y otra en ICARO, lo que me ha permitido
+                            profundizar en
+                            tecnologías
+                            clave y estar al día con las herramientas del mercado.
+
+                            Me encanta capacitarme y explorar nuevas tecnologías, ya que creo que el aprendizaje
+                            continuo es
+                            fundamental en el campo del desarrollo. Estoy entusiasmado por aplicar mis conocimientos en
+                            proyectos reales y contribuir a soluciones innovadoras.</p>
                     </div>
-                </div>
-                <div class="main__skills-cards">
-                    <div class="card">
-                        <h5 class="card__title">Frontend</h5>
-                        <div class="card__pics">
-                            <img src="https://skillicons.dev/icons?i=html">
-                            <img src="https://skillicons.dev/icons?i=css">
-                            <img src="https://skillicons.dev/icons?i=scss">
-                            <img src="https://skillicons.dev/icons?i=js">
-                            <img src="https://skillicons.dev/icons?i=react">
-                            <img src="https://skillicons.dev/icons?i=bootstrap">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h5 class="card__title">Backend</h5>
-                        <div class="card__pics">
-                            <img src="https://skillicons.dev/icons?i=express">
-                            <img src="https://skillicons.dev/icons?i=flask">
-                            <img src="https://skillicons.dev/icons?i=php">
-                            <img src="https://skillicons.dev/icons?i=java">
-                            <img src="https://skillicons.dev/icons?i=python">
-                            <img src="https://skillicons.dev/icons?i=sequelize">
-                            <img src="https://skillicons.dev/icons?i=nodejs">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h5 class="card__title">Bases de Datos</h5>
-                        <div class="card__pics">
-                            <img src="https://skillicons.dev/icons?i=mysql">
-                            <img src="https://skillicons.dev/icons?i=sqlite">
-                            <img src="https://skillicons.dev/icons?i=mongodb">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h5 class="card__title">Otros</h5>
-                        <div class="card__pics">
-                            <img src="https://skillicons.dev/icons?i=git">
-                            <img src="https://skillicons.dev/icons?i=linux">
-                            <img src="https://skillicons.dev/icons?i=fastapi">
-                        </div>
-                    </div>
-                </div>
-                <div class="main__skills-dots">
-                    <div class="dot active"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
                 </div>
             </div>
         </section>
-        <section class="main__projects">
-            <h4 class="subtitle">Mis Projectos</h4>
-            <div class="card"></div>
+        <section class="skills scroll-container">
+            <div class="skills__content js-scroll"> <!-- js-scroll | Solo para animación-->
+                <h4 class="skills__title subtitle">Mis habilidades</h4>
+                <p class="skills__description paragraph">Herramientas, Lenguajes y Frameworks que manejo.</p>
+                <div class="skills__category">
+                    <h5 class="skills__category-title">
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v5m-3 0h6M4 11h16M5 15h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1Z" />
+                        </svg>
+                        <span>Frontend</span>
+                    </h5>
+                    <ul class="skills__list">
+                        <li class="skills__item">HTML</li>
+                        <li class="skills__item">CSS</li>
+                        <li class="skills__item">SASS</li>
+                        <li class="skills__item">JavaScript</li>
+                        <li class="skills__item">React</li>
+                        <li class="skills__item">Bootstrap</li>
+                    </ul>
+                </div>
+
+                <div class="skills__category">
+                    <h5 class="skills__category-title">
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 6c0 1.657-3.134 3-7 3S5 7.657 5 6m14 0c0-1.657-3.134-3-7-3S5 4.343 5 6m14 0v6M5 6v6m0 0c0 1.657 3.134 3 7 3s7-1.343 7-3M5 12v6c0 1.657 3.134 3 7 3s7-1.343 7-3v-6" />
+                        </svg>
+                        <span>Backend</span>
+                    </h5>
+                    <ul class="skills__list">
+                        <li class="skills__item">Java</li>
+                        <li class="skills__item">Python</li>
+                        <li class="skills__item">PHP</li>
+                        <li class="skills__item">Node.js</li>
+                        <li class="skills__item">Express</li>
+                        <li class="skills__item">Flask</li>
+                        <li class="skills__item">Sequelize</li>
+                        <li class="skills__item">JWT</li>
+                        <li class="skills__item">REST APIs</li>
+                        <li class="skills__item">MySQL</li>
+                        <li class="skills__item">SQLite</li>
+                        <li class="skills__item">MariaDB</li>
+                    </ul>
+                </div>
+
+                <div class="skills__category">
+                    <h5 class="skills__category-title">
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linejoin="round" stroke-width="2"
+                                d="M7.58209 8.96025 9.8136 11.1917l-1.61782 1.6178c-1.08305-.1811-2.23623.1454-3.07364.9828-1.1208 1.1208-1.32697 2.8069-.62368 4.1363.14842.2806.42122.474.73509.5213.06726.0101.1347.0133.20136.0098-.00351.0666-.00036.1341.00977.2013.04724.3139.24069.5867.52125.7351 1.32944.7033 3.01552.4971 4.13627-.6237.8375-.8374 1.1639-1.9906.9829-3.0736l4.8107-4.8108c1.0831.1811 2.2363-.1454 3.0737-.9828 1.1208-1.1208 1.3269-2.80688.6237-4.13632-.1485-.28056-.4213-.474-.7351-.52125-.0673-.01012-.1347-.01327-.2014-.00977.0035-.06666.0004-.13409-.0098-.20136-.0472-.31386-.2406-.58666-.5212-.73508-1.3294-.70329-3.0155-.49713-4.1363.62367-.8374.83741-1.1639 1.9906-.9828 3.07365l-1.7788 1.77875-2.23152-2.23148-1.41419 1.41424Zm1.31056-3.1394c-.04235-.32684-.24303-.61183-.53647-.76186l-1.98183-1.0133c-.38619-.19746-.85564-.12345-1.16234.18326l-.86321.8632c-.3067.3067-.38072.77616-.18326 1.16235l1.0133 1.98182c.15004.29345.43503.49412.76187.53647l1.1127.14418c.3076.03985.61628-.06528.8356-.28461l.86321-.8632c.21932-.21932.32446-.52801.2846-.83561l-.14417-1.1127ZM19.4448 16.4052l-3.1186-3.1187c-.7811-.781-2.0474-.781-2.8285 0l-.1719.172c-.7811.781-.7811 2.0474 0 2.8284l3.1186 3.1187c.7811.781 2.0474.781 2.8285 0l.1719-.172c.7811-.781.7811-2.0474 0-2.8284Z" />
+                        </svg>
+                        <span>Herramientas</span>
+                    </h5>
+                    <ul class="skills__list">
+                        <li class="skills__item">Git</li>
+                        <li class="skills__item">Postman</li>
+                        <li class="skills__item">GNU+Linux</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="projects scroll-container">
+            <div class="js-scroll">
+                <h4 class="projects__subtitle subtitle">Mis proyectos</h4>
+                <p class="projects__intro paragraph ">Algunos proyectos personales que he realizado</p>
+            </div>
+
+            <div class="projects__item js-scroll">
+                <div class="projects__content">
+                    <div class="projects__card">
+                        <img class="projects__image" src="./assets/images/website-mockup-placeholder.png"
+                            alt="Imagen del proyecto">
+                        <div class="projects__description">
+                            <h5 class="projects__title">Blog realizado con MERN Stack.</h5>
+                            <div class="projects__buttons">
+                                <button class="button button--secondary">
+                                    <span>Demo</span>
+                                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                        viewBox="0 0 24 24">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
+                                    </svg>
+                                </button>
+                                <button class="button button--secondary">
+                                    <span>Código</span>
+                                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                        viewBox="0 0 24 24">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <p class="projects__paragraph paragraph">Este blog fue desarrollado con el stack MERN.
+                                Permite leer, guardar y compartir artículos, combinando una interfaz atractiva con
+                                funcionalidades modernas. Está inspirado en el diseño y usabilidad de GetPocket, y
+                                enfocado en una experiencia de usuario fluida y responsive.
+                            </p>
+
+                            <div class="projects__tags">
+                                <span class="projects__tag tag2">REACT</span>
+                                <span class="projects__tag tag2">SCSS</span>
+                                <span class="projects__tag tag2">MONGODB</span>
+                                <span class="projects__tag tag2">NODEJS</span>
+                                <span class="projects__tag tag2">EXPRESS</span>
+                                <span class="projects__tag tag2">SEQUELIZE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects__item js-scroll">
+                <div class="projects__content">
+                    <div class="projects__card">
+                        <img class="projects__image" src="./assets/images/website-mockup-placeholder.png"
+                            alt="Imagen del proyecto">
+                        <div class="projects__description">
+                            <h5 class="projects__title">Página Debian rediseñada con LAMPython Stack.</h5>
+                            <div class="projects__buttons">
+                                <button class="button button--secondary">
+                                    <span>Demo</span>
+                                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                        viewBox="0 0 24 24">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
+                                    </svg>
+                                </button>
+                                <button class="button button--secondary">
+                                    <span>Código</span>
+                                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                        viewBox="0 0 24 24">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <p class="projects__paragraph paragraph"> Este proyecto es una reimaginación de la página
+                                oficial de Debian, con un diseño moderno y responsivo. Fue desarrollado utilizando
+                                React, Vite y SCSS en el frontend, y cuenta con una pequeña API construida con Python y
+                                Flask para gestionar datos dinámicos, como las publicaciones de noticias.
+                            </p>
+
+                            <div class="projects__tags">
+                                <span class="projects__tag tag2">REACT</span>
+                                <span class="projects__tag tag2">SCSS</span>
+                                <span class="projects__tag tag2">MARIADB</span>
+                                <span class="projects__tag tag2">PYTHON</span>
+                                <span class="projects__tag tag2">FLASK</span>
+                                <span class="projects__tag tag2">SQLAlchemy</span>
+                                <span class="projects__tag tag2">JWT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects__item js-scroll">
+                <div class="projects__content">
+                    <div class="projects__card">
+                        <img class="projects__image" src="./assets/images/website-mockup-placeholder.png"
+                            alt="Imagen del proyecto">
+                        <div class="projects__description">
+                            <h5 class="projects__title">YAGC (Yet Another GUI for ClamAV)</h5>
+                            <div class="projects__buttons">
+                                <button class="button button--secondary">
+                                    <span>Demo</span>
+                                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                        viewBox="0 0 24 24">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
+                                    </svg>
+                                </button>
+                                <button class="button button--secondary">
+                                    <span>Código</span>
+                                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                        viewBox="0 0 24 24">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <p class="projects__paragraph paragraph"> YAGC es una interfaz gráfica de usuario (GUI)
+                                diseñada para simplificar el uso de ClamAV, un software antivirus de código abierto.
+                                Esta aplicación está inspirada en proyectos como ClamWin y ClamTk, ofreciendo a los
+                                usuarios una experiencia más accesible y visual para realizar escaneos antivirus en sus
+                                sistemas de manera rápida y sencilla.
+                            </p>
+
+                            <div class="projects__tags">
+                                <span class="projects__tag tag2">PYTHON</span>
+                                <span class="projects__tag tag2">Tkinter</span>
+                                <span class="projects__tag tag2">GNU+LINUX</span>
+                                <span class="projects__tag tag2">CLI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -160,10 +330,10 @@
                 <li>
                     <a class="footer__socials-link" href="https://github.com/Acosta-gh" target="_blank"
                         rel="noopener noreferrer">
-                        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <title>GitHub</title>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-github" viewBox="0 0 16 16">
                             <path
-                                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
                         </svg>
                         <span>GitHub</span>
                     </a>
@@ -177,6 +347,17 @@
                         </svg>
                         <span>LinkedIn</span>
                     </a></li>
+                <li>
+                    <a class="footer__socials-link" href="https://social.vivaldi.net/@acosta01" target="_blank"
+                        rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-mastodon" viewBox="0 0 16 16">
+                            <path
+                                d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603.348-1.778.32-4.339.32-4.339 0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091.083 3.394.626 6.74 3.78 7.57 1.454.383 2.703.463 3.709.408 1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a4 4 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522q0-1.288.66-2.046c.456-.505 1.052-.764 1.793-.764.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983.74 0 1.336.259 1.791.764q.662.757.661 2.046z" />
+                        </svg>
+                        <span>Vivaldi Social</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </footer>

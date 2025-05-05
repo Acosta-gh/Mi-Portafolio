@@ -1,34 +1,40 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 .card{
     font-family: $primary-font;
     color: $secondary-color;
-    background-color: $tertiary-color;
+    
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.025) 0px 3px 5px;
     
     &__title{
         text-align: center;
         font-size: $font-size-large;
-        margin: 1rem;
+        margin: 1.5rem 1rem 1rem 1rem;
         font-weight: $font-weight-medium;
+        color: $secondary-color;
     }
     &__paragraph{
         text-align: center;
         font-size: $font-size-medium;
     }
     &__pics{
-        margin-top: 2rem;
+        margin-top: 1rem;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 1rem;
+        gap: .5rem;
+            
         svg,img{
-
             min-width: 4.5rem;
             filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.15));
-            margin: 1rem;
+            margin: .5rem;
+            padding: 5px;
+            @include respond-to(small, max) {
+                margin: .5rem;
+            }
         }
        
     }
