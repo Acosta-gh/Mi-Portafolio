@@ -235,7 +235,7 @@ html,
             border-radius: 15px;
             //border: .122em solid $secondary-color;
             filter: drop-shadow(5px 5px 5px #222);
-
+            
             @include respond-to(medium) {
                 height: auto;
                 width: 70%;

@@ -17,10 +17,13 @@
 
 <body class="body">
     <!-- BORRAR AL TERMINAR -->
-    <div class="in_construction"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
-      </svg>
-       <span>Página en constante desarrollo.</span></div>
+    <div class="in_construction"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        <span>Página en constante desarrollo.</span>
+    </div>
     <header class="header">
         <nav class="header__nav">
             <div class="header__nav-logo">
@@ -71,7 +74,7 @@
             </button>
             <div class="scroll-down-indicator"></div>
         </section>
-        <section class="description scroll-container">
+        <section class="description scroll-container"> <!-- scroll-container | Solo para animación-->
             <div class="js-scroll slideup"> <!-- js-scroll | Solo para animación-->
                 <h3 class="subtitle">Sobre mi</h3>
                 <div class="description__content">
@@ -106,7 +109,7 @@
                 </div>
             </div>
         </section>
-        <section class="skills scroll-container">
+        <section class="skills scroll-container"> <!-- scroll-container | Solo para animación-->
             <div class="skills__content js-scroll"> <!-- js-scroll | Solo para animación-->
                 <h4 class="skills__title subtitle">Mis habilidades</h4>
                 <p class="skills__description paragraph">Herramientas, Lenguajes y Frameworks que manejo.</p>
@@ -180,10 +183,10 @@
             <div class="projects__item js-scroll">
                 <div class="projects__content">
                     <div class="projects__card">
-                        <img class="projects__image" src="./assets/images/website-mockup-placeholder.png"
+                        <img class="projects__image" src="./assets/images/blog-mockup-3devices.png"
                             alt="Imagen del proyecto">
                         <div class="projects__description">
-                            <h5 class="projects__title">Blog realizado con MERN Stack.</h5>
+                            <h5 class="projects__title">Página de articulos tipo GetPocket</h5>
                             <div class="projects__buttons">
                                 <button class="button button--secondary">
                                     <span>Demo</span>
@@ -206,16 +209,17 @@
                                     </svg>
                                 </button>
                             </div>
-                            <p class="projects__paragraph paragraph">Este blog fue desarrollado con el stack MERN.
-                                Permite leer, guardar y compartir artículos, combinando una interfaz atractiva con
-                                funcionalidades modernas. Está inspirado en el diseño y usabilidad de GetPocket, y
-                                enfocado en una experiencia de usuario fluida y responsive.
+                            <p class="projects__paragraph paragraph">Este proyecto comenzó como un blog sencillo, pero
+                                con el tiempo evolucionó hacia una plataforma de artículos inspirada en GetPocket. Es un
+                                proyecto personal al que le tengo mucho cariño y que planeo convertir en mi blog
+                                principal. Aunque aún está en desarrollo, ya cuenta con una base sólida y suficiente
+                                funcionalidad para formar parte de mi portafolio.
                             </p>
 
                             <div class="projects__tags">
                                 <span class="projects__tag tag2">REACT</span>
                                 <span class="projects__tag tag2">SCSS</span>
-                                <span class="projects__tag tag2">MONGODB</span>
+                                <span class="projects__tag tag2">MARIADB</span>
                                 <span class="projects__tag tag2">NODEJS</span>
                                 <span class="projects__tag tag2">EXPRESS</span>
                                 <span class="projects__tag tag2">SEQUELIZE</span>
@@ -228,7 +232,7 @@
             <div class="projects__item js-scroll">
                 <div class="projects__content">
                     <div class="projects__card">
-                        <img class="projects__image" src="./assets/images/website-mockup-placeholder.png"
+                        <img class="projects__image" src="./assets/images/debian-mockup-3devices.png"
                             alt="Imagen del proyecto">
                         <div class="projects__description">
                             <h5 class="projects__title">Página Debian rediseñada con LAMPython Stack.</h5>
@@ -277,7 +281,54 @@
             <div class="projects__item js-scroll">
                 <div class="projects__content">
                     <div class="projects__card">
-                        <img class="projects__image" src="./assets/images/website-mockup-placeholder.png"
+                        <img class="projects__image" src="./assets/images/portfolio-mockup-3devices.png"
+                            alt="Imagen del proyecto">
+                        <div class="projects__description">
+                            <h5 class="projects__title">Portafolio Personal</h5>
+                            <div class="projects__buttons">
+                                <button class="button button--secondary">
+                                    <span>Demo</span>
+                                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                        viewBox="0 0 24 24">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
+                                    </svg>
+                                </button>
+                                <button class="button button--secondary">
+                                    <span>Código</span>
+                                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                        viewBox="0 0 24 24">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <p class="projects__paragraph paragraph">
+                                Este es mi portafolio personal, diseñado y
+                                desarrollado con un enfoque en la simplicidad, el rendimiento y la accesibilidad. He
+                                utilizado herramientas esenciales para garantizar que sea liviano, eficiente y fácil de
+                                desplegar, incluso en plataformas como GitHub Pages sin sacrificar un diseño
+                                minimalista, responsivo y visualmente atractivo.
+                            </p>
+
+                            <div class="projects__tags">
+                                <span class="projects__tag tag2">HTML</span>
+                                <span class="projects__tag tag2">SASS</span>
+                                <span class="projects__tag tag2">JS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects__item js-scroll">
+                <div class="projects__content">
+                    <div class="projects__card">
+                        <img class="projects__image" src="./assets/images/yacg-mockup-desktop.png"
                             alt="Imagen del proyecto">
                         <div class="projects__description">
                             <h5 class="projects__title">YAGC (Yet Another GUI for ClamAV)</h5>
