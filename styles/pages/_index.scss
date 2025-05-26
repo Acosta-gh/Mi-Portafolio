@@ -267,22 +267,7 @@ html,
             position: relative;
             right: 3px;
 
-            .button {
-                border: 2px solid $secondary-color;
-            }
-
-            .button:last-child {
-                background-color: rgba(255, 0, 0, 0);
-                border: 2px solid $secondary-color;
-                color: $secondary-color;
-                margin-left: .6rem;
-
-                svg {
-                    path {
-                        stroke: $secondary-color;
-                    }
-                }
-            }
+            
         }
     }
 }

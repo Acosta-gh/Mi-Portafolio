@@ -1,7 +1,14 @@
 @use "../abstracts/variables" as *;
 
+.button {
+    border: 2px solid $secondary-color;
+}
+
+
 button.mainbutton,
-button.button--secondary {
+button.button--disabled,
+button.button--secondary,
+button.button--tertiary {
     display: inline-flex;
     align-items: center;
     padding: 1rem 1rem 1rem 1.2rem;
@@ -35,6 +42,11 @@ button.button--secondary {
     }
 }
 
+button.button--disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+}
+
 button.button--secondary {
     padding: .8rem 1rem;
     background-color: $secondary-color;
@@ -43,6 +55,32 @@ button.button--secondary {
     svg {
         path {
             stroke: $white;
+        }
+    }
+
+}
+
+button.button--tertiary {
+    padding: .69rem 1rem;
+    background-color: rgba(255, 0, 0, 0);
+    border: 2px solid $secondary-color;
+    color: $secondary-color;
+    margin-left: .6rem;
+
+    svg {
+        path {
+            stroke: $secondary-color;
+        }
+    }
+
+    &:hover {
+        background-color: $secondary-color;
+        color: $white;
+
+        svg {
+            path {
+                stroke: $white;
+            }
         }
     }
 }

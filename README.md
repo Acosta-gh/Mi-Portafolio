@@ -19,6 +19,7 @@ Este es mi portafolio personal, diseñado y desarrollado con un enfoque en la si
 
 *(Próximamente)*
 
+
 ## 📝 Recursos Externos
 ### Imágenes e Iconos:
 - **Code SVG Vector**: [Fuente](https://www.svgrepo.com/svg/487218/code) | Autor: Neuicons | Licencia: MIT License
