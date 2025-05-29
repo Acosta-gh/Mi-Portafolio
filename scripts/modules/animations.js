@@ -1,3 +1,4 @@
+/*
 export function navbarAnimations() {
     const header = document.querySelector('.header');
     const burger = document.querySelector('.header__nav-burguer');
@@ -133,11 +134,12 @@ export function typeEffect(element, words) {
 
     type();
 }
-
+*/
 /* jsScroll:
 Based on code by Jemima (https://codepen.io/Jemimaabu/pen/MWbqLZy)
 Licensed under the MIT License
 */
+/*
 export function jsScroll() {
     console.log("Scroll js")
     const scrollElements = document.querySelectorAll(".js-scroll");
@@ -201,3 +203,4 @@ export function fadeIn() {
         }, 16);
     };
 }
+*/

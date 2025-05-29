@@ -1,3 +1,4 @@
+/*
 export function getGreetingBasedOnTime() {
     const hour = new Date().getHours();
     if (hour < 12) {
@@ -8,4 +9,4 @@ export function getGreetingBasedOnTime() {
         return "Buenas noches";
     }
 }
-  
+*/
