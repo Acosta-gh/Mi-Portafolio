@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💻</title>
+    <title>Mi página</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon/briefcase.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +18,7 @@
 <link rel="stylesheet" href="styles/css/main.css">
 
 <body class="body">
+
     <!-- BORRAR AL TERMINAR -->
     <div class="in_construction"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -24,19 +27,26 @@
         </svg>
         <span>Página en constante desarrollo.</span>
     </div>
+    <!-- fin BORRAR AL TERMINAR -->
+
     <header class="header">
         <nav class="header__nav">
             <div class="header__nav-logo">
                 <img src="assets/images/logo.svg" alt="Logo" class="header__logo-img">
             </div>
             <ul class="header__nav-list">
-                <li class="header__nav-item"><a href="#">Home</a></li>
-                <li class="header__nav-item"><a href="#">About</a></li>
-                <li class="header__nav-item"><a href="#">Contact</a></li>
+                <li class="header__nav-item"><a href="#">Inicio</a></li>
+                <li class="header__nav-item"><a href="#about_me">Sobre Mi</a></li>
+                <li class="header__nav-item"><a href="#contact_me">Contactame</a></li>
+                <!-- 
                 <li class="header__nav-lang">
                     <p class="header__nav-langmenu">
-                        <span>Language</span>
-                        <img src="./assets/images/arrow-down.svg">
+                        <span>Idioma</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                        </svg>
                     </p>
                     <ul class="header__nav-langlist">
                         <li class="header__nav-langitem">
@@ -47,6 +57,7 @@
                         </li>
                     </ul>
                 </li>
+                -->
             </ul>
             <div class="header__nav-burguer">
                 <span class="header__nav-burguer-line"></span>
@@ -65,7 +76,7 @@
             </h1>
             <h2 class="main__intro-position">Y soy un desarrollador <span class="main__intro-position--type"></span>
             </h2>
-            <button class="mainbutton"><span>Descargar CV</span>
+            <button class="button mainbutton button--disabled"><span>Descargar CV</span>
                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                     width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -74,7 +85,9 @@
             </button>
             <div class="scroll-down-indicator"></div>
         </section>
-        <section class="description scroll-container"> <!-- scroll-container | Solo para animación-->
+
+        <section class="description scroll-container target" id="about_me">
+            <!-- scroll-container | Solo para animación-->
             <div class="js-scroll slideup"> <!-- js-scroll | Solo para animación-->
                 <h3 class="subtitle">Sobre mi</h3>
                 <div class="description__content">
@@ -198,7 +211,7 @@
                                             d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
                                     </svg>
                                 </button>
-                                <button class="button  button--tertiary">
+                                <a href="https://github.com/Acosta-gh/blog_MERN" class="button  button--tertiary">
                                     <span>Código</span>
                                     <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
@@ -207,7 +220,7 @@
                                             stroke-width="2"
                                             d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
                                     </svg>
-                                </button>
+                                </a>
                             </div>
                             <p class="projects__paragraph paragraph">Este proyecto comenzó como un blog sencillo, pero
                                 con el tiempo evolucionó hacia una plataforma de artículos inspirada en GetPocket. Es un
@@ -247,7 +260,8 @@
                                             d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
                                     </svg>
                                 </button>
-                                <button class="button button--tertiary">
+                                <a href="https://github.com/Acosta-gh/debian-website-redesign_REACT"
+                                    class="button  button--tertiary">
                                     <span>Código</span>
                                     <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
@@ -256,7 +270,7 @@
                                             stroke-width="2"
                                             d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
                                     </svg>
-                                </button>
+                                </a>
                             </div>
                             <p class="projects__paragraph paragraph"> Este proyecto es una reimaginación de la página
                                 oficial de Debian, con un diseño moderno y responsivo. Fue desarrollado utilizando
@@ -296,7 +310,7 @@
                                             d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
                                     </svg>
                                 </button>
-                                <button class="button button--tertiary">
+                                <a href="https://github.com/Acosta-gh/Mi-Portafolio" class="button  button--tertiary">
                                     <span>Código</span>
                                     <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
@@ -305,7 +319,7 @@
                                             stroke-width="2"
                                             d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
                                     </svg>
-                                </button>
+                                </a>
                             </div>
                             <p class="projects__paragraph paragraph">
                                 Este es mi portafolio personal, diseñado y
@@ -333,7 +347,8 @@
                         <div class="projects__description">
                             <h5 class="projects__title">YAGC (Yet Another GUI for ClamAV)</h5>
                             <div class="projects__buttons">
-                                <button class="button button--secondary">
+                                <a href="https://github.com/Acosta-gh/clamav-tkinter_PYTHON"
+                                    class="button  button--secondary">
                                     <span>Código</span>
                                     <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
@@ -342,7 +357,7 @@
                                             stroke-width="2"
                                             d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
                                     </svg>
-                                </button>
+                                </a>
                             </div>
                             <p class="projects__paragraph paragraph"> YAGC es una interfaz gráfica de usuario (GUI)
                                 diseñada para simplificar el uso de ClamAV, un software antivirus de código abierto.
@@ -364,7 +379,7 @@
         </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer target" id="contact_me">
         <div class="footer__content">
             <p></p>
             <ul class="footer__socials">

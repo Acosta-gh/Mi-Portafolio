@@ -5,6 +5,7 @@ import { getGreetingBasedOnTime } from "./modules/timeUtils.js";
 //import { initSkillsCarousel } from "./modules/skillsCarousel.js";
 
 document.addEventListener('DOMContentLoaded', () => {
+    // "Carga" las animaciones
     fadeIn();
     navbarAnimations();
 
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.warn("No se encontró el elemento .main__intro-salutations");
     }
 
+    // "Carga" las animaciones
     //initSkillsCarousel();
     jsScroll();
 

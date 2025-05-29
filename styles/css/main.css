@@ -137,20 +137,25 @@ Licensed under the MIT License
     opacity: 1;
   }
 }
-.button {
-  border: 2px solid #1e1e1e;
+.target {
+  scroll-margin-top: 60px;
 }
 
-button.mainbutton,
-button.button--disabled,
-button.button--secondary,
-button.button--tertiary {
+.button {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.mainbutton,
+.button--disabled,
+.button--secondary,
+.button--tertiary {
   display: inline-flex;
   align-items: center;
   padding: 1rem 1rem 1rem 1.2rem;
   background-color: #e37e54;
   color: #1e1e1e;
-  font-weight: 900;
   border: none;
   border-radius: 999px;
   font-size: 1rem;
@@ -158,60 +163,55 @@ button.button--tertiary {
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
-button.mainbutton span,
-button.button--disabled span,
-button.button--secondary span,
-button.button--tertiary span {
-  position: relative;
-  top: 1px;
-}
-button.mainbutton svg,
-button.button--disabled svg,
-button.button--secondary svg,
-button.button--tertiary svg {
+.mainbutton svg,
+.button--disabled svg,
+.button--secondary svg,
+.button--tertiary svg {
   margin: 0 3px 0 8px;
   width: 25px;
   height: 25px;
-  position: relative;
-  bottom: 1px;
 }
-button.mainbutton svg path,
-button.button--disabled svg path,
-button.button--secondary svg path,
-button.button--tertiary svg path {
+.mainbutton svg path,
+.button--disabled svg path,
+.button--secondary svg path,
+.button--tertiary svg path {
   stroke: #1e1e1e;
   stroke-width: 2px;
 }
 
-button.button--disabled {
+.mainbutton {
+  font-weight: 700;
+}
+
+.button--disabled {
   cursor: not-allowed;
   opacity: 0.4;
 }
 
-button.button--secondary {
+.button--secondary {
   padding: 0.8rem 1rem;
   background-color: #1e1e1e;
   color: #ffffff;
 }
-button.button--secondary svg path {
+.button--secondary svg path {
   stroke: #ffffff;
 }
 
-button.button--tertiary {
+.button--tertiary {
   padding: 0.69rem 1rem;
   background-color: rgba(255, 0, 0, 0);
   border: 2px solid #1e1e1e;
   color: #1e1e1e;
   margin-left: 0.6rem;
 }
-button.button--tertiary svg path {
+.button--tertiary svg path {
   stroke: #1e1e1e;
 }
-button.button--tertiary:hover {
+.button--tertiary:hover {
   background-color: #1e1e1e;
   color: #ffffff;
 }
-button.button--tertiary:hover svg path {
+.button--tertiary:hover svg path {
   stroke: #ffffff;
 }
 
@@ -510,6 +510,10 @@ button.button--tertiary:hover svg path {
   }
 }
 
+.header__nav-langmenu svg {
+  transition: transform 0.3s ease;
+}
+
 @media (max-width: 991px) {
   .header__nav-burguer--active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
@@ -586,6 +590,9 @@ button.button--tertiary:hover svg path {
   transform: rotate(180deg);
   transition: transform 0.1s ease-in-out;
 }
+.header__nav-langmenu--active svg {
+  transform: rotate(180deg);
+}
 
 html,
 .body {
@@ -594,6 +601,7 @@ html,
   padding: 0;
   display: flex;
   flex-direction: column;
+  scroll-behavior: smooth;
 }
 
 .body {

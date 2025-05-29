@@ -8,7 +8,7 @@
     left: 0;
     width: 100%;
     z-index: 1000;
-    
+
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     transition: border-radius 0.1s ease-in-out;
     font-family: $primary-font;
@@ -24,6 +24,7 @@
             margin-left: 18%;
             margin-right: 18%;
         }
+
         @include respond-to(medium) {
             margin-left: 13%;
             margin-right: 13%;
@@ -61,7 +62,7 @@
             padding: 1rem;
             top: 60px;
             width: 100%;
-            
+
             overflow: hidden;
             max-height: 0;
             padding: 0;
@@ -82,8 +83,9 @@
                 box-shadow: 0px 12px 20px -10px rgba(149, 157, 165, 0);
                 width: auto;
             }
+
             @include respond-to(medium) {
-                padding: 0 11%;                
+                padding: 0 11%;
             }
         }
 
@@ -96,12 +98,13 @@
 
             padding: .1rem;
             margin-top: 5px;
-            
+
             .header__nav-langitem {
                 margin-top: 0px;
                 margin: 10px;
                 cursor: pointer;
             }
+
 
             @include respond-to(large) {
                 transition: max-height .35s cubic-bezier(0.4, 0, 0.2, 1), opacity .5s ease-in-out, border-radius 5s ease, box-shadow 1s ease;
@@ -118,6 +121,7 @@
                 box-shadow: 0px 12px 20px -10px rgba(149, 157, 165, 0);
                 border-radius: 15px;
             }
+
             @include respond-to(large) {
                 margin: 0 12%;
             }
@@ -127,11 +131,11 @@
         &-lang {
             margin: 1rem;
             cursor: pointer;
-            
+
             @include respond-to(large, min) {
                 opacity: 1;
                 font-size: $font-size-medium;
-               
+
 
                 display: inline-block;
                 position: relative;
@@ -205,6 +209,12 @@
     }
 }
 
+.header__nav-langmenu {
+    svg {
+        transition: transform 0.3s ease;
+    }
+}
+
 // Actives de JS 
 .header--active {
     @include respond-to(large, max) {
@@ -236,7 +246,7 @@
         opacity: 1;
         max-height: 1100px;
         transition: max-height 1s ease-in-out, opacity 0.2s ease;
-        
+
         a,
         p {
             opacity: 1;
@@ -250,8 +260,9 @@
         flex-direction: row;
     }
 }
-.header__nav--active{
-    @include respond-to(large,max) {
+
+.header__nav--active {
+    @include respond-to(large, max) {
         box-shadow: 0px 12px 20px -10px rgba(149, 157, 165, 0.2);
     }
 }
@@ -270,6 +281,7 @@
         padding: .1rem;
         border-radius: 15px;
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
         .header__nav-langitem {
             margin: 10px;
         }
@@ -290,5 +302,9 @@
     img {
         transform: rotate(180deg);
         transition: transform 0.1s ease-in-out;
+    }
+
+    svg {
+        transform: rotate(180deg);
     }
 }

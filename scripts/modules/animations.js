@@ -1,61 +1,96 @@
 export function navbarAnimations() {
     const header = document.querySelector('.header');
-    const burguer = document.querySelector('.header__nav-burguer');
+    const burger = document.querySelector('.header__nav-burguer');
     const navItems = document.querySelectorAll('.header__nav-item');
     const nav = document.querySelector('.header__nav-list');
-    const langMenu = document.querySelector(".header__nav-langmenu")
+    const langMenu = document.querySelector(".header__nav-langmenu");
     const langItems = document.querySelectorAll('.header__nav-langitem');
-    const langList = document.querySelector(".header__nav-langlist")
+    const langList = document.querySelector(".header__nav-langlist");
 
-    if (!burguer || !nav || !header || navItems.length === 0) {
-        console.error("No se encontraron los elementos necesarios");
+    let butIJustClicked = false;
+
+    if (!burger || !nav || !header || navItems.length === 0) {
+        console.error("No se encontraron los elementos necesarios para la navegación.");
         return;
     }
 
+    // Elimina la clase "item--active" de todos los elementos de navegación
     function deactivateAllNavItems() {
         navItems.forEach(item => {
             item.classList.remove("item--active");
         });
     }
 
+    // Alterna la visibilidad del menú de idiomas y "rotando" el svg de la flecha
     function toggleLangMenu() {
-        langMenu.classList.toggle("header__nav-langmenu--active")
-        langList.classList.toggle("header__nav-langlist--active")
+        if (langList && langMenu) {
+            langList.classList.toggle("header__nav-langlist--active");
+        }
+        langMenu.classList.toggle("header__nav-langmenu--active");
     }
 
+    // Cierra el menú de idiomas si está abierto
     function closeLangMenu() {
-        langList.classList.remove("header__nav-langlist--active")
-        langMenu.classList.remove("header__nav-langmenu--active")
+        if (langList && langMenu) {
+            langList.classList.remove("header__nav-langlist--active");
+            langMenu.classList.remove("header__nav-langmenu--active");
+        }
     }
 
+    // Alterna la visibilidad del menú principal (burger menu)
     function toggleMenuElements() {
-        burguer.classList.toggle('header__nav-burguer--active');
+        burger.classList.toggle('header__nav-burguer--active');
         nav.classList.toggle('header__nav--active');
         header.classList.toggle('header--active');
     }
 
-    burguer.addEventListener('click', () => {
-        toggleMenuElements()
-        closeLangMenu()
+    // Al hacer clic en el ícono burger:
+    // - alterna el menú principal
+    // - cierra el menú de idiomas si está abierto
+    burger.addEventListener('click', () => {
+        toggleMenuElements();
+        closeLangMenu();
     });
 
-    langMenu.addEventListener("click", () => {
-        toggleLangMenu()
-    });
+    // Al hacer clic en el botón del menú de idiomas, lo abre o lo cierra
+    if (langMenu) {
+        langMenu.addEventListener("click", () => {
+            toggleLangMenu();
+        });
+    }
 
+
+    // Al hacer clic en un ítem del nav:
+    // - cierra el menú
+    // - marca el ítem como activo
+    // - desactiva cualquier otro ítem activo
     navItems.forEach((item) => {
         item.addEventListener('click', () => {
+            butIJustClicked = true;
             toggleMenuElements();
-            deactivateAllNavItems()
-            item.classList.toggle("item--active")
+            deactivateAllNavItems();
+            item.classList.toggle("item--active");
+
+            setTimeout(() => { // Para que el smooth scroll no desactive el item--active 
+                butIJustClicked = false;
+            }, 800);
+
         });
     });
 
+    // Al hacer clic en un ítem del menú de idiomas, alterna el menú
     langItems.forEach((item) => {
         item.addEventListener('click', () => {
-            console.log(item)
-            toggleLangMenu()
+            console.log(item); // Debugging: muestra el ítem en la consola
+            toggleLangMenu();
         });
+    });
+
+    // Desactiva todos los ítems del menú al hacer scroll
+    window.addEventListener('scroll', () => {
+        if (!butIJustClicked) {
+            deactivateAllNavItems();
+        }
     });
 }
 
@@ -148,7 +183,7 @@ export function jsScroll() {
 }
 
 export function fadeIn() {
-    window.onload = function() {
+    window.onload = function () {
         const fade = document.querySelector("body");
         if (!fade) {
             console.error("No se encontró el elemento 'body'");
@@ -156,13 +191,13 @@ export function fadeIn() {
         }
 
         let opacity = 0;
-        const intervalID = setInterval(function() {
+        const intervalID = setInterval(function () {
             if (opacity < 1) {
-                opacity += 0.02; 
+                opacity += 0.02;
                 fade.style.opacity = opacity;
             } else {
                 clearInterval(intervalID);
             }
-        }, 16); 
+        }, 16);
     };
 }

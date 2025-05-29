@@ -9,6 +9,8 @@ html,
     padding: 0;
     display: flex;
     flex-direction: column;
+    scroll-behavior: smooth;
+
 }
 
 .body {
@@ -88,14 +90,17 @@ html,
         font-family: $primary-font;
         font-size: $font-size-large;
         background-color: $tertiary-color;
-        .divider{
+
+        .divider {
             display: none;
         }
+
         @include respond-to(medium) {
             padding-left: 13%;
             padding-right: 13%;
             padding-bottom: 0px;
-            .divider{
+
+            .divider {
                 display: block;
             }
 
@@ -103,7 +108,7 @@ html,
 
         &__intro {
             @include respond-to(medium) {
-                p{
+                p {
                     width: 60%;
                     margin: 0 0 1rem 0;
                 }
@@ -148,7 +153,7 @@ html,
                     bottom: 8rem;
                     left: 2rem;
                     margin: 0 auto;
-                    
+
                 }
 
             }
@@ -157,7 +162,7 @@ html,
 
     .skills {
         padding: $padding-section;
-      
+
         @include respond-to(medium) {
             padding-left: 13%;
             padding-right: 13%;
@@ -235,7 +240,7 @@ html,
             border-radius: 15px;
             //border: .122em solid $secondary-color;
             filter: drop-shadow(5px 5px 5px #222);
-            
+
             @include respond-to(medium) {
                 height: auto;
                 width: 70%;
@@ -266,8 +271,6 @@ html,
             margin: 1rem 0;
             position: relative;
             right: 3px;
-
-            
         }
     }
 }

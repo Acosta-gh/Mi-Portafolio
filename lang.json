@@ -1,0 +1,12 @@
+{
+    "es": {
+        "welcome": "Bienvenido",
+        "description": "Esta es una página de ejemplo.",
+        "contact": "Contacto"
+    },
+    "en": {
+        "welcome": "Welcome",
+        "description": "This is a sample page.",
+        "contact": "Contact"
+    }
+}
