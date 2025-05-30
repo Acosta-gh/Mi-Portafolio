@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const langList = document.querySelector(".header__nav-langlist");
 
         let butIJustClicked = false;
+        let clickTimeout;
 
         if (!burger || !nav || !header || navItems.length === 0) {
             console.error("No se encontraron los elementos necesarios para la navegación.");
@@ -117,11 +118,15 @@ document.addEventListener('DOMContentLoaded', () => {
         navItems.forEach((item) => {
             item.addEventListener('click', () => {
                 butIJustClicked = true;
+
+                // Reinicia el temporizador si ya hay uno en marcha
+                if (clickTimeout) clearTimeout(clickTimeout);
+
                 toggleMenuElements();
                 deactivateAllNavItems();
                 item.classList.toggle("item--active");
 
-                setTimeout(() => { // Para que el smooth scroll no desactive el item--active 
+                clickTimeout = setTimeout(() => { // Para que el smooth scroll no desactive el item--active 
                     butIJustClicked = false;
                 }, 800);
 
@@ -197,43 +202,43 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     function typeEffect(element, words) {
-    const typingSpeed = 100;
-    const deletingSpeed = 50;
-    const pauseAfterTyping = 1000;
-    const pauseAfterDeleting = 500;
+        const typingSpeed = 100;
+        const deletingSpeed = 50;
+        const pauseAfterTyping = 1000;
+        const pauseAfterDeleting = 500;
 
-    let wordIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
 
-    function type() {
-        const currentWord = words[wordIndex];
-        const isWordComplete = charIndex === currentWord.length;
-        const isWordEmpty = charIndex === 0;
+        function type() {
+            const currentWord = words[wordIndex];
+            const isWordComplete = charIndex === currentWord.length;
+            const isWordEmpty = charIndex === 0;
 
-        if (!isDeleting && !isWordComplete) {
-            charIndex++;
-        } else if (isDeleting && !isWordEmpty) {
-            charIndex--;
+            if (!isDeleting && !isWordComplete) {
+                charIndex++;
+            } else if (isDeleting && !isWordEmpty) {
+                charIndex--;
+            }
+
+            element.textContent = currentWord.substring(0, charIndex);
+
+            let delay = isDeleting ? deletingSpeed : typingSpeed;
+
+            if (!isDeleting && isWordComplete) {
+                delay = pauseAfterTyping;
+                isDeleting = true;
+            } else if (isDeleting && isWordEmpty) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                delay = pauseAfterDeleting;
+            }
+
+            setTimeout(type, delay);
         }
 
-        element.textContent = currentWord.substring(0, charIndex);
-
-        let delay = isDeleting ? deletingSpeed : typingSpeed;
-
-        if (!isDeleting && isWordComplete) {
-            delay = pauseAfterTyping;
-            isDeleting = true;
-        } else if (isDeleting && isWordEmpty) {
-            isDeleting = false;
-            wordIndex = (wordIndex + 1) % words.length;
-            delay = pauseAfterDeleting;
-        }
-
-        setTimeout(type, delay);
-    }
-
-    type();
+        type();
     }
 
     fadeIn();
@@ -246,6 +251,6 @@ document.addEventListener('DOMContentLoaded', () => {
         typeEffect(introJobPositions, ["frontend", "backend", "full-stack"]);
     } else {
         console.warn("No se encontró el elemento .main__intro-salutations");
-    }   
+    }
     jsScroll();
 });
