@@ -2,3 +2,8 @@
     // Agrega espacio arriba del objetivo al hacer scroll hacia enlaces de anclaje
     scroll-margin-top: 60px;
 }
+
+.no-select {
+    // Quien tenga esta clase no podrá seleccionar el texto
+    user-select: none;
+}

@@ -30,6 +30,20 @@
             margin-right: 13%;
         }
 
+        &-langmenu {
+            background: none;
+            border: none;
+            box-shadow: none;
+            padding: 0;
+            margin: 0;
+            color: inherit;
+            font: inherit;
+            cursor: pointer;
+
+            .arrow {
+                transition: transform 0.3s ease;
+            }
+        }
 
         &-logo {
             display: flex;
@@ -38,7 +52,7 @@
             font-size: 24px;
             font-weight: bold;
 
-            img {
+            .header__logo-img {
                 width: 35px;
                 height: auto;
                 margin-right: 10px;
@@ -55,21 +69,18 @@
 
         &-list {
             background-color: $primary-color;
-
+            overflow: hidden;
             position: absolute;
-
             left: 0;
             padding: 1rem;
             top: 60px;
             width: 100%;
 
-            overflow: hidden;
-            max-height: 0;
+            max-height: 0vh;
             padding: 0;
             box-shadow: 0px 12px 20px -10px rgba(149, 157, 165, 0.2);
-
-            opacity: 0;
-            transition: max-height 0.2s ease-in-out, opacity 0.2s ease-in-out, border-radius 5s ease;
+            opacity: 1;
+            transition: all 0.3s ease;
 
             @include respond-to(large) {
                 position: static;
@@ -91,10 +102,10 @@
 
         &-langlist {
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
-            max-height: 0;
+            max-height: 0rem;
             opacity: 0;
             overflow: hidden;
-            transition: max-height .35s cubic-bezier(0.4, 0, 0.2, 1), opacity .5s ease-in-out, border-radius 5s ease;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity .5s ease-in-out, border-radius 0.5s ease;
 
             padding: .1rem;
             margin-top: 5px;
@@ -107,7 +118,7 @@
 
 
             @include respond-to(large) {
-                transition: max-height .35s cubic-bezier(0.4, 0, 0.2, 1), opacity .5s ease-in-out, border-radius 5s ease, box-shadow 1s ease;
+                transition: max-height .35s cubic-bezier(0.4, 0, 0.2, 1), opacity .3s ease-in-out, border-radius 5s ease, box-shadow 1s ease;
                 opacity: 0;
                 margin-top: 0px;
                 overflow: hidden;
@@ -132,10 +143,22 @@
             margin: 1rem;
             cursor: pointer;
 
-            @include respond-to(large, min) {
-                opacity: 1;
-                font-size: $font-size-medium;
+            a {
+                display: block; 
+                width: 100vw;
+                text-decoration: none;
+                color: inherit;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
 
+            @include respond-to(large, min) {
+                a {
+                    width: 100%;
+                    opacity: 1;
+                }
+
+                font-size: $font-size-medium;
 
                 display: inline-block;
                 position: relative;
@@ -153,44 +176,18 @@
                 }
             }
 
-            a,
-            p {
-                color: $secondary-color;
-                text-decoration: none;
-                transition: color 0.2s ease;
-
-                font-size: $font-size-medium;
-
-                @include respond-to(large, max) {
-                    opacity: 0;
-                    transition: opacity 0.2s ease;
-                }
-
-                @include respond-to(large, min) {
-                    &:hover {
-                        transition: color 0.2s ease;
-                        color: $accent-color;
-                    }
-                }
-            }
-        }
-
-        &-langmenu {
-            display: flex;
-            align-items: center;
-
-            span {
-                margin-right: 5px;
-            }
-
-            img {
-                transition: transform 0.1s ease-in-out;
-                width: 14px;
-                fill: $primary-color;
-            }
         }
 
         &-burguer {
+            background: none;
+            border: none;
+            box-shadow: none;
+            padding: 0;
+            margin: 0;
+            color: inherit;
+            font: inherit;
+            cursor: pointer;
+
             @include respond-to(large) {
                 display: none;
             }
@@ -209,19 +206,9 @@
     }
 }
 
-.header__nav-langmenu {
-    svg {
-        transition: transform 0.3s ease;
-    }
-}
 
-// Actives de JS 
-.header--active {
-    @include respond-to(large, max) {
-        //border-radius: 15px 15px 0px 0px;
-    }
-}
-
+// ** Actives de JS **  
+// Animación del burguer menu
 .header__nav-burguer--active {
     @include respond-to(large, max) {
         span:nth-child(1) {
@@ -238,56 +225,25 @@
     }
 }
 
+// Abre cierra el burguer menu como el lang menu
 .header__nav--active,
 .header__nav-langlist--active {
-    @include respond-to(large, max) {
-        display: block;
-        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-        opacity: 1;
-        max-height: 1100px;
-        transition: max-height 1s ease-in-out, opacity 0.2s ease;
-
-        a,
-        p {
-            opacity: 1;
-            transition: opacity .5s ease-in-out;
-        }
-    }
-
-    @include respond-to(large) {
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
-        display: flex;
-        flex-direction: row;
-    }
+    max-height: 13rem;
 }
 
 .header__nav--active {
-    @include respond-to(large, max) {
-        box-shadow: 0px 12px 20px -10px rgba(149, 157, 165, 0.2);
+    a {
+        opacity: 1;
     }
 }
 
 .header__nav-langlist--active {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
-
-    @include respond-to(large) {
-        transition: max-height 0s ease-in-out opacity 0s ease-in-out, border-radius .15s ease, box-shadow .15s ease;
-        background-color: $primary-color;
-        display: flex;
-        flex-direction: column;
-        opacity: 1;
-        top: 3rem;
-        max-height: 100px;
-        padding: .1rem;
-        border-radius: 15px;
-        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-
-        .header__nav-langitem {
-            margin: 10px;
-        }
-    }
+    max-height: 7rem;
+    opacity: 1;
+    overflow: none;
 }
 
+// Cuando hacemos click en un nav item como "Inicio" o "Contactame"
 .item--active {
     a {
         color: $accent-color;
@@ -298,13 +254,9 @@
     }
 }
 
+// Cuando hacemos click en el menú de idioma
 .header__nav-langmenu--active {
-    img {
-        transform: rotate(180deg);
-        transition: transform 0.1s ease-in-out;
-    }
-
-    svg {
+    .arrow {
         transform: rotate(180deg);
     }
 }

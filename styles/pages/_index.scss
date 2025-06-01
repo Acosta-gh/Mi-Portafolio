@@ -22,8 +22,8 @@ html,
     opacity: 0;
 }
 
-.main {
 
+.main {
     &__intro {
         padding: 1rem;
         padding-top: 7rem;
@@ -44,7 +44,10 @@ html,
             margin-left: 13%;
             margin-right: 13%;
         }
-
+        &-salutation-container{
+            display: flex;
+            align-items: center;
+        }
         &-salutations {
             font-size: $font-size-medium;
             font-family: $primary-font;
