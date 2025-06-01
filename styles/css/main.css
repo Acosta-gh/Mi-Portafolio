@@ -304,7 +304,8 @@ Licensed under the MIT License
 
 .footer {
   background-color: #1e1e1e;
-  padding: 7% 15%;
+  padding: 2% 15%;
+  padding-bottom: 7%;
   color: #ffffff;
   margin-top: auto;
 }
@@ -325,6 +326,10 @@ Licensed under the MIT License
 }
 .footer__socials-link svg path {
   fill: #ffffff;
+}
+.footer .subtitle {
+  color: #ffffff;
+  margin-bottom: 3rem;
 }
 
 .header {

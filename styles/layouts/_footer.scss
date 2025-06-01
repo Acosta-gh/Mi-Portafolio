@@ -3,7 +3,8 @@
 
 .footer {
     background-color: $secondary-color;
-    padding: 7% 15%;
+    padding: 2% 15%;
+    padding-bottom: 7%;
     color: $white;
     margin-top: auto;
 
@@ -25,5 +26,9 @@
                 }
             }
         }
+    }
+    .subtitle{
+        color: $white;
+        margin-bottom: 3rem;
     }
 }
