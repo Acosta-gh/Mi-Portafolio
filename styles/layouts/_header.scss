@@ -144,7 +144,7 @@
             cursor: pointer;
 
             a {
-                display: block; 
+                display: block;
                 width: 100vw;
                 text-decoration: none;
                 color: inherit;
@@ -229,7 +229,11 @@
 .header__nav--active,
 .header__nav-langlist--active {
     max-height: 13rem;
+
+    @include respond-to(large) {
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+    }
 
 }
 

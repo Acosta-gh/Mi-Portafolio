@@ -27,7 +27,7 @@ Este es mi portafolio personal, diseñado y desarrollado con un enfoque en la si
 - **Linux SVG Vector**: [Fuente](https://www.svgrepo.com/svg/503411/linux) | Autor: Etn Ccis | Licencia: MIT License
 - **Iconos**: [Flowbite Icons - Free and open-source SVG icons](https://flowbite.com/icons/)
 - **Mockups**: [websitemockupgenerator](https://websitemockupgenerator.com)
-- **briefcase.webp**: ![Imagen de OpenClipart-Vectors en Pixabay](https://pixabay.com/es//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=147768)
+- **briefcase.ico**: ![Imagen de OpenClipart-Vectors en Pixabay](https://pixabay.com/es//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=147768)
 ### Código:
 - **Animate on Scroll with Vanilla Javascript**: [Fuente](https://codepen.io/Jemimaabu/pen/MWbqLZy)
 - **Scroll down dude**: [Fuente](https://codepen.io/mikewagz/pen/PGXqOg)

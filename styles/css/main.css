@@ -527,7 +527,12 @@ Licensed under the MIT License
 .header__nav--active,
 .header__nav-langlist--active {
   max-height: 13rem;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+@media (min-width: 992px) {
+  .header__nav--active,
+  .header__nav-langlist--active {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
 }
 
 .header__nav--active a {
