@@ -145,6 +145,12 @@ Licensed under the MIT License
   user-select: none;
 }
 
+.js_license_information {
+  position: absolute;
+  right: 25px;
+  color: white;
+}
+
 .button {
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
@@ -528,12 +534,6 @@ Licensed under the MIT License
 .header__nav-langlist--active {
   max-height: 13rem;
 }
-@media (min-width: 992px) {
-  .header__nav--active,
-  .header__nav-langlist--active {
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  }
-}
 
 .header__nav--active a {
   opacity: 1;
@@ -543,6 +543,11 @@ Licensed under the MIT License
   max-height: 7rem;
   opacity: 1;
   overflow: none;
+}
+@media (min-width: 992px) {
+  .header__nav-langlist--active {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
 }
 
 .item--active a {

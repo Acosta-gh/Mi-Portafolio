@@ -230,10 +230,6 @@
 .header__nav-langlist--active {
     max-height: 13rem;
 
-    @include respond-to(large) {
-        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-
-    }
 
 }
 
@@ -247,6 +243,10 @@
     max-height: 7rem;
     opacity: 1;
     overflow: none;
+
+    @include respond-to(large) {
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
 }
 
 // Cuando hacemos click en un nav item como "Inicio" o "Contactame"
