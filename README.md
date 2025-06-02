@@ -17,8 +17,21 @@ Este es mi portafolio personal, diseñado y desarrollado con un enfoque en la si
 
 ## 📸 Capturas de Pantalla
 
-*(Próximamente)*
+![Image](https://github.com/user-attachments/assets/5ce3a345-1896-44f8-af67-af8f3a9a3360)
 
+![Image](https://github.com/user-attachments/assets/214d25c0-74f6-4cc9-9885-d2c29493923a)
+
+![Image](https://github.com/user-attachments/assets/5ad4a891-2b88-4f92-97d0-6da938ee37c3)
+
+![Image](https://github.com/user-attachments/assets/10e6896f-5bca-4b93-9bc9-700350e8175f)
+
+![Image](https://github.com/user-attachments/assets/43271344-95fd-410e-b54e-c4f120d6720c)
+
+![Image](https://github.com/user-attachments/assets/3e942f46-483c-4fe5-ab29-0dcda308bbbd)
+
+![Image](https://github.com/user-attachments/assets/4fa128de-ed60-48a8-b958-708a1ae16aa6)
+
+![Image](https://github.com/user-attachments/assets/fb046717-7c8d-4627-bdab-7ff95e1db7d9)
 
 ## 📝 Recursos Externos
 ### Imágenes e Iconos:
@@ -27,7 +40,7 @@ Este es mi portafolio personal, diseñado y desarrollado con un enfoque en la si
 - **Linux SVG Vector**: [Fuente](https://www.svgrepo.com/svg/503411/linux) | Autor: Etn Ccis | Licencia: MIT License
 - **Iconos**: [Flowbite Icons - Free and open-source SVG icons](https://flowbite.com/icons/)
 - **Mockups**: [websitemockupgenerator](https://websitemockupgenerator.com)
-- **briefcase.ico**: ![Imagen de OpenClipart-Vectors en Pixabay](https://pixabay.com/es//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=147768)
+- **briefcase.ico**: [Imagen de OpenClipart-Vectors en Pixabay](https://pixabay.com/es//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=147768)
 ### Código:
 - **Animate on Scroll with Vanilla Javascript**: [Fuente](https://codepen.io/Jemimaabu/pen/MWbqLZy)
 - **Scroll down dude**: [Fuente](https://codepen.io/mikewagz/pen/PGXqOg)

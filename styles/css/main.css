@@ -424,7 +424,7 @@ Licensed under the MIT License
 }
 @media (min-width: 768px) {
   .header__nav-list {
-    padding: 0 11%;
+    padding: 0;
   }
 }
 .header__nav-langlist {

@@ -96,7 +96,8 @@
             }
 
             @include respond-to(medium) {
-                padding: 0 11%;
+                padding: 0;
+            
             }
         }
 
