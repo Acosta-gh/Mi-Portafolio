@@ -1,10 +1,15 @@
 /*
-  @license Apache-2.0
-  Copyright 2025 Cristian Darío Acosta
+ * @licstart  The following is the license notice for this file
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * Copyright (C) 2025 Cristian Darío Acosta
+ *
+ * This file is licensed under the Apache License 2.0.
+ * See the full license at <https://www.apache.org/licenses/LICENSE-2.0>
+ *
+ * @licend  The above is the license notice for this file
+ */
 
-  Este código está licenciado bajo la licencia Apache License 2.0.
-  Puedes obtener una copia en: https://www.apache.org/licenses/LICENSE-2.0
-*/
 
 document.addEventListener('DOMContentLoaded', () => {
     /**
