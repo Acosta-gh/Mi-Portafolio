@@ -1,269 +1,332 @@
-@use '../abstracts/variables' as *;
-@use '../abstracts/mixins' as *;
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+/* 
+ * Componente Header - Barra de navegación principal
+ * ---------------------------------------------------
+ * Este archivo define la estructura, disposición y comportamientos
+ * responsivos de la barra de navegación del sitio.
+ */
 
 .header {
-    background-color: $primary-color;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
+  background-color: $primary-color;
+  position: fixed; /* Fija el header en la parte superior de la ventana */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Asegura que el header esté por encima de otros elementos */
 
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    transition: border-radius 0.1s ease-in-out;
-    font-family: $primary-font;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; /* Sombra sutil bajo el header */
+  transition: border-radius 0.1s ease-in-out;
+  font-family: $primary-font;
 
-    &__nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
+  &__nav {
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos al inicio y final */
+    align-items: center;
+    padding: 10px 20px;
+
+    /* En pantallas grandes, ajusta los márgenes laterales al 18% */
+    @include respond-to(large) {
+      flex-direction: row;
+      margin-left: 18%;
+      margin-right: 18%;
+    }
+
+    /* En pantallas medianas, reduce los márgenes laterales al 13% */
+    @include respond-to(medium) {
+      margin-left: 13%;
+      margin-right: 13%;
+    }
+
+    /* 
+     * Menú de selección de idioma
+     * --------------------------
+     * Botón que controla la apertura del menú desplegable de idiomas
+     */
+    &-langmenu {
+      background: none;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      margin: 0;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+
+      .arrow {
+        transition: transform 0.3s ease; /* Animación de rotación para el icono de flecha */
+      }
+    }
+
+    /* 
+     * Logo del sitio 
+     * ------------
+     * Contiene la imagen del logo y posiblemente el nombre del sitio
+     */
+    &-logo {
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      font-size: 24px;
+      font-weight: bold;
+
+      .header__logo-img {
+        width: 35px;
+        height: auto;
+        margin-right: 10px;
+
+        /* Filtro para ajustar el color del logo si es necesario */
+        filter: invert(12%) sepia(0%) saturate(0%) hue-rotate(0deg)
+          brightness(12%) contrast(100%);
 
         @include respond-to(large) {
-            flex-direction: row;
-            margin-left: 18%;
-            margin-right: 18%;
+          width: 40px; /* Logo ligeramente más grande en pantallas grandes */
+          cursor: pointer;
         }
-
-        @include respond-to(medium) {
-            margin-left: 13%;
-            margin-right: 13%;
-        }
-
-        &-langmenu {
-            background: none;
-            border: none;
-            box-shadow: none;
-            padding: 0;
-            margin: 0;
-            color: inherit;
-            font: inherit;
-            cursor: pointer;
-
-            .arrow {
-                transition: transform 0.3s ease;
-            }
-        }
-
-        &-logo {
-            display: flex;
-            align-items: center;
-            padding: 5px;
-            font-size: 24px;
-            font-weight: bold;
-
-            .header__logo-img {
-                width: 35px;
-                height: auto;
-                margin-right: 10px;
-
-                filter: invert(12%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(12%) contrast(100%);
-
-                @include respond-to(large) {
-                    width: 40px;
-                    cursor: pointer;
-                }
-
-            }
-        }
-
-        &-list {
-            background-color: $primary-color;
-            overflow: hidden;
-            position: absolute;
-            left: 0;
-            padding: 1rem;
-            top: 60px;
-            width: 100%;
-
-            max-height: 0vh;
-            padding: 0;
-            box-shadow: 0px 12px 20px -10px rgba(149, 157, 165, 0.2);
-            opacity: 1;
-            transition: all 0.3s ease;
-
-            @include respond-to(large) {
-                position: static;
-                opacity: 1;
-                display: flex;
-                flex-direction: row;
-                max-height: none;
-                height: auto;
-                padding: 0;
-                overflow: visible;
-                box-shadow: 0px 12px 20px -10px rgba(149, 157, 165, 0);
-                width: auto;
-            }
-
-            @include respond-to(medium) {
-                padding: 0;
-            
-            }
-        }
-
-        &-langlist {
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
-            max-height: 0rem;
-            opacity: 0;
-            overflow: hidden;
-            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity .5s ease-in-out, border-radius 0.5s ease;
-
-            padding: .1rem;
-            margin-top: 5px;
-
-            .header__nav-langitem {
-                margin-top: 0px;
-                margin: 10px;
-                cursor: pointer;
-            }
-
-
-            @include respond-to(large) {
-                transition: max-height .35s cubic-bezier(0.4, 0, 0.2, 1), opacity .3s ease-in-out, border-radius 5s ease, box-shadow 1s ease;
-                opacity: 0;
-                margin-top: 0px;
-                overflow: hidden;
-                position: absolute;
-                display: flex;
-                flex-direction: column;
-                top: 3rem;
-                max-height: 0px;
-                padding: .1rem;
-                background-color: $primary-color;
-                box-shadow: 0px 12px 20px -10px rgba(149, 157, 165, 0);
-                border-radius: 15px;
-            }
-
-            @include respond-to(large) {
-                margin: 0 12%;
-            }
-        }
-
-        &-item,
-        &-lang {
-            margin: 1rem;
-            cursor: pointer;
-
-            a {
-                display: block;
-                width: 100vw;
-                text-decoration: none;
-                color: inherit;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-            }
-
-            @include respond-to(large, min) {
-                a {
-                    width: 100%;
-                    opacity: 1;
-                }
-
-                font-size: $font-size-medium;
-
-                display: inline-block;
-                position: relative;
-
-                &::after {
-                    content: '';
-                    position: absolute;
-                    width: 100%;
-                    transform: scaleX(0);
-                    height: 2px;
-                    bottom: -5px;
-                    left: 0;
-                    background-color: $accent-color;
-                    transition: transform 0.25s ease-out;
-                }
-            }
-
-        }
-
-        &-burguer {
-            background: none;
-            border: none;
-            box-shadow: none;
-            padding: 0;
-            margin: 0;
-            color: inherit;
-            font: inherit;
-            cursor: pointer;
-
-            @include respond-to(large) {
-                display: none;
-            }
-        }
-
-        &-burguer-line {
-            @include respond-to(xxlarge, max) {
-                display: block;
-                background-color: $secondary-color;
-                width: 30px;
-                height: 2px;
-                margin: 5px 0;
-                transition: all 0.3s ease;
-            }
-        }
+      }
     }
+
+    /* 
+     * Lista principal de navegación 
+     * ----------------------------
+     * En móviles se muestra como menú desplegable,
+     * en escritorio como barra horizontal
+     */
+    &-list {
+      background-color: $primary-color;
+      overflow: hidden;
+      position: absolute; /* En móviles, posicionamiento absoluto para el desplegable */
+      left: 0;
+      padding: 1rem;
+      top: 60px;
+      width: 100%;
+
+      max-height: 0vh; /* Inicialmente oculto (altura 0) */
+      padding: 0;
+      box-shadow: 0px 12px 20px -10px rgba(149, 157, 165, 0.2);
+      opacity: 1;
+      transition: all 0.3s ease; /* Transición suave para mostrar/ocultar */
+
+      /* En pantallas grandes, muestra como barra horizontal */
+      @include respond-to(large) {
+        position: static;
+        opacity: 1;
+        display: flex;
+        flex-direction: row;
+        max-height: none;
+        height: auto;
+        padding: 0;
+        overflow: visible;
+        box-shadow: 0px 12px 20px -10px rgba(149, 157, 165, 0);
+        width: auto;
+      }
+
+      @include respond-to(medium) {
+        padding: 0;
+      }
+    }
+
+    /* 
+     * Lista desplegable de idiomas 
+     * --------------------------
+     * Inicialmente oculta, se muestra al hacer clic en el botón de idiomas
+     */
+    &-langlist {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+      max-height: 0rem; /* Inicialmente oculto */
+      opacity: 0;
+      overflow: hidden;
+      /* Transiciones para varios efectos al mostrar/ocultar */
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.5s ease-in-out, border-radius 0.5s ease;
+
+      padding: 0.1rem;
+      margin-top: 5px;
+
+      /* Elementos de la lista de idiomas */
+      .header__nav-langitem {
+        margin-top: 0px;
+        margin: 10px;
+        cursor: pointer;
+      }
+
+      /* En pantallas grandes, el menú de idiomas es un desplegable posicionado */
+      @include respond-to(large) {
+        transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+          opacity 0.3s ease-in-out, border-radius 5s ease, box-shadow 1s ease;
+        opacity: 0;
+        margin-top: 0px;
+        overflow: hidden;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        top: 3.3rem;
+        right: -25px; /* Posicionamiento ajustado */
+        max-height: 0px;
+        padding: 0.1rem;
+        background-color: $primary-color;
+        box-shadow: 0px 12px 20px -10px rgba(149, 157, 165, 0);
+        border-radius: 15px;
+      }
+
+      @include respond-to(large) {
+        margin: 0 12%;
+      }
+    }
+
+    /* 
+     * Elementos de navegación e idiomas
+     * -------------------------------
+     * Estilo para enlaces de navegación y opciones de idioma
+     */
+    &-item,
+    &-lang {
+      margin: 1rem;
+      cursor: pointer;
+
+      a {
+        display: block;
+        width: 100vw; /* Ancho completo en móviles */
+        text-decoration: none;
+        color: inherit;
+        opacity: 0; /* Inicialmente invisible en móviles (hasta activación) */
+        transition: opacity 0.3s ease;
+      }
+
+      /* Estilos específicos para pantallas grandes */
+      @include respond-to(large, min) {
+        a {
+          width: 100%;
+          opacity: 1; /* Visible en escritorio */
+        }
+
+        font-size: $font-size-medium;
+
+        display: inline-block;
+        position: relative;
+
+        /* Efecto de subrayado animado en hover */
+        &::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          transform: scaleX(0); /* Inicialmente escala 0 (invisible) */
+          height: 2px;
+          bottom: -5px;
+          left: 0;
+          background-color: $accent-color;
+          transition: transform 0.25s ease-out;
+        }
+      }
+    }
+
+    /* 
+     * Botón de menú hamburguesa
+     * -----------------------
+     * Solo visible en móviles, controla la apertura del menú principal
+     */
+    &-burguer {
+      background: none;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      margin: 0;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+
+      /* Oculto en pantallas grandes */
+      @include respond-to(large) {
+        display: none;
+      }
+    }
+
+    /* Líneas del menú hamburguesa */
+    &-burguer-line {
+      @include respond-to(xxlarge, max) {
+        display: block;
+        background-color: $secondary-color;
+        width: 30px;
+        height: 2px;
+        margin: 5px 0;
+        transition: all 0.3s ease; /* Para animación al transformarse en X */
+      }
+    }
+  }
 }
 
+/*
+ * ESTADOS ACTIVOS
+ * --------------
+ * Estos estilos se aplican mediante JavaScript para controlar
+ * los diferentes estados de interacción de los menús
+ */
 
-// ** Actives de JS **  
-// Animación del burguer menu
+/* Animación del botón hamburguesa a forma de X cuando está activo */
 .header__nav-burguer--active {
-    @include respond-to(large, max) {
-        span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        span:nth-child(2) {
-            opacity: 0;
-        }
-
-        span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
+  @include respond-to(large, max) {
+    span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px); /* Línea diagonal \ */
     }
+
+    span:nth-child(2) {
+      opacity: 0; /* Oculta línea del medio */
+    }
+
+    span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px); /* Línea diagonal / */
+    }
+  }
 }
 
-// Abre cierra el burguer menu como el lang menu
+/* 
+ * Expande la altura máxima para mostrar los menús
+ * cuando están activos (burguer y lang)
+ */
 .header__nav--active,
 .header__nav-langlist--active {
-    max-height: 13rem;
-
-
+  max-height: 13rem;
 }
 
+/* Hace visibles los enlaces cuando el menú móvil está activo */
 .header__nav--active {
-    a {
-        opacity: 1;
-    }
-}
-
-.header__nav-langlist--active {
-    max-height: 7rem;
+  a {
     opacity: 1;
-    overflow: none;
-
-    @include respond-to(large) {
-        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    }
+  }
 }
 
-// Cuando hacemos click en un nav item como "Inicio" o "Contactame"
+/* Ajustes adicionales para el menú de idiomas cuando está activo */
+.header__nav-langlist--active {
+  max-height: 7rem;
+  opacity: 1;
+  overflow: none; /* Nota: debería ser 'visible' o 'auto', 'none' no es válido */
+
+  @include respond-to(large) {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; /* Añade sombra cuando está desplegado */
+  }
+}
+
+/* 
+ * Estilo para el ítem de navegación activo/seleccionado
+ * Muestra color de acento y línea inferior animada
+ */
 .item--active {
-    a {
-        color: $accent-color;
-    }
+  a {
+    color: $accent-color;
+  }
 
-    &::after {
-        transform: scaleX(1);
-    }
+  &::after {
+    transform: scaleX(1); /* Muestra la línea inferior expandida */
+  }
 }
 
-// Cuando hacemos click en el menú de idioma
+/* 
+ * Rotación de la flecha cuando el menú de idiomas está activo
+ * para indicar visualmente el estado abierto/cerrado
+ */
 .header__nav-langmenu--active {
-    .arrow {
-        transform: rotate(180deg);
-    }
+  .arrow {
+    transform: rotate(180deg); /* Gira la flecha hacia arriba */
+  }
 }

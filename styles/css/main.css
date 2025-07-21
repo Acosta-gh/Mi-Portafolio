@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -69,6 +70,18 @@ table {
   font-weight: 700;
 }
 
+/**
+ * Este archivo contiene las animaciones utilizadas en el sitio web:
+ * 1. Animaciones basadas en scroll para elementos que aparecen al entrar en el viewport
+ * 2. Indicador de desplazamiento hacia abajo animado
+ */
+/**
+ * Animaciones activadas por scroll
+ * -----------------------------
+ * Permite que los elementos aparezcan con una animación suave cuando
+ * entran en el viewport. La clase .scrolled es añadida mediante JavaScript
+ * cuando el elemento se vuelve visible.
+ */
 .scroll-container .js-scroll {
   opacity: 0;
   transform: translateY(20px);
@@ -82,10 +95,15 @@ table {
   transition: opacity 500ms ease, transform 500ms ease;
 }
 
-/* scroll down dude:
-Based on code by Mike Wagz (https://codepen.io/mikewagz/pen/PGXqOg)
-Licensed under the MIT License
-*/
+/**
+ * Indicador de desplazamiento hacia abajo
+ * -----------------------------------
+ * Muestra flechas animadas que indican al usuario que debe desplazarse hacia abajo
+ * para ver más contenido.
+ * 
+ * Basado en código de Mike Wagz (https://codepen.io/mikewagz/pen/PGXqOg)
+ * Licenciado bajo la Licencia MIT
+ */
 .scroll-down-indicator {
   display: block;
   margin: 0 auto;
@@ -116,6 +134,11 @@ Licensed under the MIT License
   animation: down-arrow-after 2.6s cubic-bezier(0.77, 0, 0.175, 1) infinite;
 }
 
+/**
+ * Definiciones de animaciones @keyframes
+ * ----------------------------------
+ * Controlan el movimiento y opacidad de las flechas
+ */
 @keyframes down-arrow-before {
   50% {
     transform: rotate(45deg) translate(70%, 70%);
@@ -332,22 +355,62 @@ Licensed under the MIT License
   margin-bottom: 3rem;
 }
 
+/* 
+ * Componente Header - Barra de navegación principal
+ * ---------------------------------------------------
+ * Este archivo define la estructura, disposición y comportamientos
+ * responsivos de la barra de navegación del sitio.
+ */
 .header {
   background-color: #f6f4ef;
-  position: fixed;
+  position: fixed; /* Fija el header en la parte superior de la ventana */
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  z-index: 1000; /* Asegura que el header esté por encima de otros elementos */
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; /* Sombra sutil bajo el header */
   transition: border-radius 0.1s ease-in-out;
   font-family: "Open Sans", sans-serif;
 }
 .header__nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Distribuye los elementos al inicio y final */
   align-items: center;
   padding: 10px 20px;
+  /* En pantallas grandes, ajusta los márgenes laterales al 18% */
+  /* En pantallas medianas, reduce los márgenes laterales al 13% */
+  /* 
+   * Menú de selección de idioma
+   * --------------------------
+   * Botón que controla la apertura del menú desplegable de idiomas
+   */
+  /* 
+   * Logo del sitio 
+   * ------------
+   * Contiene la imagen del logo y posiblemente el nombre del sitio
+   */
+  /* 
+   * Lista principal de navegación 
+   * ----------------------------
+   * En móviles se muestra como menú desplegable,
+   * en escritorio como barra horizontal
+   */
+  /* 
+   * Lista desplegable de idiomas 
+   * --------------------------
+   * Inicialmente oculta, se muestra al hacer clic en el botón de idiomas
+   */
+  /* 
+   * Elementos de navegación e idiomas
+   * -------------------------------
+   * Estilo para enlaces de navegación y opciones de idioma
+   */
+  /* 
+   * Botón de menú hamburguesa
+   * -----------------------
+   * Solo visible en móviles, controla la apertura del menú principal
+   */
+  /* Líneas del menú hamburguesa */
 }
 @media (min-width: 992px) {
   .header__nav {
@@ -373,7 +436,7 @@ Licensed under the MIT License
   cursor: pointer;
 }
 .header__nav-langmenu .arrow {
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease; /* Animación de rotación para el icono de flecha */
 }
 .header__nav-logo {
   display: flex;
@@ -386,27 +449,29 @@ Licensed under the MIT License
   width: 35px;
   height: auto;
   margin-right: 10px;
+  /* Filtro para ajustar el color del logo si es necesario */
   filter: invert(12%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(12%) contrast(100%);
 }
 @media (min-width: 992px) {
   .header__nav-logo .header__logo-img {
-    width: 40px;
+    width: 40px; /* Logo ligeramente más grande en pantallas grandes */
     cursor: pointer;
   }
 }
 .header__nav-list {
   background-color: #f6f4ef;
   overflow: hidden;
-  position: absolute;
+  position: absolute; /* En móviles, posicionamiento absoluto para el desplegable */
   left: 0;
   padding: 1rem;
   top: 60px;
   width: 100%;
-  max-height: 0vh;
+  max-height: 0vh; /* Inicialmente oculto (altura 0) */
   padding: 0;
   box-shadow: 0px 12px 20px -10px rgba(149, 157, 165, 0.2);
   opacity: 1;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Transición suave para mostrar/ocultar */
+  /* En pantallas grandes, muestra como barra horizontal */
 }
 @media (min-width: 992px) {
   .header__nav-list {
@@ -429,12 +494,15 @@ Licensed under the MIT License
 }
 .header__nav-langlist {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
-  max-height: 0rem;
+  max-height: 0rem; /* Inicialmente oculto */
   opacity: 0;
   overflow: hidden;
+  /* Transiciones para varios efectos al mostrar/ocultar */
   transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-in-out, border-radius 0.5s ease;
   padding: 0.1rem;
   margin-top: 5px;
+  /* Elementos de la lista de idiomas */
+  /* En pantallas grandes, el menú de idiomas es un desplegable posicionado */
 }
 .header__nav-langlist .header__nav-langitem {
   margin-top: 0px;
@@ -450,7 +518,8 @@ Licensed under the MIT License
     position: absolute;
     display: flex;
     flex-direction: column;
-    top: 3rem;
+    top: 3.3rem;
+    right: -25px; /* Posicionamiento ajustado */
     max-height: 0px;
     padding: 0.1rem;
     background-color: #f6f4ef;
@@ -466,13 +535,14 @@ Licensed under the MIT License
 .header__nav-item, .header__nav-lang {
   margin: 1rem;
   cursor: pointer;
+  /* Estilos específicos para pantallas grandes */
 }
 .header__nav-item a, .header__nav-lang a {
   display: block;
-  width: 100vw;
+  width: 100vw; /* Ancho completo en móviles */
   text-decoration: none;
   color: inherit;
-  opacity: 0;
+  opacity: 0; /* Inicialmente invisible en móviles (hasta activación) */
   transition: opacity 0.3s ease;
 }
 @media (min-width: 992px) {
@@ -480,16 +550,17 @@ Licensed under the MIT License
     font-size: 1.125rem;
     display: inline-block;
     position: relative;
+    /* Efecto de subrayado animado en hover */
   }
   .header__nav-item a, .header__nav-lang a {
     width: 100%;
-    opacity: 1;
+    opacity: 1; /* Visible en escritorio */
   }
   .header__nav-item::after, .header__nav-lang::after {
     content: "";
     position: absolute;
     width: 100%;
-    transform: scaleX(0);
+    transform: scaleX(0); /* Inicialmente escala 0 (invisible) */
     height: 2px;
     bottom: -5px;
     left: 0;
@@ -506,6 +577,7 @@ Licensed under the MIT License
   color: inherit;
   font: inherit;
   cursor: pointer;
+  /* Oculto en pantallas grandes */
 }
 @media (min-width: 992px) {
   .header__nav-burguer {
@@ -519,53 +591,79 @@ Licensed under the MIT License
     width: 30px;
     height: 2px;
     margin: 5px 0;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /* Para animación al transformarse en X */
   }
 }
 
+/*
+ * ESTADOS ACTIVOS
+ * --------------
+ * Estos estilos se aplican mediante JavaScript para controlar
+ * los diferentes estados de interacción de los menús
+ */
+/* Animación del botón hamburguesa a forma de X cuando está activo */
 @media (max-width: 991px) {
   .header__nav-burguer--active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+    transform: rotate(45deg) translate(5px, 5px); /* Línea diagonal \ */
   }
   .header__nav-burguer--active span:nth-child(2) {
-    opacity: 0;
+    opacity: 0; /* Oculta línea del medio */
   }
   .header__nav-burguer--active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
+    transform: rotate(-45deg) translate(5px, -5px); /* Línea diagonal / */
   }
 }
 
+/* 
+ * Expande la altura máxima para mostrar los menús
+ * cuando están activos (burguer y lang)
+ */
 .header__nav--active,
 .header__nav-langlist--active {
   max-height: 13rem;
 }
 
+/* Hace visibles los enlaces cuando el menú móvil está activo */
 .header__nav--active a {
   opacity: 1;
 }
 
+/* Ajustes adicionales para el menú de idiomas cuando está activo */
 .header__nav-langlist--active {
   max-height: 7rem;
   opacity: 1;
-  overflow: none;
+  overflow: none; /* Nota: debería ser 'visible' o 'auto', 'none' no es válido */
 }
 @media (min-width: 992px) {
   .header__nav-langlist--active {
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; /* Añade sombra cuando está desplegado */
   }
 }
 
+/* 
+ * Estilo para el ítem de navegación activo/seleccionado
+ * Muestra color de acento y línea inferior animada
+ */
 .item--active a {
   color: #e37e54;
 }
 .item--active::after {
-  transform: scaleX(1);
+  transform: scaleX(1); /* Muestra la línea inferior expandida */
 }
 
+/* 
+ * Rotación de la flecha cuando el menú de idiomas está activo
+ * para indicar visualmente el estado abierto/cerrado
+ */
 .header__nav-langmenu--active .arrow {
-  transform: rotate(180deg);
+  transform: rotate(180deg); /* Gira la flecha hacia arriba */
 }
 
+/**
+ * Estructura base del documento
+ * ---------------------------
+ * Establece el diseño fundamental de la página con altura completa y desplazamiento suave
+ */
 html,
 .body {
   height: 100%;
@@ -576,6 +674,12 @@ html,
   scroll-behavior: smooth;
 }
 
+/**
+ * Estilos específicos del cuerpo
+ * ---------------------------
+ * Configura el elemento body principal con color de fondo y
+ * opacidad inicial para animación de aparición
+ */
 .body {
   background-color: #f6f4ef;
   flex: 1;
@@ -584,12 +688,56 @@ html,
   opacity: 0;
 }
 
+/**
+ * Contenedor principal de contenido
+ * ------------------------------
+ * Contiene todas las secciones de contenido principal del sitio web
+ */
+.main {
+  /**
+   * Sección de introducción
+   * --------------------
+   * La sección hero con saludo, nombre y cargo
+   * Ocupa toda la altura de la pantalla para crear una primera impresión fuerte
+   */
+  /**
+   * Sección de "Sobre mí" / Descripción
+   * --------------------------------
+   * Contiene introducción personal e imagen
+   */
+  /**
+   * Sección de habilidades
+   * -------------------
+   * Muestra diferentes categorías de habilidades con insignias
+   */
+  /**
+   * Sección de proyectos
+   * -----------------
+   * Muestra proyectos de portafolio con imágenes, descripciones y etiquetas
+   */
+}
 .main__intro {
   padding: 1rem;
   padding-top: 7rem;
   margin-top: 5%;
   color: #1e1e1e;
   min-height: 90vh;
+  /**
+   * Contenedor para el texto de saludo
+   * Usa flexbox para alinear múltiples elementos de texto horizontalmente
+   */
+  /**
+   * Estilo del texto de saludo
+   * Muestra un saludo dinámico basado en la hora del día mediante JavaScript
+   */
+  /**
+   * Estilo del nombre
+   * El encabezado principal que muestra el nombre de la persona
+   */
+  /**
+   * Estilo del cargo/título
+   * Muestra el título del trabajo con un efecto de escritura dinámico
+   */
 }
 @media (min-width: 992px) {
   .main__intro {
@@ -637,6 +785,10 @@ html,
   font-size: 1.5rem;
   font-family: "Open Sans", sans-serif;
   margin-bottom: 1rem;
+  /**
+   * Elemento con efecto de escritura dinámica
+   * Cambia entre diferentes títulos de trabajo mediante JavaScript
+   */
 }
 @media (min-width: 992px) {
   .main__intro-position {
@@ -653,6 +805,17 @@ html,
   font-family: "Open Sans", sans-serif;
   font-size: 1.5rem;
   background-color: #ece3da;
+  /**
+   * Divisor visual que está oculto en móvil
+   * Solo aparece en pantallas medianas y más grandes
+   */
+  /**
+   * Contenedor de texto de introducción
+   * Contiene el párrafo de introducción breve
+   */
+  /**
+   * Sección de medios que contiene imagen y biografía detallada
+   */
 }
 .main .description .divider {
   display: none;
@@ -675,6 +838,12 @@ html,
 }
 .main .description__media {
   gap: 3rem;
+  /**
+   * Texto de biografía detallada
+   */
+  /**
+   * Estilo de la imagen de perfil
+   */
 }
 @media (min-width: 768px) {
   .main .description__media {
@@ -714,6 +883,17 @@ html,
 }
 .main .skills {
   padding: 2.3rem 2.5rem 5.3rem 2.5rem;
+  /**
+   * Título de categoría con icono
+   */
+  /**
+   * Contenedor para insignias de habilidades
+   * Usa flexbox para envoltura responsiva
+   */
+  /**
+   * Insignia de habilidad individual
+   * Elementos en forma de píldora que muestran cada habilidad
+   */
 }
 @media (min-width: 768px) {
   .main .skills {
@@ -728,6 +908,9 @@ html,
   font-family: "Open Sans", sans-serif;
   font-size: 1.5rem;
   margin: 1rem 0;
+  /**
+   * Estilo del icono de categoría
+   */
 }
 .main .skills__category-title svg {
   width: 2rem;
@@ -754,6 +937,33 @@ html,
 .main .projects {
   background-color: #ece3da;
   padding: 2.3rem 2.5rem 5.3rem 2.5rem;
+  /**
+   * Texto de introducción de la sección
+   */
+  /**
+   * Contenedor de proyecto individual
+   */
+  /**
+   * Estilo del título del proyecto
+   */
+  /**
+   * Texto de descripción del proyecto
+   */
+  /**
+   * Estilo de la imagen del proyecto
+   */
+  /**
+   * Contenedor para detalles de descripción del proyecto
+   */
+  /**
+   * Contenedor para etiquetas de tecnología
+   */
+  /**
+   * Etiqueta de tecnología individual
+   */
+  /**
+   * Contenedor para botones de acción del proyecto (demo/código)
+   */
 }
 @media (min-width: 768px) {
   .main .projects {
@@ -773,6 +983,11 @@ html,
   font-family: "Playfair Display", serif;
   font-size: 1.5rem;
   font-weight: 500;
+}
+@media (min-width: 992px) {
+  .main .projects__title {
+    font-size: 2rem;
+  }
 }
 .main .projects__paragraph {
   margin-bottom: 1rem;

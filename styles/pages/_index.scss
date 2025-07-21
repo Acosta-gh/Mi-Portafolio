@@ -1,279 +1,400 @@
-@use "../abstracts/variables" as *;
-@use '../abstracts/mixins' as *;
-@use '../base/animations' as *;
+@use "../abstracts/variables" as *; // Importa variables globales
+@use "../abstracts/mixins" as *;    // Importa mixins responsivos
+@use "../base/animations" as *;     // Importa definiciones de animaciones
 
+/**
+ * Estructura base del documento
+ * ---------------------------
+ * Establece el diseño fundamental de la página con altura completa y desplazamiento suave
+ */
 html,
 .body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    scroll-behavior: smooth;
-
+  height: 100%;            // Altura completa del viewport
+  margin: 0;               // Elimina márgenes predeterminados
+  padding: 0;              // Elimina relleno predeterminado
+  display: flex;           // Usa flexbox para el diseño
+  flex-direction: column;  // Apila los elementos verticalmente
+  scroll-behavior: smooth; // Habilita desplazamiento suave para enlaces de ancla
 }
 
+/**
+ * Estilos específicos del cuerpo
+ * ---------------------------
+ * Configura el elemento body principal con color de fondo y
+ * opacidad inicial para animación de aparición
+ */
 .body {
-    background-color: $primary-color;
-
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    opacity: 0;
+  background-color: $primary-color; // Establece el fondo desde variables
+  flex: 1;                          // Ocupa todo el espacio disponible
+  display: flex;                    // Usa flexbox
+  flex-direction: column;           // Apila los hijos verticalmente
+  opacity: 0;                       // Comienza invisible para animación de aparición
 }
 
-
+/**
+ * Contenedor principal de contenido
+ * ------------------------------
+ * Contiene todas las secciones de contenido principal del sitio web
+ */
 .main {
-    &__intro {
-        padding: 1rem;
-        padding-top: 7rem;
-        margin-top: 5%;
-        color: $secondary-color;
-        min-height: 90vh;
+  /**
+   * Sección de introducción
+   * --------------------
+   * La sección hero con saludo, nombre y cargo
+   * Ocupa toda la altura de la pantalla para crear una primera impresión fuerte
+   */
+  &__intro {
+    padding: 1rem;
+    padding-top: 7rem;       // Relleno extra para compensar el encabezado fijo
+    margin-top: 5%;          // Espacio desde arriba
+    color: $secondary-color; // Color del texto
+    min-height: 90vh;        // Al menos 90% de la altura del viewport
 
-        @include respond-to(large) {
-            margin-top: 7%;
-            min-height: 74.5vh;
-            margin-left: 18%;
-            margin-right: 18%;
-        }
-
-        @include respond-to(medium) {
-            margin-top: 7%;
-            min-height: 80vh;
-            margin-left: 13%;
-            margin-right: 13%;
-        }
-        &-salutation-container{
-            display: flex;
-            align-items: center;
-        }
-        &-salutations {
-            font-size: $font-size-medium;
-            font-family: $primary-font;
-
-            @include respond-to(large) {
-                font-size: $font-size-large;
-            }
-        }
-
-        &-name {
-            margin-top: .1rem;
-            font-size: $font-size-xxxlarge;
-            font-weight: $font-weight-bold;
-            font-family: $secondary-font;
-
-            @include respond-to(large) {
-                font-size: calc($font-size-xxxlarge * 1.25)
-            }
-        }
-
-        &-position {
-            margin-top: .5rem;
-            min-height: 3rem;
-            font-size: $font-size-large;
-            font-family: $primary-font;
-            margin-bottom: 1rem;
-
-            @include respond-to(large) {
-                font-size: $font-size-xlarge;
-            }
-
-            &--type {
-                color: $accent-color;
-                font-weight: $font-weight-bold;
-                //text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.01);
-            }
-        }
+    // Ajustes responsivos para pantallas grandes
+    @include respond-to(large) {
+      margin-top: 7%;
+      min-height: 74.5vh;    // Ligeramente más corto en pantallas grandes
+      margin-left: 18%;      // Márgenes laterales más amplios para mejor lectura
+      margin-right: 18%;
     }
 
-    .description {
-        padding: $padding-section;
-        color: $secondary-color;
-        font-family: $primary-font;
+    // Ajustes responsivos para pantallas medianas
+    @include respond-to(medium) {
+      margin-top: 7%;
+      min-height: 80vh;      // Ajusta altura para pantallas medianas
+      margin-left: 13%;      // Márgenes laterales moderados
+      margin-right: 13%;
+    }
+
+    /**
+     * Contenedor para el texto de saludo
+     * Usa flexbox para alinear múltiples elementos de texto horizontalmente
+     */
+    &-salutation-container {
+      display: flex;
+      align-items: center;
+    }
+
+    /**
+     * Estilo del texto de saludo
+     * Muestra un saludo dinámico basado en la hora del día mediante JavaScript
+     */
+    &-salutations {
+      font-size: $font-size-medium;
+      font-family: $primary-font;
+
+      // Texto más grande en pantallas grandes
+      @include respond-to(large) {
         font-size: $font-size-large;
-        background-color: $tertiary-color;
-
-        .divider {
-            display: none;
-        }
-
-        @include respond-to(medium) {
-            padding-left: 13%;
-            padding-right: 13%;
-            padding-bottom: 0px;
-
-            .divider {
-                display: block;
-            }
-
-        }
-
-        &__intro {
-            @include respond-to(medium) {
-                p {
-                    width: 60%;
-                    margin: 0 0 1rem 0;
-                }
-            }
-        }
-
-        &__media {
-            gap: 3rem;
-
-            @include respond-to(medium) {
-                display: flex;
-                flex-direction: row-reverse;
-            }
-
-            p {
-                margin-bottom: 3rem;
-                text-align: left;
-
-                @include respond-to(large) {
-                    line-height: 25px;
-                    width: 60%;
-                    margin: 0;
-                }
-            }
-
-            img {
-                width: 180px;
-                height: 250px;
-                object-fit: cover;
-                border-radius: 50% / 30%;
-
-                display: block;
-                margin: 3rem auto;
-                box-shadow: 4px 3px 17px -11px rgba(0, 0, 0, 0.411);
-
-
-                @include respond-to(medium) {
-                    width: calc(180px * 1.6);
-                    height: calc(250px * 1.6);
-
-                    position: relative;
-                    bottom: 8rem;
-                    left: 2rem;
-                    margin: 0 auto;
-
-                }
-
-            }
-        }
+      }
     }
 
-    .skills {
-        padding: $padding-section;
+    /**
+     * Estilo del nombre
+     * El encabezado principal que muestra el nombre de la persona
+     */
+    &-name {
+      margin-top: 0.1rem;
+      font-size: $font-size-xxxlarge;
+      font-weight: $font-weight-bold;
+      font-family: $secondary-font;
 
-        @include respond-to(medium) {
-            padding-left: 13%;
-            padding-right: 13%;
-            margin-bottom: 2rem;
-        }
-
-        &__category-title {
-            display: flex;
-            align-items: center;
-            font-family: $primary-font;
-            font-size: $font-size-large;
-            margin: 1rem 0;
-
-            svg {
-                width: 2rem;
-                height: 2rem;
-                margin-right: .5rem;
-
-            }
-        }
-
-        &__list {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-        }
-
-        &__item {
-            margin: .2rem;
-            width: 6rem;
-            background-color: $sand;
-            height: 2rem;
-            line-height: 2rem;
-            border-radius: 999px;
-            text-align: center;
-            font-family: $primary-font;
-            font-weight: $font-weight-medium;
-        }
+      // Texto más grande en pantallas grandes
+      @include respond-to(large) {
+        font-size: calc($font-size-xxxlarge * 1.25);
+      }
     }
 
-    .projects {
-        background-color: $tertiary-color;
-        padding: $padding-section;
+    /**
+     * Estilo del cargo/título
+     * Muestra el título del trabajo con un efecto de escritura dinámico
+     */
+    &-position {
+      margin-top: 0.5rem;
+      min-height: 3rem;       // Altura fija para evitar cambios de diseño durante la escritura
+      font-size: $font-size-large;
+      font-family: $primary-font;
+      margin-bottom: 1rem;
 
-        @include respond-to(large) {}
+      // Texto más grande en pantallas grandes
+      @include respond-to(large) {
+        font-size: $font-size-xlarge;
+      }
 
-        @include respond-to(medium) {
-            padding-left: 13%;
-            padding-right: 13%;
-        }
-
-        &__intro {
-            margin-bottom: 2rem;
-        }
-
-        &__item {
-            margin-bottom: 3.7rem;
-        }
-
-        &__title {
-            text-align: left;
-            margin-bottom: 1rem;
-            font-family: $secondary-font;
-            font-size: $font-size-large;
-            font-weight: $font-weight-medium;
-        }
-
-        &__paragraph {
-            margin-bottom: 1rem;
-        }
-
-        &__image {
-            width: 100%;
-            border-radius: 15px;
-            //border: .122em solid $secondary-color;
-            filter: drop-shadow(5px 5px 5px #222);
-
-            @include respond-to(medium) {
-                height: auto;
-                width: 70%;
-                display: block;
-                margin: 0 auto;
-            }
-
-        }
-
-        &__description {
-            //border: .122em solid $secondary-color;
-            border-radius: 15px;
-            padding: .5rem;
-            margin-top: 5px;
-        }
-
-        &__tags {
-            display: flex;
-            flex-wrap: wrap;
-            font-family: $primary-font;
-        }
-
-        &__tag {
-            margin-right: 5px;
-        }
-
-        &__buttons {
-            margin: 1rem 0;
-            position: relative;
-            right: 3px;
-        }
+      /**
+       * Elemento con efecto de escritura dinámica
+       * Cambia entre diferentes títulos de trabajo mediante JavaScript
+       */
+      &--type {
+        color: $accent-color;           // Color destacado para énfasis
+        font-weight: $font-weight-bold; // Texto en negrita para impacto visual
+      }
     }
+  }
+
+  /**
+   * Sección de "Sobre mí" / Descripción
+   * --------------------------------
+   * Contiene introducción personal e imagen
+   */
+  .description {
+    padding: $padding-section;
+    color: $secondary-color;
+    font-family: $primary-font;
+    font-size: $font-size-large;
+    background-color: $tertiary-color; // Fondo diferente para separación visual
+
+    /**
+     * Divisor visual que está oculto en móvil
+     * Solo aparece en pantallas medianas y más grandes
+     */
+    .divider {
+      display: none;
+    }
+
+    // Ajustes responsivos para pantallas medianas
+    @include respond-to(medium) {
+      padding-left: 13%;
+      padding-right: 13%;
+      padding-bottom: 0px;
+
+      .divider {
+        display: block; // Muestra divisor en pantallas medianas y más grandes
+      }
+    }
+
+    /**
+     * Contenedor de texto de introducción
+     * Contiene el párrafo de introducción breve
+     */
+    &__intro {
+      // Ajustes responsivos para pantallas medianas
+      @include respond-to(medium) {
+        p {
+          width: 60%;        // Limita el ancho del párrafo para mejor legibilidad
+          margin: 0 0 1rem 0;
+        }
+      }
+    }
+
+    /**
+     * Sección de medios que contiene imagen y biografía detallada
+     */
+    &__media {
+      gap: 3rem; // Espacio entre imagen y texto
+
+      // Cambia a diseño horizontal en pantallas medianas
+      @include respond-to(medium) {
+        display: flex;
+        flex-direction: row-reverse; // Imagen a la izquierda, texto a la derecha
+      }
+
+      /**
+       * Texto de biografía detallada
+       */
+      p {
+        margin-bottom: 3rem;
+        text-align: left;
+
+        // Ajustes responsivos para pantallas grandes
+        @include respond-to(large) {
+          line-height: 25px;
+          width: 60%;  // Controla el ancho del texto para mejor legibilidad
+          margin: 0;
+        }
+      }
+
+      /**
+       * Estilo de la imagen de perfil
+       */
+      img {
+        width: 180px;
+        height: 250px;
+        object-fit: cover;                 // Mantiene la relación de aspecto
+        border-radius: 50% / 30%;          // Forma ovalada con esquinas redondeadas
+
+        display: block;
+        margin: 3rem auto;                 // Centra la imagen en móvil
+        box-shadow: 4px 3px 17px -11px rgba(0, 0, 0, 0.411); // Sombra sutil
+
+        // Ajustes responsivos para pantallas medianas
+        @include respond-to(medium) {
+          width: calc(180px * 1.6);        // 60% más grande en pantallas medianas
+          height: calc(250px * 1.6);
+
+          // Ajustes de posición para crear interés visual
+          position: relative;
+          bottom: 8rem;                    // Mueve la imagen hacia arriba
+          left: 2rem;                      // Ligero desplazamiento a la derecha
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+  /**
+   * Sección de habilidades
+   * -------------------
+   * Muestra diferentes categorías de habilidades con insignias
+   */
+  .skills {
+    padding: $padding-section;
+
+    // Ajustes responsivos para pantallas medianas
+    @include respond-to(medium) {
+      padding-left: 13%;
+      padding-right: 13%;
+      margin-bottom: 2rem;
+    }
+
+    /**
+     * Título de categoría con icono
+     */
+    &__category-title {
+      display: flex;
+      align-items: center;          // Alinea verticalmente icono y texto
+      font-family: $primary-font;
+      font-size: $font-size-large;
+      margin: 1rem 0;
+
+      /**
+       * Estilo del icono de categoría
+       */
+      svg {
+        width: 2rem;
+        height: 2rem;
+        margin-right: 0.5rem;      // Espacio entre icono y texto
+      }
+    }
+
+    /**
+     * Contenedor para insignias de habilidades
+     * Usa flexbox para envoltura responsiva
+     */
+    &__list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;              // Permite que los elementos se envuelvan a la siguiente línea
+      justify-content: flex-start;
+    }
+
+    /**
+     * Insignia de habilidad individual
+     * Elementos en forma de píldora que muestran cada habilidad
+     */
+    &__item {
+      margin: 0.2rem;
+      width: 6rem;                  // Ancho fijo para consistencia
+      background-color: $sand;      // Color de fondo claro
+      height: 2rem;
+      line-height: 2rem;            // Centra texto verticalmente
+      border-radius: 999px;         // Forma redondeada de píldora
+      text-align: center;           // Centra texto horizontalmente
+      font-family: $primary-font;
+      font-weight: $font-weight-medium;
+    }
+  }
+
+  /**
+   * Sección de proyectos
+   * -----------------
+   * Muestra proyectos de portafolio con imágenes, descripciones y etiquetas
+   */
+  .projects {
+    background-color: $tertiary-color; // Consistente con la sección Sobre mí
+    padding: $padding-section;
+
+    // Ajustes responsivos para pantallas medianas
+    @include respond-to(medium) {
+      padding-left: 13%;
+      padding-right: 13%;
+    }
+
+    /**
+     * Texto de introducción de la sección
+     */
+    &__intro {
+      margin-bottom: 2rem;
+    }
+
+    /**
+     * Contenedor de proyecto individual
+     */
+    &__item {
+      margin-bottom: 3.7rem; // Espacio entre proyectos
+    }
+
+    /**
+     * Estilo del título del proyecto
+     */
+    &__title {
+      text-align: left;
+      margin-bottom: 1rem;
+      font-family: $secondary-font;
+      font-size: $font-size-large;
+      font-weight: $font-weight-medium;
+
+       @include respond-to(large) {
+        font-size: $font-size-xlarge; // Aumenta el tamaño del título en pantallas grandes
+      }
+    }
+
+    /**
+     * Texto de descripción del proyecto
+     */
+    &__paragraph {
+      margin-bottom: 1rem;
+    }
+
+    /**
+     * Estilo de la imagen del proyecto
+     */
+    &__image {
+      width: 100%;                     // Ancho completo en móvil
+      border-radius: 15px;             // Esquinas redondeadas
+      filter: drop-shadow(5px 5px 5px #222); // Efecto de sombra
+
+      // Ajustes responsivos para pantallas medianas
+      @include respond-to(medium) {
+        height: auto;
+        width: 70%;                   // Ancho reducido en pantallas más grandes
+        display: block;
+        margin: 0 auto;               // Centra la imagen
+      }
+    }
+
+    /**
+     * Contenedor para detalles de descripción del proyecto
+     */
+    &__description {
+      border-radius: 15px;            // Esquinas redondeadas
+      padding: 0.5rem;
+      margin-top: 5px;
+    }
+
+    /**
+     * Contenedor para etiquetas de tecnología
+     */
+    &__tags {
+      display: flex;
+      flex-wrap: wrap;                // Permite que las etiquetas se envuelvan
+      font-family: $primary-font;
+    }
+
+    /**
+     * Etiqueta de tecnología individual
+     */
+    &__tag {
+      margin-right: 5px;             // Espacio entre etiquetas
+    }
+
+    /**
+     * Contenedor para botones de acción del proyecto (demo/código)
+     */
+    &__buttons {
+      margin: 1rem 0;
+      position: relative;
+      right: 3px;                    // Ligero ajuste para alineación
+    }
+  }
 }

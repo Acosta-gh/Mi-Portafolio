@@ -1,85 +1,118 @@
-@use "../abstracts/variables" as *;
-@use '../abstracts/mixins' as *;
+/**
+ * Este archivo contiene las animaciones utilizadas en el sitio web:
+ * 1. Animaciones basadas en scroll para elementos que aparecen al entrar en el viewport
+ * 2. Indicador de desplazamiento hacia abajo animado
+ */
 
+@use "../abstracts/variables" as *; // Importa variables globales
+@use '../abstracts/mixins' as *;    // Importa mixins responsivos
+
+/**
+ * Animaciones activadas por scroll
+ * -----------------------------
+ * Permite que los elementos aparezcan con una animación suave cuando
+ * entran en el viewport. La clase .scrolled es añadida mediante JavaScript
+ * cuando el elemento se vuelve visible.
+ */
 .scroll-container {
+    // Estado inicial: elementos invisibles y desplazados hacia abajo
     .js-scroll {
         opacity: 0;
         transform: translateY(20px);
     }
 
+    // Estado visible: elementos visibles y en su posición normal
     .js-scroll.scrolled {
         opacity: 1;
         transform: translateY(0);
-        transition: opacity 500ms ease;
+        transition: opacity 500ms ease; // Solo transición de opacidad por defecto
     }
 
+    // Variante con deslizamiento hacia arriba
     .js-scroll.scrolled.slideup {
-        transition: opacity 500ms ease, transform 500ms ease;
+        transition: opacity 500ms ease, transform 500ms ease; // Añade transición de movimiento
     }
 }
 
-/* scroll down dude:
-Based on code by Mike Wagz (https://codepen.io/mikewagz/pen/PGXqOg)
-Licensed under the MIT License
-*/
-$strokeWidth: 4px;
-$strokeColor: $secondary-color;
+/**
+ * Indicador de desplazamiento hacia abajo
+ * -----------------------------------
+ * Muestra flechas animadas que indican al usuario que debe desplazarse hacia abajo
+ * para ver más contenido.
+ * 
+ * Basado en código de Mike Wagz (https://codepen.io/mikewagz/pen/PGXqOg)
+ * Licenciado bajo la Licencia MIT
+ */
+$strokeWidth: 4px; // Grosor de las flechas
+$strokeColor: $secondary-color; // Color de las flechas (importado de variables)
 
-$timing: 2.6s;
-// $easing: ease-in-out;
-$easing: cubic-bezier(0.77, 0, 0.175, 1);
+$timing: 2.6s; // Duración de la animación
+$easing: cubic-bezier(0.77, 0, 0.175, 1); // Curva de aceleración personalizada
+
+// Contenedor principal del indicador
 .scroll-down-indicator{
     display: block;
     margin: 0 auto;
-    opacity: 0.5;
+    opacity: 0.5; // Semi-transparente para no ser intrusivo
     width: 1rem;
-    position: absolute;
+    position: absolute; // Posicionamiento absoluto dentro de su contenedor
     bottom: 0;
     left: 49%;
     bottom: 25%;
 }
 
+// Creación de las flechas utilizando pseudoelementos
 .scroll-down-indicator:before,
 .scroll-down-indicator:after {
     content: '';
     display: block;
     width: 12px;
     height: 12px;
-    transform: rotate(45deg);
-    border-bottom: $strokeWidth solid $strokeColor;
-    border-right: $strokeWidth solid $strokeColor;
+    transform: rotate(45deg); // Rotación para crear forma de flecha
+    border-bottom: $strokeWidth solid $strokeColor; // Crea la forma de flecha
+    border-right: $strokeWidth solid $strokeColor; // usando bordes
 }
 
+// Animación para la primera flecha
 .scroll-down-indicator:before {
     animation: down-arrow-before $timing $easing infinite;
 }
 
+// Animación para la segunda flecha
 .scroll-down-indicator:after {
     animation: down-arrow-after $timing $easing infinite;
 }
 
+/**
+ * Definiciones de animaciones @keyframes
+ * ----------------------------------
+ * Controlan el movimiento y opacidad de las flechas
+ */
+
+// Animación para la primera flecha - movimiento descendente simple
 @keyframes down-arrow-before {
     50% {
-        transform: rotate(45deg) translate(70%, 70%);
+        transform: rotate(45deg) translate(70%, 70%); // Mueve la flecha hacia abajo
     }
 
     100% {
-        transform: rotate(45deg) translate(70%, 70%);
+        transform: rotate(45deg) translate(70%, 70%); // Mantiene la posición
     }
 }
 
+// Animación para la segunda flecha - movimiento cíclico con desaparición y reaparición
 @keyframes down-arrow-after {
     50% {
-        transform: rotate(45deg) translate(110%, 110%);
-        opacity: 0;
+        transform: rotate(45deg) translate(110%, 110%); // Mueve más lejos que la primera
+        opacity: 0; // Desaparece gradualmente
     }
 
     51% {
-        transform: rotate(45deg) translate(-130%, -130%);
+        transform: rotate(45deg) translate(-130%, -130%); // Reposiciona arriba (invisible)
     }
 
     100% {
-        transform: rotate(45deg) translate(-70%, -70%);
-        opacity: 1;
+        transform: rotate(45deg) translate(-70%, -70%); // Vuelve a su posición
+        opacity: 1; // Completamente visible
     }
 }
