@@ -1,799 +1,461 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mi página</title>
 
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi página</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <link rel="stylesheet" href="styles/css/main.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
-  <body class="body">
-    <!-- Aviso temporal de desarrollo - se eliminará cuando el sitio esté completo -->
-    <div class="in_construction">
-      <svg
-        class="w-6 h-6 text-gray-800 dark:text-white"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-        />
-      </svg>
-      <span>Página en constante desarrollo.</span>
-    </div>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    rel="stylesheet" />
+</head>
+<link rel="stylesheet" href="styles/css/main.css" />
 
-    <!-- Header con navegación -->
-    <header class="header">
-      <nav class="header__nav" role="navigation" aria-label="Menú principal">
-        <!-- Logo del sitio -->
-        <a href="#" class="header__nav-logo">
-          <img
-            src="assets/images/logo.svg"
-            alt="Logo de Mi Sitio"
-            class="header__logo-img"
-          />
-        </a>
-        <!-- Lista de enlaces de navegación -->
-        <ul class="header__nav-list">
-          <li class="header__nav-item">
-            <a href="#" aria-current="page">Inicio</a>
-          </li>
-          <li class="header__nav-item"><a href="#about_me">Sobre Mi</a></li>
-          <li class="header__nav-item"><a href="#contact_me">Contáctame</a></li>
-          <!-- Selector de idiomas con menú desplegable -->
-          <li class="header__nav-lang">
-            <button
-              class="header__nav-langmenu"
-              aria-haspopup="true"
-              aria-expanded="false"
-              aria-controls="lang-menu"
-              id="lang-menu-button"
-              type="button"
-            >
-              <!-- Icono de traducción -->
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                fill="currentColor"
-                class="bi bi-translate no-select"
-                viewBox="0 0 16 16"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path
-                  d="M4.545 6.714L4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286zm1.634-.736L5.5 3.956h-.049l-.679 2.022z"
-                />
-                <path
-                  d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm7.138 9.995q.289.451.63.846c-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6 6 0 0 1-.415-.492 2 2 0 0 1-.94.31"
-                />
-              </svg>
-              <!-- Icono de flecha desplegable (se rotará con CSS cuando se active) -->
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-chevron-down arrow"
-                viewBox="0 0 16 16"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
-                />
-              </svg>
-            </button>
-            <!-- Lista desplegable de idiomas disponibles -->
-            <ul
-              class="header__nav-langlist"
-              id="lang-menu"
-              role="menu"
-              aria-labelledby="lang-menu-button"
-            >
-              <li class="header__nav-langitem" role="menuitem">
-                <a class="no-select" href="">Español</a>
-              </li>
-              <li class="header__nav-langitem" role="menuitem">
-                <a class="no-select" href="pages/en/index.html">English</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <!-- Botón de menú hamburguesa para navegación en dispositivos pequeños -->
-        <button
-          class="header__nav-burguer"
-          aria-label="Menú móvil"
-          aria-expanded="false"
-          type="button"
-        >
-          <span class="header__nav-burguer-line" aria-hidden="true"></span>
-          <span class="header__nav-burguer-line" aria-hidden="true"></span>
-          <span class="header__nav-burguer-line" aria-hidden="true"></span>
-        </button>
-      </nav>
-    </header>
-    <!-- Contenido principal -->
-    <main class="main">
-      <!-- Sección de introducción -->
-      <section class="main__intro" aria-labelledby="intro-title" tabindex="-1">
-        <!-- El saludo se inserta dinámicamente con JavaScript según la hora del día -->
-        <div class="main__intro-salutation-container">
-          <p class="main__intro-salutations" aria-hidden="true"></p>
-          <p class="main__intro-salutations">, mi nombre es.</p>
+<body class="body">
+  <!-- Aviso temporal de desarrollo - se eliminará cuando el sitio esté completo -->
+  <div class="in_construction">
+    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+      height="24" fill="none" viewBox="0 0 24 24">
+      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+    </svg>
+    <span>Página en constante desarrollo.</span>
+  </div>
+
+  <!-- Header con navegación -->
+  <header class="header">
+    <nav class="header__nav" role="navigation" aria-label="Menú principal">
+      <!-- Logo del sitio -->
+      <a href="#" class="header__nav-logo">
+        <img src="assets/images/logo.svg" alt="Logo de Mi Sitio" class="header__logo-img" />
+      </a>
+      <!-- Lista de enlaces de navegación -->
+      <ul class="header__nav-list">
+        <li class="header__nav-item">
+          <a href="#" aria-current="page">Inicio</a>
+        </li>
+        <li class="header__nav-item"><a href="#about_me">Sobre Mi</a></li>
+        <li class="header__nav-item"><a href="#contact_me">Contáctame</a></li>
+        <!-- Selector de idiomas con menú desplegable -->
+        <li class="header__nav-lang">
+          <button class="header__nav-langmenu" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu"
+            id="lang-menu-button" type="button">
+            <!-- Icono de traducción -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+              class="bi bi-translate no-select" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <path
+                d="M4.545 6.714L4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286zm1.634-.736L5.5 3.956h-.049l-.679 2.022z" />
+              <path
+                d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm7.138 9.995q.289.451.63.846c-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6 6 0 0 1-.415-.492 2 2 0 0 1-.94.31" />
+            </svg>
+            <!-- Icono de flecha desplegable (se rotará con CSS cuando se active) -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-chevron-down arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <path fill-rule="evenodd"
+                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+            </svg>
+          </button>
+          <!-- Lista desplegable de idiomas disponibles -->
+          <ul class="header__nav-langlist" id="lang-menu" role="menu" aria-labelledby="lang-menu-button">
+            <li class="header__nav-langitem" role="menuitem">
+              <a class="no-select" href="">Español</a>
+            </li>
+            <li class="header__nav-langitem" role="menuitem">
+              <a class="no-select" href="pages/en/index.html">English</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <!-- Botón de menú hamburguesa para navegación en dispositivos pequeños -->
+      <button class="header__nav-burguer" aria-label="Menú móvil" aria-expanded="false" type="button">
+        <span class="header__nav-burguer-line" aria-hidden="true"></span>
+        <span class="header__nav-burguer-line" aria-hidden="true"></span>
+        <span class="header__nav-burguer-line" aria-hidden="true"></span>
+      </button>
+    </nav>
+  </header>
+  <!-- Contenido principal -->
+  <main class="main">
+    <!-- Sección de introducción -->
+    <section class="main__intro" aria-labelledby="intro-title" tabindex="-1">
+      <!-- El saludo se inserta dinámicamente con JavaScript según la hora del día -->
+      <div class="main__intro-salutation-container">
+        <p class="main__intro-salutations" aria-hidden="true"></p>
+        <p class="main__intro-salutations">, mi nombre es.</p>
+      </div>
+      <h1 class="main__intro-name" id="intro-title" tabindex="0">
+        Cristian Darío Acosta
+      </h1>
+      <h2 class="main__intro-position" tabindex="0">
+        Y soy un desarrollador
+        <!-- Efecto de tipeo generado con JavaScript -->
+        <span class="main__intro-position--type" aria-live="polite"></span>
+      </h2>
+      <!-- Botón para descargar CV (actualmente deshabilitado) -->
+      <a href="assets/docs/cvES.pdf" class="button mainbutton " aria-disabled="true" tabindex="0"
+        aria-label="Descargar CV (botón deshabilitado)">
+        <span>Descargar CV</span>
+        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+          width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 13V4M7 14H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-2m-1-5-4 5-4-5m9 8h.01" />
+        </svg>
+      </a>
+      <!-- Indicador visual de desplazamiento hacia abajo -->
+      <div class="scroll-down-indicator" aria-hidden="true"></div>
+    </section>
+    <!-- Sección "Sobre mí" -->
+    <!-- scroll-container | Solo para animación-->
+    <section class="description scroll-container target" id="about_me" aria-labelledby="about-me-title" tabindex="-1">
+      <!-- js-scroll | Solo para animación-->
+      <div class="js-scroll slideup" aria-live="polite">
+        <h3 class="subtitle" id="about-me-title" tabindex="0">Sobre mí</h3>
+        <div class="description__content">
+          <div class="description__intro">
+            <p class="paragraph" tabindex="0">
+              Soy un programador junior con conocimientos en MERN y LAMP. Me
+              apasiona el desarrollo web, el código abierto y siempre estoy
+              buscando nuevos desafíos para seguir aprendiendo y mejorando mis
+              habilidades.
+            </p>
+          </div>
+          <span class="divider" aria-hidden="true"></span>
+          <div class="description__media">
+            <!-- Foto personal -->
+            <img src="./assets/images/me.webp" alt="Foto mía sonriendo" tabindex="0" />
+            <p class="paragraph" tabindex="0">
+              Actualmente, estoy por egresar como
+              <span class="underline">técnico programador</span> de la
+              Universidad Nacional de Lomas de Zamora. A lo largo de mi
+              formación, he tenido la oportunidad de adquirir conocimientos
+              sólidos en programación y desarrollo web. Además, he completado
+              <span class="underline">dos diplomaturas en programación web full stack</span>, una en la UTN del Chaco y
+              otra en ICARO, lo que me ha
+              permitido profundizar en tecnologías clave y estar al día con
+              las herramientas del mercado. <br /><br />
+              Me encanta capacitarme y explorar nuevas tecnologías, ya que
+              creo que el aprendizaje continuo es fundamental en el campo del
+              desarrollo. Estoy entusiasmado por aplicar mis conocimientos en
+              proyectos reales y contribuir a soluciones innovadoras.
+            </p>
+          </div>
         </div>
-        <h1 class="main__intro-name" id="intro-title" tabindex="0">
-          Cristian Darío Acosta
-        </h1>
-        <h2 class="main__intro-position" tabindex="0">
-          Y soy un desarrollador
-          <!-- Efecto de tipeo generado con JavaScript -->
-          <span class="main__intro-position--type" aria-live="polite"></span>
+      </div>
+    </section>
+
+    <!-- Sección de habilidades técnicas -->
+    <!-- scroll-container | Solo para animación-->
+    <section class="skills scroll-container" aria-labelledby="skills-title" tabindex="-1">
+      <!-- js-scroll | Solo para animación-->
+      <div class="skills__content js-scroll" aria-live="polite">
+        <h2 class="skills__title subtitle" id="skills-title" tabindex="0">
+          Mis habilidades
         </h2>
-        <!-- Botón para descargar CV (actualmente deshabilitado) -->
-        <button
-          class="button mainbutton button--disabled"
-          aria-disabled="true"
-          tabindex="0"
-          aria-label="Descargar CV (botón deshabilitado)"
-        >
-          <span>Descargar CV</span>
-          <svg
-            class="w-6 h-6 text-gray-800 dark:text-white"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M12 13V4M7 14H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-2m-1-5-4 5-4-5m9 8h.01"
-            />
-          </svg>
-        </button>
-        <!-- Indicador visual de desplazamiento hacia abajo -->
-        <div class="scroll-down-indicator" aria-hidden="true"></div>
-      </section>
-      <!-- Sección "Sobre mí" -->
-      <!-- scroll-container | Solo para animación-->
-      <section
-        class="description scroll-container target"
-        id="about_me"
-        aria-labelledby="about-me-title"
-        tabindex="-1"
-      >
-        <!-- js-scroll | Solo para animación-->
-        <div class="js-scroll slideup" aria-live="polite">
-          <h3 class="subtitle" id="about-me-title" tabindex="0">Sobre mí</h3>
-          <div class="description__content">
-            <div class="description__intro">
-              <p class="paragraph" tabindex="0">
-                Soy un programador junior con conocimientos en MERN y LAMP. Me
-                apasiona el desarrollo web, el código abierto y siempre estoy
-                buscando nuevos desafíos para seguir aprendiendo y mejorando mis
-                habilidades.
+        <p class="skills__description paragraph" tabindex="0">
+          Herramientas, Lenguajes y Frameworks que manejo.
+        </p>
+
+        <!-- Categoría Frontend con lista de tecnologías -->
+        <div class="skills__category" role="region" aria-labelledby="frontend-title" tabindex="0">
+          <h3 class="skills__category-title" id="frontend-title">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+              width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 15v5m-3 0h6M4 11h16M5 15h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1Z" />
+            </svg>
+            <span>Frontend</span>
+          </h3>
+          <ul class="skills__list" role="list" tabindex="0">
+            <li class="skills__item">HTML</li>
+            <li class="skills__item">CSS</li>
+            <li class="skills__item">SASS</li>
+            <li class="skills__item">JavaScript</li>
+            <li class="skills__item">React</li>
+            <li class="skills__item">Bootstrap</li>
+            <li class="skills__item">Tailwind</li>
+          </ul>
+        </div>
+
+        <!-- Categoría Backend con lista de tecnologías -->
+        <div class="skills__category" role="region" aria-labelledby="backend-title" tabindex="0">
+          <h3 class="skills__category-title" id="backend-title">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+              width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 6c0 1.657-3.134 3-7 3S5 7.657 5 6m14 0c0-1.657-3.134-3-7-3S5 4.343 5 6m14 0v6M5 6v6m0 0c0 1.657 3.134 3 7 3s7-1.343 7-3M5 12v6c0 1.657 3.134 3 7 3s7-1.343 7-3v-6" />
+            </svg>
+            <span>Backend</span>
+          </h3>
+          <ul class="skills__list" role="list" tabindex="0">
+            <li class="skills__item">Java</li>
+            <li class="skills__item">Python</li>
+            <li class="skills__item">PHP</li>
+            <li class="skills__item">Node.js</li>
+            <li class="skills__item">Express</li>
+            <li class="skills__item">Flask</li>
+            <li class="skills__item">Sequelize</li>
+            <li class="skills__item">JWT</li>
+            <li class="skills__item">REST APIs</li>
+            <li class="skills__item">MySQL</li>
+            <li class="skills__item">SQLite</li>
+            <li class="skills__item">MariaDB</li>
+          </ul>
+        </div>
+        <!-- Categoría Herramientas con lista de tecnologías -->
+        <div class="skills__category" role="region" aria-labelledby="tools-title" tabindex="0">
+          <h3 class="skills__category-title" id="tools-title">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+              width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linejoin="round" stroke-width="2"
+                d="M7.58209 8.96025 9.8136 11.1917l-1.61782 1.6178c-1.08305-.1811-2.23623.1454-3.07364.9828-1.1208 1.1208-1.32697 2.8069-.62368 4.1363.14842.2806.42122.474.73509.5213.06726.0101.1347.0133.20136.0098-.00351.0666-.00036.1341.00977.2013.04724.3139.24069.5867.52125.7351 1.32944.7033 3.01552.4971 4.13627-.6237.8375-.8374 1.1639-1.9906.9829-3.0736l4.8107-4.8108c1.0831.1811 2.2363-.1454 3.0737-.9828 1.1208-1.1208 1.3269-2.80688.6237-4.13632-.1485-.28056-.4213-.474-.7351-.52125-.0673-.01012-.1347-.01327-.2014-.00977.0035-.06666.0004-.13409-.0098-.20136-.0472-.31386-.2406-.58666-.5212-.73508-1.3294-.70329-3.0155-.49713-4.1363.62367-.8374.83741-1.1639 1.9906-.9828 3.07365l-1.7788 1.77875-2.23152-2.23148-1.41419 1.41424Zm1.31056-3.1394c-.04235-.32684-.24303-.61183-.53647-.76186l-1.98183-1.0133c-.38619-.19746-.85564-.12345-1.16234.18326l-.86321.8632c-.3067.3067-.38072.77616-.18326 1.16235l1.0133 1.98182c.15004.29345.43503.49412.76187.53647l1.1127.14418c.3076.03985.61628-.06528.8356-.28461l.86321-.8632c.21932-.21932.32446-.52801.2846-.83561l-.14417-1.1127ZM19.4448 16.4052l-3.1186-3.1187c-.7811-.781-2.0474-.781-2.8285 0l-.1719.172c-.7811.781-.7811 2.0474 0 2.8284l3.1186 3.1187c.7811.781 2.0474.781 2.8285 0l.1719-.172c.7811-.781.7811-2.0474 0-2.8284Z" />
+            </svg>
+            <span>Herramientas</span>
+          </h3>
+          <ul class="skills__list" role="list" tabindex="0">
+            <li class="skills__item">Git</li>
+            <li class="skills__item">GNU+Linux</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de proyectos -->
+    <!-- scroll-container | Solo para animación-->
+    <section class="projects scroll-container" aria-labelledby="projects-section-title">
+      <!-- js-scroll | Solo para animación-->
+      <div class="js-scroll" role="region" aria-live="polite" aria-atomic="true">
+        <h4 id="projects-section-title" class="projects__subtitle subtitle">
+          Mis proyectos
+        </h4>
+        <p class="projects__intro paragraph">
+          Algunos proyectos personales que he realizado
+        </p>
+      </div>
+
+      <div class="projects__item js-scroll">
+        <div class="projects__content">
+          <div class="projects__card" role="group" aria-labelledby="project1-title" tabindex="0">
+            <img class="projects__image" src="./assets/images/blog-mockup-3devices.webp"
+              alt="Captura de pantalla del proyecto Página de artículos tipo GetPocket en dispositivos varios" />
+            <div class="projects__description">
+              <h5 id="project1-title" class="projects__title">
+                Página de artículos tipo GetPocket
+              </h5>
+              <div class="projects__buttons">
+                <button class="button button--secondary button--disabled" aria-disabled="true" disabled
+                  aria-label="Demo no disponible">
+                  <span>Demo</span>
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
+                  </svg>
+                </button>
+                <a href="https://github.com/Acosta-gh/blog_MERN" class="button button--tertiary" role="link"
+                  aria-label="Código fuente en GitHub del proyecto Página de artículos tipo GetPocket" target="_blank"
+                  rel="noopener noreferrer">
+                  <span>Código</span>
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
+                  </svg>
+                </a>
+              </div>
+              <p class="projects__paragraph paragraph">
+                Este proyecto comenzó como un blog sencillo, pero con el
+                tiempo evolucionó hacia una plataforma de artículos inspirada
+                en GetPocket. Es un proyecto personal al que le tengo mucho
+                cariño y que planeo convertir en mi blog principal. Aunque aún
+                está en desarrollo, ya cuenta con una base sólida y suficiente
+                funcionalidad para formar parte de mi portafolio.
               </p>
+              <div class="projects__tags" aria-label="Tecnologías utilizadas en este proyecto">
+                <span class="projects__tag tag2">REACT</span>
+                <span class="projects__tag tag2">SCSS</span>
+                <span class="projects__tag tag2">MARIADB</span>
+                <span class="projects__tag tag2">NODEJS</span>
+                <span class="projects__tag tag2">EXPRESS</span>
+                <span class="projects__tag tag2">SEQUELIZE</span>
+              </div>
             </div>
-            <span class="divider" aria-hidden="true"></span>
-            <div class="description__media">
-              <!-- Foto personal -->
-              <img
-                src="./assets/images/me.webp"
-                alt="Foto mía sonriendo"
-                tabindex="0"
-              />
-              <p class="paragraph" tabindex="0">
-                Actualmente, estoy por egresar como
-                <span class="underline">técnico programador</span> de la
-                Universidad Nacional de Lomas de Zamora. A lo largo de mi
-                formación, he tenido la oportunidad de adquirir conocimientos
-                sólidos en programación y desarrollo web. Además, he completado
-                <span class="underline"
-                  >dos diplomaturas en programación web full stack</span
-                >, una en la UTN del Chaco y otra en ICARO, lo que me ha
-                permitido profundizar en tecnologías clave y estar al día con
-                las herramientas del mercado. <br /><br />
-                Me encanta capacitarme y explorar nuevas tecnologías, ya que
-                creo que el aprendizaje continuo es fundamental en el campo del
-                desarrollo. Estoy entusiasmado por aplicar mis conocimientos en
-                proyectos reales y contribuir a soluciones innovadoras.
+          </div>
+        </div>
+      </div>
+      <div class="projects__item js-scroll">
+        <div class="projects__content">
+          <div class="projects__card" role="group" aria-labelledby="project2-title" tabindex="0">
+            <img class="projects__image" src="./assets/images/debian-mockup-3devices.webp"
+              alt="Captura de pantalla del proyecto Página Debian rediseñada en dispositivos varios" />
+            <div class="projects__description">
+              <h5 id="project2-title" class="projects__title">
+                Página Debian rediseñada
+              </h5>
+              <div class="projects__buttons">
+                <button class="button button--secondary button--disabled" aria-disabled="true" disabled
+                  aria-label="Demo no disponible">
+                  <span>Demo</span>
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
+                  </svg>
+                </button>
+                <a href="https://github.com/Acosta-gh/debian-website-redesign_REACT" class="button button--tertiary"
+                  role="link" aria-label="Código fuente en GitHub del proyecto Página Debian rediseñada" target="_blank"
+                  rel="noopener noreferrer">
+                  <span>Código</span>
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
+                  </svg>
+                </a>
+              </div>
+              <p class="projects__paragraph paragraph">
+                Este proyecto es una reimaginación de la página oficial de
+                Debian, con un diseño moderno y responsivo. Fue desarrollado
+                utilizando React, Vite y SCSS en el frontend, y cuenta con una
+                pequeña API construida con Python y Flask para gestionar datos
+                dinámicos, como las publicaciones de noticias.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Sección de habilidades técnicas -->
-      <!-- scroll-container | Solo para animación-->
-      <section
-        class="skills scroll-container"
-        aria-labelledby="skills-title"
-        tabindex="-1"
-      >
-        <!-- js-scroll | Solo para animación-->
-        <div class="skills__content js-scroll" aria-live="polite">
-          <h2 class="skills__title subtitle" id="skills-title" tabindex="0">
-            Mis habilidades
-          </h2>
-          <p class="skills__description paragraph" tabindex="0">
-            Herramientas, Lenguajes y Frameworks que manejo.
-          </p>
-
-          <!-- Categoría Frontend con lista de tecnologías -->
-          <div
-            class="skills__category"
-            role="region"
-            aria-labelledby="frontend-title"
-            tabindex="0"
-          >
-            <h3 class="skills__category-title" id="frontend-title">
-              <svg
-                class="w-6 h-6 text-gray-800 dark:text-white"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 15v5m-3 0h6M4 11h16M5 15h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1Z"
-                />
-              </svg>
-              <span>Frontend</span>
-            </h3>
-            <ul class="skills__list" role="list" tabindex="0">
-              <li class="skills__item">HTML</li>
-              <li class="skills__item">CSS</li>
-              <li class="skills__item">SASS</li>
-              <li class="skills__item">JavaScript</li>
-              <li class="skills__item">React</li>
-              <li class="skills__item">Bootstrap</li>
-            </ul>
-          </div>
-
-          <!-- Categoría Backend con lista de tecnologías -->
-          <div
-            class="skills__category"
-            role="region"
-            aria-labelledby="backend-title"
-            tabindex="0"
-          >
-            <h3 class="skills__category-title" id="backend-title">
-              <svg
-                class="w-6 h-6 text-gray-800 dark:text-white"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 6c0 1.657-3.134 3-7 3S5 7.657 5 6m14 0c0-1.657-3.134-3-7-3S5 4.343 5 6m14 0v6M5 6v6m0 0c0 1.657 3.134 3 7 3s7-1.343 7-3M5 12v6c0 1.657 3.134 3 7 3s7-1.343 7-3v-6"
-                />
-              </svg>
-              <span>Backend</span>
-            </h3>
-            <ul class="skills__list" role="list" tabindex="0">
-              <li class="skills__item">Java</li>
-              <li class="skills__item">Python</li>
-              <li class="skills__item">PHP</li>
-              <li class="skills__item">Node.js</li>
-              <li class="skills__item">Express</li>
-              <li class="skills__item">Flask</li>
-              <li class="skills__item">Sequelize</li>
-              <li class="skills__item">JWT</li>
-              <li class="skills__item">REST APIs</li>
-              <li class="skills__item">MySQL</li>
-              <li class="skills__item">SQLite</li>
-              <li class="skills__item">MariaDB</li>
-            </ul>
-          </div>
-          <!-- Categoría Herramientas con lista de tecnologías -->
-          <div
-            class="skills__category"
-            role="region"
-            aria-labelledby="tools-title"
-            tabindex="0"
-          >
-            <h3 class="skills__category-title" id="tools-title">
-              <svg
-                class="w-6 h-6 text-gray-800 dark:text-white"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M7.58209 8.96025 9.8136 11.1917l-1.61782 1.6178c-1.08305-.1811-2.23623.1454-3.07364.9828-1.1208 1.1208-1.32697 2.8069-.62368 4.1363.14842.2806.42122.474.73509.5213.06726.0101.1347.0133.20136.0098-.00351.0666-.00036.1341.00977.2013.04724.3139.24069.5867.52125.7351 1.32944.7033 3.01552.4971 4.13627-.6237.8375-.8374 1.1639-1.9906.9829-3.0736l4.8107-4.8108c1.0831.1811 2.2363-.1454 3.0737-.9828 1.1208-1.1208 1.3269-2.80688.6237-4.13632-.1485-.28056-.4213-.474-.7351-.52125-.0673-.01012-.1347-.01327-.2014-.00977.0035-.06666.0004-.13409-.0098-.20136-.0472-.31386-.2406-.58666-.5212-.73508-1.3294-.70329-3.0155-.49713-4.1363.62367-.8374.83741-1.1639 1.9906-.9828 3.07365l-1.7788 1.77875-2.23152-2.23148-1.41419 1.41424Zm1.31056-3.1394c-.04235-.32684-.24303-.61183-.53647-.76186l-1.98183-1.0133c-.38619-.19746-.85564-.12345-1.16234.18326l-.86321.8632c-.3067.3067-.38072.77616-.18326 1.16235l1.0133 1.98182c.15004.29345.43503.49412.76187.53647l1.1127.14418c.3076.03985.61628-.06528.8356-.28461l.86321-.8632c.21932-.21932.32446-.52801.2846-.83561l-.14417-1.1127ZM19.4448 16.4052l-3.1186-3.1187c-.7811-.781-2.0474-.781-2.8285 0l-.1719.172c-.7811.781-.7811 2.0474 0 2.8284l3.1186 3.1187c.7811.781 2.0474.781 2.8285 0l.1719-.172c.7811-.781.7811-2.0474 0-2.8284Z"
-                />
-              </svg>
-              <span>Herramientas</span>
-            </h3>
-            <ul class="skills__list" role="list" tabindex="0">
-              <li class="skills__item">Git</li>
-              <li class="skills__item">GNU+Linux</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- Sección de proyectos -->
-      <!-- scroll-container | Solo para animación-->
-      <section
-        class="projects scroll-container"
-        aria-labelledby="projects-section-title"
-      >
-        <!-- js-scroll | Solo para animación-->
-        <div
-          class="js-scroll"
-          role="region"
-          aria-live="polite"
-          aria-atomic="true"
-        >
-          <h4 id="projects-section-title" class="projects__subtitle subtitle">
-            Mis proyectos
-          </h4>
-          <p class="projects__intro paragraph">
-            Algunos proyectos personales que he realizado
-          </p>
-        </div>
-
-        <div class="projects__item js-scroll">
-          <div class="projects__content">
-            <div
-              class="projects__card"
-              role="group"
-              aria-labelledby="project1-title"
-              tabindex="0"
-            >
-              <img
-                class="projects__image"
-                src="./assets/images/blog-mockup-3devices.webp"
-                alt="Captura de pantalla del proyecto Página de artículos tipo GetPocket en dispositivos varios"
-              />
-              <div class="projects__description">
-                <h5 id="project1-title" class="projects__title">
-                  Página de artículos tipo GetPocket
-                </h5>
-                <div class="projects__buttons">
-                  <button
-                    class="button button--secondary button--disabled"
-                    aria-disabled="true"
-                    disabled
-                    aria-label="Demo no disponible"
-                  >
-                    <span>Demo</span>
-                    <svg
-                      class="w-6 h-6 text-gray-800 dark:text-white"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778"
-                      />
-                    </svg>
-                  </button>
-                  <a
-                    href="https://github.com/Acosta-gh/blog_MERN"
-                    class="button button--tertiary"
-                    role="link"
-                    aria-label="Código fuente en GitHub del proyecto Página de artículos tipo GetPocket"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span>Código</span>
-                    <svg
-                      class="w-6 h-6 text-gray-800 dark:text-white"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778"
-                      />
-                    </svg>
-                  </a>
-                </div>
-                <p class="projects__paragraph paragraph">
-                  Este proyecto comenzó como un blog sencillo, pero con el
-                  tiempo evolucionó hacia una plataforma de artículos inspirada
-                  en GetPocket. Es un proyecto personal al que le tengo mucho
-                  cariño y que planeo convertir en mi blog principal. Aunque aún
-                  está en desarrollo, ya cuenta con una base sólida y suficiente
-                  funcionalidad para formar parte de mi portafolio.
-                </p>
-                <div
-                  class="projects__tags"
-                  aria-label="Tecnologías utilizadas en este proyecto"
-                >
-                  <span class="projects__tag tag2">REACT</span>
-                  <span class="projects__tag tag2">SCSS</span>
-                  <span class="projects__tag tag2">MARIADB</span>
-                  <span class="projects__tag tag2">NODEJS</span>
-                  <span class="projects__tag tag2">EXPRESS</span>
-                  <span class="projects__tag tag2">SEQUELIZE</span>
-                </div>
+              <div class="projects__tags" aria-label="Tecnologías utilizadas en este proyecto">
+                <span class="projects__tag tag2">REACT</span>
+                <span class="projects__tag tag2">SCSS</span>
+                <span class="projects__tag tag2">MARIADB</span>
+                <span class="projects__tag tag2">PYTHON</span>
+                <span class="projects__tag tag2">FLASK</span>
+                <span class="projects__tag tag2">SQLAlchemy</span>
+                <span class="projects__tag tag2">JWT</span>
               </div>
             </div>
           </div>
         </div>
-        <div class="projects__item js-scroll">
-          <div class="projects__content">
-            <div
-              class="projects__card"
-              role="group"
-              aria-labelledby="project2-title"
-              tabindex="0"
-            >
-              <img
-                class="projects__image"
-                src="./assets/images/debian-mockup-3devices.webp"
-                alt="Captura de pantalla del proyecto Página Debian rediseñada en dispositivos varios"
-              />
-              <div class="projects__description">
-                <h5 id="project2-title" class="projects__title">
-                  Página Debian rediseñada
-                </h5>
-                <div class="projects__buttons">
-                  <button
-                    class="button button--secondary button--disabled"
-                    aria-disabled="true"
-                    disabled
-                    aria-label="Demo no disponible"
-                  >
-                    <span>Demo</span>
-                    <svg
-                      class="w-6 h-6 text-gray-800 dark:text-white"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778"
-                      />
-                    </svg>
-                  </button>
-                  <a
-                    href="https://github.com/Acosta-gh/debian-website-redesign_REACT"
-                    class="button button--tertiary"
-                    role="link"
-                    aria-label="Código fuente en GitHub del proyecto Página Debian rediseñada"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span>Código</span>
-                    <svg
-                      class="w-6 h-6 text-gray-800 dark:text-white"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778"
-                      />
-                    </svg>
-                  </a>
-                </div>
-                <p class="projects__paragraph paragraph">
-                  Este proyecto es una reimaginación de la página oficial de
-                  Debian, con un diseño moderno y responsivo. Fue desarrollado
-                  utilizando React, Vite y SCSS en el frontend, y cuenta con una
-                  pequeña API construida con Python y Flask para gestionar datos
-                  dinámicos, como las publicaciones de noticias.
-                </p>
-                <div
-                  class="projects__tags"
-                  aria-label="Tecnologías utilizadas en este proyecto"
-                >
-                  <span class="projects__tag tag2">REACT</span>
-                  <span class="projects__tag tag2">SCSS</span>
-                  <span class="projects__tag tag2">MARIADB</span>
-                  <span class="projects__tag tag2">PYTHON</span>
-                  <span class="projects__tag tag2">FLASK</span>
-                  <span class="projects__tag tag2">SQLAlchemy</span>
-                  <span class="projects__tag tag2">JWT</span>
-                </div>
+      </div>
+      <div class="projects__item js-scroll">
+        <div class="projects__content">
+          <div class="projects__card" role="group" aria-labelledby="project3-title" tabindex="0">
+            <img class="projects__image" src="./assets/images/portfolio-mockup-3devices.webp"
+              alt="Vista previa del Portafolio Personal en varios dispositivos" />
+            <div class="projects__description">
+              <h5 id="project3-title" class="projects__title">
+                Portafolio Personal
+              </h5>
+              <div class="projects__buttons">
+                <button class="button button--secondary button--disabled" aria-disabled="true" disabled
+                  aria-label="Demo no disponible">
+                  <span>Demo</span>
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
+                  </svg>
+                </button>
+                <a href="https://github.com/Acosta-gh/Mi-Portafolio" class="button button--tertiary" role="link"
+                  aria-label="Código fuente en GitHub del Portafolio Personal" target="_blank"
+                  rel="noopener noreferrer">
+                  <span>Código</span>
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
+                  </svg>
+                </a>
+              </div>
+              <p class="projects__paragraph paragraph">
+                Este es mi portafolio personal, diseñado y desarrollado con un
+                enfoque en la simplicidad, el rendimiento y la accesibilidad.
+                He utilizado herramientas esenciales para garantizar que sea
+                liviano, eficiente y fácil de desplegar, incluso en
+                plataformas como GitHub Pages sin sacrificar un diseño
+                minimalista, responsivo y visualmente atractivo.
+              </p>
+
+              <div class="projects__tags" aria-label="Tecnologías utilizadas en este proyecto">
+                <span class="projects__tag tag2">HTML</span>
+                <span class="projects__tag tag2">SASS</span>
+                <span class="projects__tag tag2">JS</span>
               </div>
             </div>
           </div>
         </div>
-        <div class="projects__item js-scroll">
-          <div class="projects__content">
-            <div
-              class="projects__card"
-              role="group"
-              aria-labelledby="project3-title"
-              tabindex="0"
-            >
-              <img
-                class="projects__image"
-                src="./assets/images/portfolio-mockup-3devices.webp"
-                alt="Vista previa del Portafolio Personal en varios dispositivos"
-              />
-              <div class="projects__description">
-                <h5 id="project3-title" class="projects__title">
-                  Portafolio Personal
-                </h5>
-                <div class="projects__buttons">
-                  <button
-                    class="button button--secondary button--disabled"
-                    aria-disabled="true"
-                    disabled
-                    aria-label="Demo no disponible"
-                  >
-                    <span>Demo</span>
-                    <svg
-                      class="w-6 h-6 text-gray-800 dark:text-white"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778"
-                      />
-                    </svg>
-                  </button>
-                  <a
-                    href="https://github.com/Acosta-gh/Mi-Portafolio"
-                    class="button button--tertiary"
-                    role="link"
-                    aria-label="Código fuente en GitHub del Portafolio Personal"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span>Código</span>
-                    <svg
-                      class="w-6 h-6 text-gray-800 dark:text-white"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778"
-                      />
-                    </svg>
-                  </a>
-                </div>
-                <p class="projects__paragraph paragraph">
-                  Este es mi portafolio personal, diseñado y desarrollado con un
-                  enfoque en la simplicidad, el rendimiento y la accesibilidad.
-                  He utilizado herramientas esenciales para garantizar que sea
-                  liviano, eficiente y fácil de desplegar, incluso en
-                  plataformas como GitHub Pages sin sacrificar un diseño
-                  minimalista, responsivo y visualmente atractivo.
-                </p>
+      </div>
+      <div class="projects__item js-scroll">
+        <div class="projects__content">
+          <div class="projects__card" role="group" aria-labelledby="project-yagc-title" tabindex="0">
+            <img class="projects__image" src="./assets/images/yacg-mockup-desktop.webp"
+              alt="Vista previa de YAGC (Yet Another GUI for ClamAV) en escritorio" />
+            <div class="projects__description">
+              <h5 id="project-yagc-title" class="projects__title">
+                YAGC (Yet Another GUI for ClamAV)
+              </h5>
+              <div class="projects__buttons">
+                <a href="https://github.com/Acosta-gh/clamav-tkinter_PYTHON" class="button button--secondary"
+                  role="link" aria-label="Código fuente de YAGC en GitHub" target="_blank" rel="noopener noreferrer">
+                  <span>Código</span>
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
+                  </svg>
+                </a>
+              </div>
+              <p class="projects__paragraph paragraph">
+                YAGC es una interfaz gráfica de usuario (GUI) diseñada para
+                simplificar el uso de ClamAV, un software antivirus de código
+                abierto. Esta aplicación está inspirada en proyectos como
+                ClamWin y ClamTk, ofreciendo a los usuarios una experiencia
+                más accesible y visual para realizar escaneos antivirus en sus
+                sistemas de manera rápida y sencilla.
+              </p>
 
-                <div
-                  class="projects__tags"
-                  aria-label="Tecnologías utilizadas en este proyecto"
-                >
-                  <span class="projects__tag tag2">HTML</span>
-                  <span class="projects__tag tag2">SASS</span>
-                  <span class="projects__tag tag2">JS</span>
-                </div>
+              <div class="projects__tags" aria-label="Tecnologías utilizadas en este proyecto">
+                <span class="projects__tag tag2">PYTHON</span>
+                <span class="projects__tag tag2">Tkinter</span>
+                <span class="projects__tag tag2">GNU+LINUX</span>
+                <span class="projects__tag tag2">CLI</span>
               </div>
             </div>
           </div>
         </div>
-        <div class="projects__item js-scroll">
-          <div class="projects__content">
-            <div
-              class="projects__card"
-              role="group"
-              aria-labelledby="project-yagc-title"
-              tabindex="0"
-            >
-              <img
-                class="projects__image"
-                src="./assets/images/yacg-mockup-desktop.webp"
-                alt="Vista previa de YAGC (Yet Another GUI for ClamAV) en escritorio"
-              />
-              <div class="projects__description">
-                <h5 id="project-yagc-title" class="projects__title">
-                  YAGC (Yet Another GUI for ClamAV)
-                </h5>
-                <div class="projects__buttons">
-                  <a
-                    href="https://github.com/Acosta-gh/clamav-tkinter_PYTHON"
-                    class="button button--secondary"
-                    role="link"
-                    aria-label="Código fuente de YAGC en GitHub"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span>Código</span>
-                    <svg
-                      class="w-6 h-6 text-gray-800 dark:text-white"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778"
-                      />
-                    </svg>
-                  </a>
-                </div>
-                <p class="projects__paragraph paragraph">
-                  YAGC es una interfaz gráfica de usuario (GUI) diseñada para
-                  simplificar el uso de ClamAV, un software antivirus de código
-                  abierto. Esta aplicación está inspirada en proyectos como
-                  ClamWin y ClamTk, ofreciendo a los usuarios una experiencia
-                  más accesible y visual para realizar escaneos antivirus en sus
-                  sistemas de manera rápida y sencilla.
-                </p>
+      </div>
+    </section>
+  </main>
 
-                <div
-                  class="projects__tags"
-                  aria-label="Tecnologías utilizadas en este proyecto"
-                >
-                  <span class="projects__tag tag2">PYTHON</span>
-                  <span class="projects__tag tag2">Tkinter</span>
-                  <span class="projects__tag tag2">GNU+LINUX</span>
-                  <span class="projects__tag tag2">CLI</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer
-      class="footer target"
-      id="contact_me"
-      role="contentinfo"
-      aria-label="Contacto y redes sociales"
-    >
-      <div class="footer__content">
-        <h5 class="subtitle">Contáctame</h5>
-        <ul
-          class="footer__socials"
-          role="list"
-          aria-label="Enlaces a redes sociales"
-        >
-          <li>
-            <a
-              class="footer__socials-link"
-              href="https://github.com/Acosta-gh"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visitar mi perfil de GitHub (se abre en una nueva pestaña)"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-github"
-                viewBox="0 0 16 16"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path
-                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+  <footer class="footer target" id="contact_me" role="contentinfo" aria-label="Contacto y redes sociales">
+    <div class="footer__content">
+      <h5 class="subtitle">Contáctame</h5>
+      <ul class="footer__socials" role="list" aria-label="Enlaces a redes sociales">
+        <li>
+          <a class="footer__socials-link" href="https://github.com/Acosta-gh" target="_blank" rel="noopener noreferrer"
+            aria-label="Visitar mi perfil de GitHub (se abre en una nueva pestaña)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github"
+              viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
                  0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
                  1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
                  0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27
                  2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
                  2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
                  3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0
-                 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
-                />
-              </svg>
-              <span>GitHub</span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="footer__socials-link"
-              href="https://www.linkedin.com/in/cristian-acosta01"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visitar mi perfil de LinkedIn (se abre en una nueva pestaña)"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-linkedin"
-                viewBox="0 0 16 16"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path
-                  d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16
+                 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+            </svg>
+            <span>GitHub</span>
+          </a>
+        </li>
+        <li>
+          <a class="footer__socials-link" href="https://www.linkedin.com/in/cristian-acosta01" target="_blank"
+            rel="noopener noreferrer" aria-label="Visitar mi perfil de LinkedIn (se abre en una nueva pestaña)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin"
+              viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16
                  .513 16 1.146v13.708c0 .633-.526 1.146-1.175
                  1.146H1.175C.526 16 0 15.487 0 14.854zm4.943
                  12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0
@@ -803,45 +465,30 @@
                  1.232-.878.869 0 1.216.662 1.216
                  1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274
                  0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678
-                 0 7.225 0 7.225z"
-                />
-              </svg>
-              <span>LinkedIn</span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="footer__socials-link"
-              href="mailto:acosta01@vivaldi.net"
-              aria-label="Enviar un correo a acosta01@vivaldi.net"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-envelope-at-fill"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2zm-2 9.8V4.698l5.803 3.546zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 9.671V4.697l-5.803 3.546.338.208A4.5 4.5 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671"
-                />
-                <path
-                  d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791"
-                />
-              </svg>
-              <span>acosta@murena.io</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <a
-        href="/pages/javascript.html"
-        data-jslicense="1"
-        class="js_license_information"
-        >JavaScript license information</a
-      >
-    </footer>
-  </body>
-  <script type="module" src="./scripts/main.js"></script>
+                 0 7.225 0 7.225z" />
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+        </li>
+        <li>
+          <a class="footer__socials-link" href="mailto:acosta01@vivaldi.net"
+            aria-label="Enviar un correo a acosta01@vivaldi.net">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-envelope-at-fill" viewBox="0 0 16 16">
+              <path
+                d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2zm-2 9.8V4.698l5.803 3.546zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 9.671V4.697l-5.803 3.546.338.208A4.5 4.5 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671" />
+              <path
+                d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791" />
+            </svg>
+            <span>acosta@murena.io</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <a href="/pages/javascript.html" data-jslicense="1" class="js_license_information">JavaScript license
+      information</a>
+  </footer>
+</body>
+<script type="module" src="./scripts/main.js"></script>
+
 </html>
