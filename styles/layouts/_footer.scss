@@ -1,34 +1,94 @@
-@use '../abstracts/variables' as *;
-@use '../abstracts/mixins' as *;
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 .footer {
-    background-color: $secondary-color;
-    padding: 2% 15%;
-    padding-bottom: 7%;
-    color: $white;
-    margin-top: auto;
+  background-color: $secondary-color;
+  padding: 2% 15%;
+  padding-bottom: 7%;
+  color: $white;
+  margin-top: auto;
 
-    &__socials {
-        margin: 1rem 0;
-        margin: 10px 0;
-        list-style-type: none;
-        &-link {
-            margin: 10px 0;
-            color: $white;
-            display: flex;
-            align-items: center;
-            svg{
-                width: 20px;
-                //color: $white;
-                margin-right: 5px;
-                path{
-                    fill: $white;
-                }
-            }
-        }
+  .sr-only{
+    margin: .9rem 0 0 0;
+  }
+  &__lead {
+    margin-bottom: 1rem;
+    font-size: $font-size-medium;
+  }
+  &__text {
+    font-size: $font-size-medium;
+    margin: 1rem 0.5rem;
+  }
+
+  &__privacy {
+    font-size: $font-size-small;
+    margin-top: 1rem;
+    color: $sand;
+  }
+
+  &__form {
+    &-actions{
+      margin: 0 0 2rem 0;
+      button{
+        margin: 1rem 0 0 0;
+      }
     }
-    .subtitle{
-        color: $white;
-        margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+
+    input,
+    textarea,
+    .footer__input,
+    .footer__textarea {
+      margin: 0.5rem 0;
+      padding: 0.6rem 0;
+      border: none;
+      border-radius: 0;
+      background: none;
+      color: $white;
+      font-size: $font-size-base;
+      width: 100%;
+      font-family: $primary-font;
+      position: relative;
+
+      /* línea de acento (animada) */
+      background-image: linear-gradient($accent-color, $accent-color);
+      background-position: left bottom;    // posición en la parte inferior
+      background-repeat: no-repeat;
+      background-size: 0% 2px;           // pequeña línea visible por defecto , 
+      /* línea base sutil para cuando no hay interacción */
+      border-bottom: 1px solid rgba($white, 0.12);
+
+      transition: background-size 320ms cubic-bezier(0.2, 0.9, 0.3, 1),
+        box-shadow 220ms ease, color 180ms ease, border-color 220ms ease;
+      will-change: background-size;
+
+      &::placeholder {
+        color: rgba($white, 0.7);
+        font-family: $primary-font;
+        opacity: 0.9;
+      }
+
+      /* estados de foco / interacción */
+      &:focus,
+      &:focus-visible {
+        outline: none;
+        background-size: 100% 2px; /* línea de acento completa al enfocar */
+        box-shadow: 0 2px 0 rgba($accent-color, 0.12);
+        border-bottom-color: rgba($accent-color, 0.28); /* refuerza la base */
+      }
+
+      /* si ya hay contenido (no placeholder), muestra la línea completa */
+      &:not(:placeholder-shown) {
+        background-size: 100% 2px;
+        border-bottom-color: rgba($accent-color, 0.28);
+      }
     }
+  }
+
+  .subtitle {
+    color: $white;
+    margin-bottom: 3rem;
+  }
 }

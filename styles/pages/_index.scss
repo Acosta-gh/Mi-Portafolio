@@ -1,6 +1,6 @@
 @use "../abstracts/variables" as *; // Importa variables globales
-@use "../abstracts/mixins" as *;    // Importa mixins responsivos
-@use "../base/animations" as *;     // Importa definiciones de animaciones
+@use "../abstracts/mixins" as *; // Importa mixins responsivos
+@use "../base/animations" as *; // Importa definiciones de animaciones
 
 /**
  * Estructura base del documento
@@ -9,11 +9,11 @@
  */
 html,
 .body {
-  height: 100%;            // Altura completa del viewport
-  margin: 0;               // Elimina márgenes predeterminados
-  padding: 0;              // Elimina relleno predeterminado
-  display: flex;           // Usa flexbox para el diseño
-  flex-direction: column;  // Apila los elementos verticalmente
+  height: 100%; // Altura completa del viewport
+  margin: 0; // Elimina márgenes predeterminados
+  padding: 0; // Elimina relleno predeterminado
+  display: flex; // Usa flexbox para el diseño
+  flex-direction: column; // Apila los elementos verticalmente
   scroll-behavior: smooth; // Habilita desplazamiento suave para enlaces de ancla
 }
 
@@ -25,10 +25,10 @@ html,
  */
 .body {
   background-color: $primary-color; // Establece el fondo desde variables
-  flex: 1;                          // Ocupa todo el espacio disponible
-  display: flex;                    // Usa flexbox
-  flex-direction: column;           // Apila los hijos verticalmente
-  opacity: 0;                       // Comienza invisible para animación de aparición
+  flex: 1; // Ocupa todo el espacio disponible
+  display: flex; // Usa flexbox
+  flex-direction: column; // Apila los hijos verticalmente
+  opacity: 0; // Comienza invisible para animación de aparición
 }
 
 /**
@@ -45,24 +45,24 @@ html,
    */
   &__intro {
     padding: 1rem;
-    padding-top: 7rem;       // Relleno extra para compensar el encabezado fijo
-    margin-top: 5%;          // Espacio desde arriba
+    padding-top: 7rem; // Relleno extra para compensar el encabezado fijo
+    margin-top: 5%; // Espacio desde arriba
     color: $secondary-color; // Color del texto
-    min-height: 90vh;        // Al menos 90% de la altura del viewport
+    min-height: 90vh; // Al menos 90% de la altura del viewport
 
     // Ajustes responsivos para pantallas grandes
     @include respond-to(large) {
       margin-top: 7%;
-      min-height: 74.5vh;    // Ligeramente más corto en pantallas grandes
-      margin-left: 18%;      // Márgenes laterales más amplios para mejor lectura
+      min-height: 74.5vh; // Ligeramente más corto en pantallas grandes
+      margin-left: 18%; // Márgenes laterales más amplios para mejor lectura
       margin-right: 18%;
     }
 
     // Ajustes responsivos para pantallas medianas
     @include respond-to(medium) {
       margin-top: 7%;
-      min-height: 80vh;      // Ajusta altura para pantallas medianas
-      margin-left: 13%;      // Márgenes laterales moderados
+      min-height: 80vh; // Ajusta altura para pantallas medianas
+      margin-left: 13%; // Márgenes laterales moderados
       margin-right: 13%;
     }
 
@@ -111,7 +111,7 @@ html,
      */
     &-position {
       margin-top: 0.5rem;
-      min-height: 3rem;       // Altura fija para evitar cambios de diseño durante la escritura
+      min-height: 3rem; // Altura fija para evitar cambios de diseño durante la escritura
       font-size: $font-size-large;
       font-family: $primary-font;
       margin-bottom: 1rem;
@@ -126,7 +126,7 @@ html,
        * Cambia entre diferentes títulos de trabajo mediante JavaScript
        */
       &--type {
-        color: $accent-color;           // Color destacado para énfasis
+        color: $accent-color; // Color destacado para énfasis
         font-weight: $font-weight-bold; // Texto en negrita para impacto visual
       }
     }
@@ -171,7 +171,7 @@ html,
       // Ajustes responsivos para pantallas medianas
       @include respond-to(medium) {
         p {
-          width: 60%;        // Limita el ancho del párrafo para mejor legibilidad
+          width: 60%; // Limita el ancho del párrafo para mejor legibilidad
           margin: 0 0 1rem 0;
         }
       }
@@ -199,7 +199,7 @@ html,
         // Ajustes responsivos para pantallas grandes
         @include respond-to(large) {
           line-height: 25px;
-          width: 60%;  // Controla el ancho del texto para mejor legibilidad
+          width: 60%; // Controla el ancho del texto para mejor legibilidad
           margin: 0;
         }
       }
@@ -210,22 +210,22 @@ html,
       img {
         width: 180px;
         height: 250px;
-        object-fit: cover;                 // Mantiene la relación de aspecto
-        border-radius: 50% / 30%;          // Forma ovalada con esquinas redondeadas
+        object-fit: cover; // Mantiene la relación de aspecto
+        border-radius: 50% / 30%; // Forma ovalada con esquinas redondeadas
 
         display: block;
-        margin: 3rem auto;                 // Centra la imagen en móvil
+        margin: 3rem auto; // Centra la imagen en móvil
         box-shadow: 4px 3px 17px -11px rgba(0, 0, 0, 0.411); // Sombra sutil
 
         // Ajustes responsivos para pantallas medianas
         @include respond-to(medium) {
-          width: calc(180px * 1.6);        // 60% más grande en pantallas medianas
+          width: calc(180px * 1.6); // 60% más grande en pantallas medianas
           height: calc(250px * 1.6);
 
           // Ajustes de posición para crear interés visual
           position: relative;
-          bottom: 8rem;                    // Mueve la imagen hacia arriba
-          left: 2rem;                      // Ligero desplazamiento a la derecha
+          bottom: 8rem; // Mueve la imagen hacia arriba
+          left: 2rem; // Ligero desplazamiento a la derecha
           margin: 0 auto;
         }
       }
@@ -252,7 +252,7 @@ html,
      */
     &__category-title {
       display: flex;
-      align-items: center;          // Alinea verticalmente icono y texto
+      align-items: center; // Alinea verticalmente icono y texto
       font-family: $primary-font;
       font-size: $font-size-large;
       margin: 1rem 0;
@@ -263,7 +263,7 @@ html,
       svg {
         width: 2rem;
         height: 2rem;
-        margin-right: 0.5rem;      // Espacio entre icono y texto
+        margin-right: 0.5rem; // Espacio entre icono y texto
       }
     }
 
@@ -274,7 +274,7 @@ html,
     &__list {
       display: flex;
       flex-direction: row;
-      flex-wrap: wrap;              // Permite que los elementos se envuelvan a la siguiente línea
+      flex-wrap: wrap; // Permite que los elementos se envuelvan a la siguiente línea
       justify-content: flex-start;
     }
 
@@ -284,12 +284,12 @@ html,
      */
     &__item {
       margin: 0.2rem;
-      width: 6rem;                  // Ancho fijo para consistencia
-      background-color: $sand;      // Color de fondo claro
+      width: 6rem; // Ancho fijo para consistencia
+      background-color: $sand; // Color de fondo claro
       height: 2rem;
-      line-height: 2rem;            // Centra texto verticalmente
-      border-radius: 999px;         // Forma redondeada de píldora
-      text-align: center;           // Centra texto horizontalmente
+      line-height: 2rem; // Centra texto verticalmente
+      border-radius: 999px; // Forma redondeada de píldora
+      text-align: center; // Centra texto horizontalmente
       font-family: $primary-font;
       font-weight: $font-weight-medium;
     }
@@ -334,7 +334,7 @@ html,
       font-size: $font-size-large;
       font-weight: $font-weight-medium;
 
-       @include respond-to(large) {
+      @include respond-to(large) {
         font-size: $font-size-xlarge; // Aumenta el tamaño del título en pantallas grandes
       }
     }
@@ -350,16 +350,16 @@ html,
      * Estilo de la imagen del proyecto
      */
     &__image {
-      width: 100%;                     // Ancho completo en móvil
-      border-radius: 15px;             // Esquinas redondeadas
+      width: 100%; // Ancho completo en móvil
+      border-radius: 15px; // Esquinas redondeadas
       filter: drop-shadow(5px 5px 5px #222); // Efecto de sombra
 
       // Ajustes responsivos para pantallas medianas
       @include respond-to(medium) {
         height: auto;
-        width: 70%;                   // Ancho reducido en pantallas más grandes
+        width: 70%; // Ancho reducido en pantallas más grandes
         display: block;
-        margin: 0 auto;               // Centra la imagen
+        margin: 0 auto; // Centra la imagen
       }
     }
 
@@ -367,7 +367,7 @@ html,
      * Contenedor para detalles de descripción del proyecto
      */
     &__description {
-      border-radius: 15px;            // Esquinas redondeadas
+      border-radius: 15px; // Esquinas redondeadas
       padding: 0.5rem;
       margin-top: 5px;
     }
@@ -377,7 +377,7 @@ html,
      */
     &__tags {
       display: flex;
-      flex-wrap: wrap;                // Permite que las etiquetas se envuelvan
+      flex-wrap: wrap; // Permite que las etiquetas se envuelvan
       font-family: $primary-font;
     }
 
@@ -385,7 +385,7 @@ html,
      * Etiqueta de tecnología individual
      */
     &__tag {
-      margin-right: 5px;             // Espacio entre etiquetas
+      margin-right: 5px; // Espacio entre etiquetas
     }
 
     /**
@@ -394,7 +394,7 @@ html,
     &__buttons {
       margin: 1rem 0;
       position: relative;
-      right: 3px;                    // Ligero ajuste para alineación
+      right: 3px; // Ligero ajuste para alineación
     }
   }
 }

@@ -332,23 +332,95 @@ table {
   color: #ffffff;
   margin-top: auto;
 }
-.footer__socials {
-  margin: 1rem 0;
-  margin: 10px 0;
-  list-style-type: none;
+.footer .sr-only {
+  margin: 0.9rem 0 0 0;
 }
-.footer__socials-link {
-  margin: 10px 0;
-  color: #ffffff;
+.footer__lead {
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+}
+.footer__text {
+  font-size: 1.125rem;
+  margin: 1rem 0.5rem;
+}
+.footer__privacy {
+  font-size: 0.875rem;
+  margin-top: 1rem;
+  color: #eae3dc;
+}
+.footer__form-actions {
+  margin: 0 0 2rem 0;
+}
+.footer__form-actions button {
+  margin: 1rem 0 0 0;
+}
+.footer__form {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  margin: 1rem 0;
 }
-.footer__socials-link svg {
-  width: 20px;
-  margin-right: 5px;
+.footer__form input,
+.footer__form textarea,
+.footer__form .footer__input,
+.footer__form .footer__textarea {
+  margin: 0.5rem 0;
+  padding: 0.6rem 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  color: #ffffff;
+  font-size: 1rem;
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  position: relative;
+  /* línea de acento (animada) */
+  background-image: linear-gradient(#e37e54, #e37e54);
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  /* línea base sutil para cuando no hay interacción */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  transition: background-size 320ms cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 220ms ease, color 180ms ease, border-color 220ms ease;
+  will-change: background-size;
 }
-.footer__socials-link svg path {
-  fill: #ffffff;
+.footer__form input::placeholder,
+.footer__form textarea::placeholder,
+.footer__form .footer__input::placeholder,
+.footer__form .footer__textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: "Open Sans", sans-serif;
+  opacity: 0.9;
+}
+.footer__form input,
+.footer__form textarea,
+.footer__form .footer__input,
+.footer__form .footer__textarea {
+  /* estados de foco / interacción */
+}
+.footer__form input:focus, .footer__form input:focus-visible,
+.footer__form textarea:focus,
+.footer__form textarea:focus-visible,
+.footer__form .footer__input:focus,
+.footer__form .footer__input:focus-visible,
+.footer__form .footer__textarea:focus,
+.footer__form .footer__textarea:focus-visible {
+  outline: none;
+  background-size: 100% 2px; /* línea de acento completa al enfocar */
+  box-shadow: 0 2px 0 rgba(227, 126, 84, 0.12);
+  border-bottom-color: rgba(227, 126, 84, 0.28); /* refuerza la base */
+}
+.footer__form input,
+.footer__form textarea,
+.footer__form .footer__input,
+.footer__form .footer__textarea {
+  /* si ya hay contenido (no placeholder), muestra la línea completa */
+}
+.footer__form input:not(:placeholder-shown),
+.footer__form textarea:not(:placeholder-shown),
+.footer__form .footer__input:not(:placeholder-shown),
+.footer__form .footer__textarea:not(:placeholder-shown) {
+  background-size: 100% 2px;
+  border-bottom-color: rgba(227, 126, 84, 0.28);
 }
 .footer .subtitle {
   color: #ffffff;
@@ -378,39 +450,6 @@ table {
   align-items: center;
   padding: 10px 20px;
   /* En pantallas grandes, ajusta los márgenes laterales al 18% */
-  /* En pantallas medianas, reduce los márgenes laterales al 13% */
-  /* 
-   * Menú de selección de idioma
-   * --------------------------
-   * Botón que controla la apertura del menú desplegable de idiomas
-   */
-  /* 
-   * Logo del sitio 
-   * ------------
-   * Contiene la imagen del logo y posiblemente el nombre del sitio
-   */
-  /* 
-   * Lista principal de navegación 
-   * ----------------------------
-   * En móviles se muestra como menú desplegable,
-   * en escritorio como barra horizontal
-   */
-  /* 
-   * Lista desplegable de idiomas 
-   * --------------------------
-   * Inicialmente oculta, se muestra al hacer clic en el botón de idiomas
-   */
-  /* 
-   * Elementos de navegación e idiomas
-   * -------------------------------
-   * Estilo para enlaces de navegación y opciones de idioma
-   */
-  /* 
-   * Botón de menú hamburguesa
-   * -----------------------
-   * Solo visible en móviles, controla la apertura del menú principal
-   */
-  /* Líneas del menú hamburguesa */
 }
 @media (min-width: 992px) {
   .header__nav {
@@ -419,11 +458,21 @@ table {
     margin-right: 18%;
   }
 }
+.header__nav {
+  /* En pantallas medianas, reduce los márgenes laterales al 13% */
+}
 @media (min-width: 768px) {
   .header__nav {
     margin-left: 13%;
     margin-right: 13%;
   }
+}
+.header__nav {
+  /* 
+   * Menú de selección de idioma
+   * --------------------------
+   * Botón que controla la apertura del menú desplegable de idiomas
+   */
 }
 .header__nav-langmenu {
   background: none;
@@ -437,6 +486,13 @@ table {
 }
 .header__nav-langmenu .arrow {
   transition: transform 0.3s ease; /* Animación de rotación para el icono de flecha */
+}
+.header__nav {
+  /* 
+   * Logo del sitio 
+   * ------------
+   * Contiene la imagen del logo y posiblemente el nombre del sitio
+   */
 }
 .header__nav-logo {
   display: flex;
@@ -457,6 +513,14 @@ table {
     width: 40px; /* Logo ligeramente más grande en pantallas grandes */
     cursor: pointer;
   }
+}
+.header__nav {
+  /* 
+   * Lista principal de navegación 
+   * ----------------------------
+   * En móviles se muestra como menú desplegable,
+   * en escritorio como barra horizontal
+   */
 }
 .header__nav-list {
   background-color: #f6f4ef;
@@ -492,6 +556,13 @@ table {
     padding: 0;
   }
 }
+.header__nav {
+  /* 
+   * Lista desplegable de idiomas 
+   * --------------------------
+   * Inicialmente oculta, se muestra al hacer clic en el botón de idiomas
+   */
+}
 .header__nav-langlist {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
   max-height: 0rem; /* Inicialmente oculto */
@@ -502,12 +573,14 @@ table {
   padding: 0.1rem;
   margin-top: 5px;
   /* Elementos de la lista de idiomas */
-  /* En pantallas grandes, el menú de idiomas es un desplegable posicionado */
 }
 .header__nav-langlist .header__nav-langitem {
   margin-top: 0px;
   margin: 10px;
   cursor: pointer;
+}
+.header__nav-langlist {
+  /* En pantallas grandes, el menú de idiomas es un desplegable posicionado */
 }
 @media (min-width: 992px) {
   .header__nav-langlist {
@@ -532,10 +605,16 @@ table {
     margin: 0 12%;
   }
 }
+.header__nav {
+  /* 
+   * Elementos de navegación e idiomas
+   * -------------------------------
+   * Estilo para enlaces de navegación y opciones de idioma
+   */
+}
 .header__nav-item, .header__nav-lang {
   margin: 1rem;
   cursor: pointer;
-  /* Estilos específicos para pantallas grandes */
 }
 .header__nav-item a, .header__nav-lang a {
   display: block;
@@ -545,16 +624,19 @@ table {
   opacity: 0; /* Inicialmente invisible en móviles (hasta activación) */
   transition: opacity 0.3s ease;
 }
+.header__nav-item, .header__nav-lang {
+  /* Estilos específicos para pantallas grandes */
+}
 @media (min-width: 992px) {
+  .header__nav-item a, .header__nav-lang a {
+    width: 100%;
+    opacity: 1; /* Visible en escritorio */
+  }
   .header__nav-item, .header__nav-lang {
     font-size: 1.125rem;
     display: inline-block;
     position: relative;
     /* Efecto de subrayado animado en hover */
-  }
-  .header__nav-item a, .header__nav-lang a {
-    width: 100%;
-    opacity: 1; /* Visible en escritorio */
   }
   .header__nav-item::after, .header__nav-lang::after {
     content: "";
@@ -567,6 +649,13 @@ table {
     background-color: #e37e54;
     transition: transform 0.25s ease-out;
   }
+}
+.header__nav {
+  /* 
+   * Botón de menú hamburguesa
+   * -----------------------
+   * Solo visible en móviles, controla la apertura del menú principal
+   */
 }
 .header__nav-burguer {
   background: none;
@@ -583,6 +672,9 @@ table {
   .header__nav-burguer {
     display: none;
   }
+}
+.header__nav {
+  /* Líneas del menú hamburguesa */
 }
 @media (max-width: 1399px) {
   .header__nav-burguer-line {
@@ -700,21 +792,6 @@ html,
    * La sección hero con saludo, nombre y cargo
    * Ocupa toda la altura de la pantalla para crear una primera impresión fuerte
    */
-  /**
-   * Sección de "Sobre mí" / Descripción
-   * --------------------------------
-   * Contiene introducción personal e imagen
-   */
-  /**
-   * Sección de habilidades
-   * -------------------
-   * Muestra diferentes categorías de habilidades con insignias
-   */
-  /**
-   * Sección de proyectos
-   * -----------------
-   * Muestra proyectos de portafolio con imágenes, descripciones y etiquetas
-   */
 }
 .main__intro {
   padding: 1rem;
@@ -722,22 +799,6 @@ html,
   margin-top: 5%;
   color: #1e1e1e;
   min-height: 90vh;
-  /**
-   * Contenedor para el texto de saludo
-   * Usa flexbox para alinear múltiples elementos de texto horizontalmente
-   */
-  /**
-   * Estilo del texto de saludo
-   * Muestra un saludo dinámico basado en la hora del día mediante JavaScript
-   */
-  /**
-   * Estilo del nombre
-   * El encabezado principal que muestra el nombre de la persona
-   */
-  /**
-   * Estilo del cargo/título
-   * Muestra el título del trabajo con un efecto de escritura dinámico
-   */
 }
 @media (min-width: 992px) {
   .main__intro {
@@ -755,9 +816,21 @@ html,
     margin-right: 13%;
   }
 }
+.main__intro {
+  /**
+   * Contenedor para el texto de saludo
+   * Usa flexbox para alinear múltiples elementos de texto horizontalmente
+   */
+}
 .main__intro-salutation-container {
   display: flex;
   align-items: center;
+}
+.main__intro {
+  /**
+   * Estilo del texto de saludo
+   * Muestra un saludo dinámico basado en la hora del día mediante JavaScript
+   */
 }
 .main__intro-salutations {
   font-size: 1.125rem;
@@ -767,6 +840,12 @@ html,
   .main__intro-salutations {
     font-size: 1.5rem;
   }
+}
+.main__intro {
+  /**
+   * Estilo del nombre
+   * El encabezado principal que muestra el nombre de la persona
+   */
 }
 .main__intro-name {
   margin-top: 0.1rem;
@@ -779,25 +858,40 @@ html,
     font-size: 4.375rem;
   }
 }
+.main__intro {
+  /**
+   * Estilo del cargo/título
+   * Muestra el título del trabajo con un efecto de escritura dinámico
+   */
+}
 .main__intro-position {
   margin-top: 0.5rem;
   min-height: 3rem;
   font-size: 1.5rem;
   font-family: "Open Sans", sans-serif;
   margin-bottom: 1rem;
-  /**
-   * Elemento con efecto de escritura dinámica
-   * Cambia entre diferentes títulos de trabajo mediante JavaScript
-   */
 }
 @media (min-width: 992px) {
   .main__intro-position {
     font-size: 2rem;
   }
 }
+.main__intro-position {
+  /**
+   * Elemento con efecto de escritura dinámica
+   * Cambia entre diferentes títulos de trabajo mediante JavaScript
+   */
+}
 .main__intro-position--type {
   color: #e37e54;
   font-weight: 700;
+}
+.main {
+  /**
+   * Sección de "Sobre mí" / Descripción
+   * --------------------------------
+   * Contiene introducción personal e imagen
+   */
 }
 .main .description {
   padding: 2.3rem 2.5rem 5.3rem 2.5rem;
@@ -808,13 +902,6 @@ html,
   /**
    * Divisor visual que está oculto en móvil
    * Solo aparece en pantallas medianas y más grandes
-   */
-  /**
-   * Contenedor de texto de introducción
-   * Contiene el párrafo de introducción breve
-   */
-  /**
-   * Sección de medios que contiene imagen y biografía detallada
    */
 }
 .main .description .divider {
@@ -830,26 +917,36 @@ html,
     display: block;
   }
 }
+.main .description {
+  /**
+   * Contenedor de texto de introducción
+   * Contiene el párrafo de introducción breve
+   */
+}
 @media (min-width: 768px) {
   .main .description__intro p {
     width: 60%;
     margin: 0 0 1rem 0;
   }
 }
+.main .description {
+  /**
+   * Sección de medios que contiene imagen y biografía detallada
+   */
+}
 .main .description__media {
   gap: 3rem;
-  /**
-   * Texto de biografía detallada
-   */
-  /**
-   * Estilo de la imagen de perfil
-   */
 }
 @media (min-width: 768px) {
   .main .description__media {
     display: flex;
     flex-direction: row-reverse;
   }
+}
+.main .description__media {
+  /**
+   * Texto de biografía detallada
+   */
 }
 .main .description__media p {
   margin-bottom: 3rem;
@@ -861,6 +958,11 @@ html,
     width: 60%;
     margin: 0;
   }
+}
+.main .description__media {
+  /**
+   * Estilo de la imagen de perfil
+   */
 }
 .main .description__media img {
   width: 180px;
@@ -881,19 +983,15 @@ html,
     margin: 0 auto;
   }
 }
+.main {
+  /**
+   * Sección de habilidades
+   * -------------------
+   * Muestra diferentes categorías de habilidades con insignias
+   */
+}
 .main .skills {
   padding: 2.3rem 2.5rem 5.3rem 2.5rem;
-  /**
-   * Título de categoría con icono
-   */
-  /**
-   * Contenedor para insignias de habilidades
-   * Usa flexbox para envoltura responsiva
-   */
-  /**
-   * Insignia de habilidad individual
-   * Elementos en forma de píldora que muestran cada habilidad
-   */
 }
 @media (min-width: 768px) {
   .main .skills {
@@ -901,6 +999,11 @@ html,
     padding-right: 13%;
     margin-bottom: 2rem;
   }
+}
+.main .skills {
+  /**
+   * Título de categoría con icono
+   */
 }
 .main .skills__category-title {
   display: flex;
@@ -917,11 +1020,23 @@ html,
   height: 2rem;
   margin-right: 0.5rem;
 }
+.main .skills {
+  /**
+   * Contenedor para insignias de habilidades
+   * Usa flexbox para envoltura responsiva
+   */
+}
 .main .skills__list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
+}
+.main .skills {
+  /**
+   * Insignia de habilidad individual
+   * Elementos en forma de píldora que muestran cada habilidad
+   */
 }
 .main .skills__item {
   margin: 0.2rem;
@@ -934,36 +1049,16 @@ html,
   font-family: "Open Sans", sans-serif;
   font-weight: 500;
 }
+.main {
+  /**
+   * Sección de proyectos
+   * -----------------
+   * Muestra proyectos de portafolio con imágenes, descripciones y etiquetas
+   */
+}
 .main .projects {
   background-color: #ece3da;
   padding: 2.3rem 2.5rem 5.3rem 2.5rem;
-  /**
-   * Texto de introducción de la sección
-   */
-  /**
-   * Contenedor de proyecto individual
-   */
-  /**
-   * Estilo del título del proyecto
-   */
-  /**
-   * Texto de descripción del proyecto
-   */
-  /**
-   * Estilo de la imagen del proyecto
-   */
-  /**
-   * Contenedor para detalles de descripción del proyecto
-   */
-  /**
-   * Contenedor para etiquetas de tecnología
-   */
-  /**
-   * Etiqueta de tecnología individual
-   */
-  /**
-   * Contenedor para botones de acción del proyecto (demo/código)
-   */
 }
 @media (min-width: 768px) {
   .main .projects {
@@ -971,11 +1066,26 @@ html,
     padding-right: 13%;
   }
 }
+.main .projects {
+  /**
+   * Texto de introducción de la sección
+   */
+}
 .main .projects__intro {
   margin-bottom: 2rem;
 }
+.main .projects {
+  /**
+   * Contenedor de proyecto individual
+   */
+}
 .main .projects__item {
   margin-bottom: 3.7rem;
+}
+.main .projects {
+  /**
+   * Estilo del título del proyecto
+   */
 }
 .main .projects__title {
   text-align: left;
@@ -989,8 +1099,18 @@ html,
     font-size: 2rem;
   }
 }
+.main .projects {
+  /**
+   * Texto de descripción del proyecto
+   */
+}
 .main .projects__paragraph {
   margin-bottom: 1rem;
+}
+.main .projects {
+  /**
+   * Estilo de la imagen del proyecto
+   */
 }
 .main .projects__image {
   width: 100%;
@@ -1005,18 +1125,38 @@ html,
     margin: 0 auto;
   }
 }
+.main .projects {
+  /**
+   * Contenedor para detalles de descripción del proyecto
+   */
+}
 .main .projects__description {
   border-radius: 15px;
   padding: 0.5rem;
   margin-top: 5px;
+}
+.main .projects {
+  /**
+   * Contenedor para etiquetas de tecnología
+   */
 }
 .main .projects__tags {
   display: flex;
   flex-wrap: wrap;
   font-family: "Open Sans", sans-serif;
 }
+.main .projects {
+  /**
+   * Etiqueta de tecnología individual
+   */
+}
 .main .projects__tag {
   margin-right: 5px;
+}
+.main .projects {
+  /**
+   * Contenedor para botones de acción del proyecto (demo/código)
+   */
 }
 .main .projects__buttons {
   margin: 1rem 0;
