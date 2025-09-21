@@ -396,5 +396,19 @@ html,
       position: relative;
       right: 3px; // Ligero ajuste para alineación
     }
+
+    &__more-projects {
+      margin-top: 2rem;
+      
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      font-family: $primary-font;
+      &-title {
+      
+        font-size: $font-size-xlarge;
+      }
+    }
   }
 }

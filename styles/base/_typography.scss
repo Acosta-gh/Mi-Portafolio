@@ -21,4 +21,15 @@
     text-decoration: underline; 
     color: $accent-color; 
     font-weight: $font-weight-bold;
+
+    svg{
+        width: 20px;
+        height: 20px;
+        margin-bottom: -3px;
+
+        path{
+            stroke: $accent-color;
+            stroke-width: 2px;
+        }
+    }
 }
