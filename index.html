@@ -799,7 +799,6 @@
             ¿Te gustaría ver más proyectos?
           </h5>
           <a
-            href="#"
             class="button mainbutton button--disabled"
             aria-label="Ver más proyectos en la página de Proyectos"
             tabindex="0"
@@ -835,14 +834,15 @@
       <div class="footer__inner">
         <h5 class="subtitle footer__title">Contáctame</h5>
 
+        <!-- action="https://formsubmit.co/fb507270c197d1ac5eab80f825f708a1" -->
         <form
           class="footer__form"
-          action="https://formsubmit.co/fb507270c197d1ac5eab80f825f708a1"
+          action=""
           method="POST"
           target="_blank"
           aria-label="Formulario de contacto"
         >
-          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_captcha" value="true" />
           <input
             type="hidden"
             name="_subject"
@@ -880,7 +880,7 @@
           ></textarea>
 
           <div class="footer__form-actions">
-            <button type="submit" class="button mainbutton">
+            <button type="submit" class="button mainbutton button--disabled">
               Enviar
               <!-- SVG outline ligero para "Enviar" -->
               <svg
