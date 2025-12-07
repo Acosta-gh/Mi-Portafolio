@@ -1,47 +1,32 @@
 import { findElement } from "../utils/domUtils.js";
 
-export function saludo({
-  selector = ".main__intro-salutations",
-  autoInit = true,
-} = {}) {
-  let elementoIntro = null;
-
-  function obtenerSaludoSegunHora() {
-    const hora = new Date().getHours();
-    const lang = document.documentElement.lang || navigator.language || "es";
-    const esIngles = String(lang).toLowerCase().startsWith("en");
-    if (esIngles) {
-      if (hora < 12) return "Good morning";
-      if (hora < 18) return "Good afternoon";
-      return "Good evening";
-    } else {
-      if (hora < 12) return "Buenos días";
-      if (hora < 18) return "Buenas tardes";
-      return "Buenas noches";
-    }
+export function actualizarSaludo(selector = ".main__intro-salutations") {
+  const elementoIntro = findElement(selector);
+  
+  if (!elementoIntro) {
+    return;
   }
 
-  function mostrarSaludo() {
-    elementoIntro = findElement(selector);
-    if (!elementoIntro) {
-      console.warn(`No se encontró el elemento ${selector}`);
-      return;
-    }
+  const lang = document.documentElement.lang || "es";
+  const esIngles = lang.toLowerCase().startsWith("en");
 
-    elementoIntro.textContent = obtenerSaludoSegunHora();
+  const hora = new Date().getHours();
+  let textoSaludo = "";
+
+  if (esIngles) {
+    if (hora < 12) textoSaludo = "Good morning";
+    else if (hora < 18) textoSaludo = "Good afternoon";
+    else textoSaludo = "Good evening";
+  } else {
+    if (hora < 12) textoSaludo = "Buenos días";
+    else if (hora < 19) textoSaludo = "Buenas tardes"; 
+    else textoSaludo = "Buenas noches";
   }
 
-  function init() {
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", mostrarSaludo, {
-        once: true,
-      });
-    } else {
-      mostrarSaludo();
-    }
-  }
-
-  if (autoInit) init();
-
-  return { init, mostrarSaludo };
+  elementoIntro.textContent = textoSaludo;
 }
+
+export const saludo = ({ selector = ".main__intro-salutations" } = {}) => {
+    actualizarSaludo(selector);
+    return { mostrarSaludo: () => actualizarSaludo(selector) };
+};
