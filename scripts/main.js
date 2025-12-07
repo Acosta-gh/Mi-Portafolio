@@ -1,38 +1,42 @@
-/**
- * Copyright 2025 Cristian Darío Acosta
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-import FadeEffect from './components/fadeEffect.js';
-import Navbar from './components/navbar.js';
-import ScrollAnimations from './components/scrollAnimations.js';
-import Greeting from './components/greeting.js';
-import Typewriter from './components/typewriter.js';
-import { findElement } from './utils/domUtils.js';
+import ScrollAnimations from "./components/scrollAnimations.js";
+import { saludo } from "./components/greeting.js";
+import { initI18n, setLanguage, getCurrentTranslation } from "./utils/i18n.js"; 
+import { fadeEffect } from "./components/fadeEffect.js";
+import { barraNavegacion } from "./components/navbar.js";
+import { typewriter } from "./components/typewriter.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Inicializar componentes
-  const fadeEffect = new FadeEffect();
-  const navbar = new Navbar();
-  const scrollAnimations = new ScrollAnimations();
-  const greeting = new Greeting();
+  new ScrollAnimations();
+  fadeEffect();
+  barraNavegacion();
+  saludo();
   
-  // Inicializar el efecto de tipeo
-  const introJobPositions = findElement(".main__intro-position--type");
-  if (introJobPositions) {
-    const typewriter = new Typewriter(
-      introJobPositions, 
-      ["frontend", "backend", "full-stack"]
-    );
+  initI18n();
+
+  const btnEs = document.querySelector("#btn-es");
+  const btnEn = document.querySelector("#btn-en");
+  if (btnEs) btnEs.addEventListener("click", () => setLanguage("es"));
+  if (btnEn) btnEn.addEventListener("click", () => setLanguage("en"));
+
+  const introJobPositions = document.querySelector(".main__intro-position--type");
+  let typewriterInstance = null; 
+
+  function startTypewriter() {
+    if (!introJobPositions) return;
+
+    if (typewriterInstance) {
+        typewriterInstance.stop();
+    }
+
+    const currentData = getCurrentTranslation();
+    const words = currentData.hero.jobs; 
+
+    typewriterInstance = typewriter(introJobPositions, words);
   }
+
+  startTypewriter();
+
+  document.addEventListener('language-changed', () => {
+    startTypewriter();
+  });
 });

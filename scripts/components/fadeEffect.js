@@ -1,76 +1,72 @@
-// fade-effect.js
-import { findElement } from '../utils/domUtils.js';
+import { findElement } from "../utils/domUtils.js";
 
-/**
- * Componente para aplicar un efecto de fade-in al cargar o al invocar.
- * - Usa requestAnimationFrame
- * - Respeta prefers-reduced-motion
- * - Permite selector, duración (ms) y autoInit (boolean)
- * - Expone destroy() para cleanup
- */
-export default class FadeEffect {
-  constructor({ selector = 'body', duration = 500, autoInit = true } = {}) {
-    this.selector = selector;
-    this.duration = Math.max(0, duration);
-    this.rafId = null;
-    this.startTime = null;
-    this.element = null;
-    if (autoInit) this.init();
+export function fadeEffect({
+  selector = "body",
+  duration = 500,
+  autoInit = true,
+} = {}) {
+  let element = null;
+  let rafId = null;
+  let startTime = null;
+  const dur = Math.max(0, duration);
+
+  function cleanupStyle() {
+    if (!element) return;
+    element.style.willChange = "";
+    element.style.opacity = "1";
   }
 
-  init() {
-    // Si el usuario prefiere reducir movimiento, no animamos
-    const media = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+  function start() {
+    element = findElement(selector);
+    if (!element) return;
+    element.style.opacity = "0";
+    element.style.willChange = "opacity";
+    startTime = null;
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(1, elapsed / Math.max(1, dur));
+
+      element.style.opacity = String(progress);
+
+      if (progress < 1) {
+        rafId = window.requestAnimationFrame(step);
+      } else {
+        cleanupStyle();
+      }
+    }
+
+    rafId = window.requestAnimationFrame(step);
+  }
+
+  function init() {
+    const media =
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)");
     if (media && media.matches) {
-      const el = findElement(this.selector);
+      const el = findElement(selector);
       if (el) el.style.opacity = 1;
       return;
     }
 
-    // Esperar DOMContentLoaded para SPAs o scripts tardíos
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => this.start(), { once: true });
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", start, { once: true });
     } else {
-      this.start();
+      start();
     }
   }
 
-  start() {
-    this.element = findElement(this.selector);
-    if (!this.element) return;
-
-    this.element.style.opacity = '0';
-    this.element.style.willChange = 'opacity';
-    this.startTime = null;
-
-    const step = (timestamp) => {
-      if (!this.startTime) this.startTime = timestamp;
-      const elapsed = timestamp - this.startTime;
-      const progress = Math.min(1, elapsed / Math.max(1, this.duration));
-      this.element.style.opacity = String(progress);
-      if (progress < 1) {
-        this.rafId = window.requestAnimationFrame(step);
-      } else {
-        this.cleanupStyle();
-      }
-    };
-
-    this.rafId = window.requestAnimationFrame(step);
-  }
-
-  cleanupStyle() {
-    if (!this.element) return;
-    this.element.style.willChange = '';
-    // dejar opacity en 1 explícitamente y eliminar inline si prefieres
-    this.element.style.opacity = '1';
-  }
-
-  destroy() {
-    if (this.rafId) {
-      window.cancelAnimationFrame(this.rafId);
-      this.rafId = null;
+  function destroy() {
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
     }
-    this.startTime = null;
-    this.element = null;
+    element = null;
+    startTime = null;
   }
+
+  if (autoInit) init();
+
+  return { init, start, destroy };
 }

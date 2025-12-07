@@ -1,14 +1,5 @@
 import { findElements } from "../utils/domUtils.js";
 
-/**
- * Componente para manejar animaciones basadas en el scroll.
- * - Comentarios y nombres en español.
- * - Usa IntersectionObserver cuando está disponible (más eficiente).
- * - Fallback con scroll + requestAnimationFrame si no hay soporte.
- * - Respeta prefers-reduced-motion.
- * - Selectores y clases configurables.
- * - Expone destroy() para limpiar listeners/observers.
- */
 export default class AnimacionesScroll {
   constructor({
     selector = '.js-scroll',
@@ -35,13 +26,10 @@ export default class AnimacionesScroll {
   }
 
   init() {
-    // Obtener elementos mediante la utilidad (soporta carga dinámica posterior si se vuelve a llamar)
     this.elementos = findElements(this.selector);
 
-    // Respectar preferencia de reducir movimiento
     const mediaReduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
     if (mediaReduce && mediaReduce.matches) {
-      // Si el usuario prefirió reducir movimiento, marcar todos como visibles sin animación
       this.elementos.forEach((el) => el.classList.add(this.claseActiva));
       return;
     }
@@ -52,14 +40,12 @@ export default class AnimacionesScroll {
       this.setupFallback();
     }
 
-    // Ejecutar una comprobación inicial para los elementos ya visibles (solo para fallback)
     if (!('IntersectionObserver' in window)) {
       this.handleScroll(); // run once
     }
   }
 
   setupObserver() {
-    // Crear IntersectionObserver con bind para poder desconectarlo luego
     this.observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -70,7 +56,6 @@ export default class AnimacionesScroll {
               this.observer.unobserve(el);
             }
           } else {
-            // Si no queremos que permanezca visible, remover la clase
             if (!this.observarUnaVez) {
               el.classList.remove(this.claseActiva);
             }
@@ -85,14 +70,12 @@ export default class AnimacionesScroll {
     );
 
     this.elementos.forEach((el) => {
-      // Mejorar rendimiento: indicar intención de animar
       el.style.willChange = 'opacity, transform';
       this.observer.observe(el);
     });
   }
 
   setupFallback() {
-    // Fallback usando scroll + requestAnimationFrame (debounce)
     this._scrollHandler = this.handleScroll.bind(this);
     window.addEventListener('scroll', this._scrollHandler, { passive: true });
     window.addEventListener('resize', this._scrollHandler, { passive: true });
@@ -119,7 +102,6 @@ export default class AnimacionesScroll {
   }
 
   handleScroll() {
-    // Debounce con requestAnimationFrame
     if (this._rafId) return;
     this._rafId = requestAnimationFrame(() => {
       this.elementos.forEach((el) => {
@@ -134,14 +116,12 @@ export default class AnimacionesScroll {
   }
 
   refresh() {
-    // Releer elementos del DOM (útil en SPAs o cuando se inyecta contenido dinámico)
-    this.destroy(); // limpiar antes
+    this.destroy(); 
     this.elementos = findElements(this.selector);
     this.init();
   }
 
   destroy() {
-    // Limpiar observer o listeners
     if (this.observer) {
       this.observer.disconnect();
       this.observer = null;
@@ -156,7 +136,6 @@ export default class AnimacionesScroll {
       this._rafId = null;
     }
 
-    // Opcional: limpiar estilos will-change si lo agregamos
     this.elementos.forEach((el) => {
       if (el && el.style) {
         el.style.willChange = '';

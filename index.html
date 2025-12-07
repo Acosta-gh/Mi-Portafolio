@@ -38,7 +38,9 @@
           d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
         />
       </svg>
-      <span>Página en constante desarrollo.</span>
+      <span data-i18n="hero.in_construction"
+        >Página en constante desarrollo.</span
+      >
     </div>
 
     <!-- Header con navegación -->
@@ -55,10 +57,14 @@
         <!-- Lista de enlaces de navegación -->
         <ul class="header__nav-list">
           <li class="header__nav-item">
-            <a href="#" aria-current="page">Inicio</a>
+            <a href="#" aria-current="page" data-i18n="nav.home">Inicio</a>
           </li>
-          <li class="header__nav-item"><a href="#about_me">Sobre Mi</a></li>
-          <li class="header__nav-item"><a href="#contact_me">Contáctame</a></li>
+          <li class="header__nav-item">
+            <a href="#about_me" data-i18n="nav.about">Sobre Mi</a>
+          </li>
+          <li class="header__nav-item">
+            <a href="#contact_me" data-i18n="nav.contact">Contáctame</a>
+          </li>
           <!-- Selector de idiomas con menú desplegable -->
           <li class="header__nav-lang">
             <button
@@ -112,10 +118,10 @@
               aria-labelledby="lang-menu-button"
             >
               <li class="header__nav-langitem" role="menuitem">
-                <a class="no-select" href="">Español</a>
+                <a class="no-select" id="btn-es">Español</a>
               </li>
               <li class="header__nav-langitem" role="menuitem">
-                <a class="no-select" href="pages/en/index.html">English</a>
+                <a class="no-select" id="btn-en">English</a>
               </li>
             </ul>
           </li>
@@ -140,25 +146,28 @@
         <!-- El saludo se inserta dinámicamente con JavaScript según la hora del día -->
         <div class="main__intro-salutation-container">
           <p class="main__intro-salutations" aria-hidden="true"></p>
-          <p class="main__intro-salutations">, mi nombre es.</p>
+          <p class="main__intro-salutations" data-i18n="hero.greeting_suffix">
+            , mi nombre es.
+          </p>
         </div>
         <h1 class="main__intro-name" id="intro-title" tabindex="0">
           Cristian Darío Acosta
         </h1>
         <h2 class="main__intro-position" tabindex="0">
-          Y soy un desarrollador
-          <!-- Efecto de tipeo generado con JavaScript -->
+          <span data-i18n="hero.role_prefix">Y soy un desarrollador</span>
+
           <span class="main__intro-position--type" aria-live="polite"></span>
         </h2>
         <!-- Botón para descargar CV (actualmente deshabilitado) -->
         <a
           href="assets/docs/cvES.pdf"
           class="button mainbutton"
+          id="cv-download-btn" 
           aria-disabled="true"
           tabindex="0"
           aria-label="Descargar CV"
         >
-          <span>Descargar CV</span>
+          <span data-i18n="hero.cv_button">Descargar CV</span>
           <svg
             class="w-6 h-6 text-gray-800 dark:text-white"
             aria-hidden="true"
@@ -190,10 +199,17 @@
       >
         <!-- js-scroll | Solo para animación-->
         <div class="js-scroll slideup" aria-live="polite">
-          <h3 class="subtitle" id="about-me-title" tabindex="0">Sobre mí</h3>
+          <h3
+            class="subtitle"
+            id="about-me-title"
+            tabindex="0"
+            data-i18n="about.title"
+          >
+            Sobre mí
+          </h3>
           <div class="description__content">
             <div class="description__intro">
-              <p class="paragraph" tabindex="0">
+              <p class="paragraph" tabindex="0" data-i18n="about.intro">
                 Soy un programador con conocimientos en PERN y LAMP. Me apasiona
                 el desarrollo web, el código abierto y siempre estoy buscando
                 nuevos desafíos para seguir aprendiendo y mejorando mis
@@ -207,12 +223,16 @@
                 src="./assets/images/me.webp"
                 alt="Foto mía sonriendo"
                 tabindex="0"
+                data-i18n-alt="about.me_alt"
               />
               <p class="paragraph" tabindex="0">
-                Técnico Programador egresado de la
+                <span data-i18n="about.university_prefix"
+                  >Técnico Programador egresado de la</span
+                >
                 <a
                   href="https://www.dropbox.com/scl/fi/hbjr7gcglo6zfntacsz0f/CREUS.pdf?rlkey=45mjkgusztz38ek81b31bixve&st=qj5f61h1&dl=0"
                   class="underline"
+                  data-i18n="about.university_name"
                 >
                   Universidad Nacional de Lomas de Zamora
                   <svg
@@ -233,14 +253,17 @@
                     />
                   </svg>
                 </a>
-                con el mejor promedio de la cohorte. Cuento con una sólida base
-                en desarrollo de software, complementada con una especialización
-                en Full Stack Web Development a través de diplomaturas en la
+                <span data-i18n="about.university_suffix">
+                  con el mejor promedio de la cohorte. Cuento con una sólida
+                  base en desarrollo de software, complementada con una
+                  especialización en Full Stack Web Development a través de
+                  diplomaturas en la
+                </span>
                 <a
                   href="https://www.dropbox.com/scl/fi/zkqlypqkcg6wkwsk98ipo/cert_aprob_57362_2669_2_2023-04-05-15-51-03.pdf?rlkey=ybxtmm45xqhgq4kfzj7q2m3zt&e=1&st=utjnnx8o&dl=0"
                   class="underline"
                 >
-                  UTN del Chaco
+                  <span data-i18n="about.utn_name"> UTN del Chaco </span>
                   <svg
                     class="w-6 h-6 text-gray-800 dark:text-white"
                     aria-hidden="true"
@@ -259,12 +282,12 @@
                     />
                   </svg>
                 </a>
-                e
+                <span data-i18n="about.icaro_connector">e</span>
                 <a
                   href="https://www.dropbox.com/scl/fi/ny97ppgshy9wp9siybewm/Cristian-Dar-o-Acosta-WEB240103.pdf?rlkey=pawpq4rp1c65pbx15c80yedfm&e=1&st=6mpiade9&dl=0"
                   class="underline"
                 >
-                  ICARO
+                  <span data-i18n="about.icaro_name">ICARO</span>
                   <svg
                     class="w-6 h-6 text-gray-800 dark:text-white"
                     aria-hidden="true"
@@ -283,10 +306,12 @@
                     />
                   </svg> </a
                 >. <br /><br />
-                Me enfoco en la mejora continua y la adopción de nuevas
-                tecnologías para construir soluciones eficientes y escalables.
-                Actualmente, busco aportar valor en proyectos desafiantes que
-                requieran código limpio y metodologías modernas.
+                <span data-i18n="about.closing">
+                  Me enfoco en la mejora continua y la adopción de nuevas
+                  tecnologías para construir soluciones eficientes y escalables.
+                  Actualmente, busco aportar valor en proyectos desafiantes que
+                  requieran código limpio y metodologías modernas.
+                </span>
               </p>
             </div>
           </div>
@@ -302,10 +327,19 @@
       >
         <!-- js-scroll | Solo para animación-->
         <div class="skills__content js-scroll" aria-live="polite">
-          <h2 class="skills__title subtitle" id="skills-title" tabindex="0">
+          <h2
+            class="skills__title subtitle"
+            id="skills-title"
+            tabindex="0"
+            data-i18n="skills.title"
+          >
             Mis habilidades
           </h2>
-          <p class="skills__description paragraph" tabindex="0">
+          <p
+            class="skills__description paragraph"
+            tabindex="0"
+            data-i18n="skills.description"
+          >
             Herramientas, Lenguajes y Frameworks que manejo.
           </p>
 
@@ -413,7 +447,7 @@
                   d="M7.58209 8.96025 9.8136 11.1917l-1.61782 1.6178c-1.08305-.1811-2.23623.1454-3.07364.9828-1.1208 1.1208-1.32697 2.8069-.62368 4.1363.14842.2806.42122.474.73509.5213.06726.0101.1347.0133.20136.0098-.00351.0666-.00036.1341.00977.2013.04724.3139.24069.5867.52125.7351 1.32944.7033 3.01552.4971 4.13627-.6237.8375-.8374 1.1639-1.9906.9829-3.0736l4.8107-4.8108c1.0831.1811 2.2363-.1454 3.0737-.9828 1.1208-1.1208 1.3269-2.80688.6237-4.13632-.1485-.28056-.4213-.474-.7351-.52125-.0673-.01012-.1347-.01327-.2014-.00977.0035-.06666.0004-.13409-.0098-.20136-.0472-.31386-.2406-.58666-.5212-.73508-1.3294-.70329-3.0155-.49713-4.1363.62367-.8374.83741-1.1639 1.9906-.9828 3.07365l-1.7788 1.77875-2.23152-2.23148-1.41419 1.41424Zm1.31056-3.1394c-.04235-.32684-.24303-.61183-.53647-.76186l-1.98183-1.0133c-.38619-.19746-.85564-.12345-1.16234.18326l-.86321.8632c-.3067.3067-.38072.77616-.18326 1.16235l1.0133 1.98182c.15004.29345.43503.49412.76187.53647l1.1127.14418c.3076.03985.61628-.06528.8356-.28461l.86321-.8632c.21932-.21932.32446-.52801.2846-.83561l-.14417-1.1127ZM19.4448 16.4052l-3.1186-3.1187c-.7811-.781-2.0474-.781-2.8285 0l-.1719.172c-.7811.781-.7811 2.0474 0 2.8284l3.1186 3.1187c.7811.781 2.0474.781 2.8285 0l.1719-.172c.7811-.781.7811-2.0474 0-2.8284Z"
                 />
               </svg>
-              <span>Herramientas</span>
+              <span data-i18n="skills.tools">Herramientas</span>
             </h3>
             <ul class="skills__list" role="list" tabindex="0">
               <li class="skills__item">Git</li>
@@ -436,10 +470,14 @@
           aria-live="polite"
           aria-atomic="true"
         >
-          <h4 id="projects-section-title" class="projects__subtitle subtitle">
+          <h4
+            id="projects-section-title"
+            class="projects__subtitle subtitle"
+            data-i18n="projects.title"
+          >
             Mis proyectos
           </h4>
-          <p class="projects__intro paragraph">
+          <p class="projects__intro paragraph" data-i18n="projects.intro">
             Algunos proyectos personales que he realizado
           </p>
         </div>
@@ -458,7 +496,11 @@
                 alt="Captura de pantalla del proyecto Página de artículos headless en dispositivos varios"
               />
               <div class="projects__description">
-                <h5 id="project1-title" class="projects__title">
+                <h5
+                  id="project1-title"
+                  class="projects__title"
+                  data-i18n="projects.p1_title"
+                >
                   Página de artículos headless
                 </h5>
                 <div class="projects__buttons">
@@ -495,7 +537,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <span>Código</span>
+                    <span data-i18n="projects.code_btn">Código</span>
                     <svg
                       class="w-6 h-6 text-gray-800 dark:text-white"
                       aria-hidden="true"
@@ -515,7 +557,10 @@
                     </svg>
                   </a>
                 </div>
-                <p class="projects__paragraph paragraph">
+                <p
+                  class="projects__paragraph paragraph"
+                  data-i18n="projects.p1_desc"
+                >
                   Este es un sitio web de artículos con arquitectura headless.
                   Permite crear y administrar artículos en Markdown, subir
                   imágenes, gestionar usuarios y mucho más. Es ideal como base
@@ -550,15 +595,20 @@
                 alt="Captura de pantalla del proyecto Página Debian rediseñada en dispositivos varios"
               />
               <div class="projects__description">
-                <h5 id="project2-title" class="projects__title">
+                <h5
+                  id="project2-title"
+                  class="projects__title"
+                  data-i18n="projects.p2_title"
+                >
                   Página Debian rediseñada
                 </h5>
                 <div class="projects__buttons">
-                  <button
-                    class="button button--secondary button--disabled"
+                  <a
+                    class="button button--secondary"
                     aria-disabled="true"
                     disabled
                     aria-label="Demo no disponible"
+                    href="https://acosta-gh.github.io/Debian-Website-Redesign-----React-Sass/"
                   >
                     <span>Demo</span>
                     <svg
@@ -578,7 +628,7 @@
                         d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778"
                       />
                     </svg>
-                  </button>
+                  </a>
                   <a
                     href="https://github.com/Acosta-gh/debian-website-redesign_REACT"
                     class="button button--tertiary"
@@ -587,7 +637,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <span>Código</span>
+                    <span data-i18n="projects.code_btn">Código</span>
                     <svg
                       class="w-6 h-6 text-gray-800 dark:text-white"
                       aria-hidden="true"
@@ -607,7 +657,10 @@
                     </svg>
                   </a>
                 </div>
-                <p class="projects__paragraph paragraph">
+                <p
+                  class="projects__paragraph paragraph"
+                  data-i18n="projects.p2_desc"
+                >
                   Este proyecto es una reimaginación de la página oficial de
                   Debian, con un diseño moderno y responsivo. Fue desarrollado
                   utilizando React, Vite y SCSS en el frontend, y cuenta con una
@@ -644,7 +697,11 @@
                 alt="Vista previa del Portafolio Personal en varios dispositivos"
               />
               <div class="projects__description">
-                <h5 id="project3-title" class="projects__title">
+                <h5
+                  id="project3-title"
+                  class="projects__title"
+                  data-i18n="projects.p3_title"
+                >
                   Portafolio Personal
                 </h5>
                 <div class="projects__buttons">
@@ -682,7 +739,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <span>Código</span>
+                    <span data-i18n="projects.code_btn">Código</span>
 
                     <svg
                       class="w-6 h-6 text-gray-800 dark:text-white"
@@ -703,7 +760,10 @@
                     </svg>
                   </a>
                 </div>
-                <p class="projects__paragraph paragraph">
+                <p
+                  class="projects__paragraph paragraph"
+                  data-i18n="projects.p3_desc"
+                >
                   Este es mi portafolio personal, diseñado y desarrollado con un
                   enfoque en la simplicidad, el rendimiento y la accesibilidad.
                   He utilizado herramientas esenciales para garantizar que sea
@@ -738,7 +798,11 @@
                 alt="Vista previa de YAGC (Yet Another GUI for ClamAV) en escritorio"
               />
               <div class="projects__description">
-                <h5 id="project-yagc-title" class="projects__title">
+                <h5
+                  id="project-yagc-title"
+                  class="projects__title"
+                  data-i18n="projects.p4_title"
+                >
                   YAGC (Yet Another GUI for ClamAV)
                 </h5>
                 <div class="projects__buttons">
@@ -750,7 +814,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <span>Código</span>
+                    <span data-i18n="projects.code_btn">Código</span>
                     <svg
                       class="w-6 h-6 text-gray-800 dark:text-white"
                       aria-hidden="true"
@@ -770,7 +834,10 @@
                     </svg>
                   </a>
                 </div>
-                <p class="projects__paragraph paragraph">
+                <p
+                  class="projects__paragraph paragraph"
+                  data-i18n="projects.p4_desc"
+                >
                   YAGC es una interfaz gráfica de usuario (GUI) diseñada para
                   simplificar el uso de ClamAV, un software antivirus de código
                   abierto. Esta aplicación está inspirada en proyectos como
@@ -794,14 +861,18 @@
         </div>
         <div class="projects__more-projects js-scroll">
           <span class="divider" aria-hidden="true"></span>
-          <h5 class="projects__more-projects-title subtitle">
+          <h5
+            class="projects__more-projects-title subtitle"
+            data-i18n="projects.more_title"
+          >
             ¿Te gustaría ver más proyectos?
           </h5>
           <a
-            class="button mainbutton "
+            class="button mainbutton"
             aria-label="Ver más proyectos en la página de Proyectos"
             tabindex="0"
             href="https://github.com/Acosta-gh"
+            data-i18n="projects.more_btn"
             >Entonces haz click aquí
             <svg
               class="w-6 h-6 text-gray-800 dark:text-white"
@@ -832,11 +903,14 @@
       aria-label="Contacto y redes sociales"
     >
       <div class="footer__inner">
-        <h5 class="subtitle footer__title">Contáctame</h5>
+        <h5 class="subtitle footer__title" data-i18n="footer.title">
+          Contáctame
+        </h5>
 
         <form
           class="footer__form"
-         action="https://formsubmit.co/48dabfd694c700c0b0825e46c71da470" method="POST"
+          action="https://formsubmit.co/48dabfd694c700c0b0825e46c71da470"
+          method="POST"
         >
           <input type="hidden" name="_captcha" value="true" />
           <input
@@ -845,65 +919,90 @@
             value="Nuevo mensaje desde el sitio web"
           />
 
-          <label class="sr-only" for="footer-name">NOMBRE</label>
+          <label class="sr-only" for="footer-name" data-i18n="footer.name_label"
+            >NOMBRE</label
+          >
           <input
             id="footer-name"
             name="name"
             class="footer__input"
             type="text"
             placeholder="E.g. Juan Pérez"
+            data-i18n-placeholder="footer.name_placeholder"
             required
           />
 
-          <label class="sr-only" for="footer-email">CORREO</label>
+          <label
+            class="sr-only"
+            for="footer-email"
+            data-i18n="footer.email_label"
+            >CORREO</label
+          >
           <input
             id="footer-email"
             name="email"
             class="footer__input"
             type="email"
             placeholder="E.g. juanperez@mail.com"
+            data-i18n-placeholder="footer.email_placeholder"
             required
           />
 
-          <label class="sr-only" for="footer-message">MENSAJE</label>
+          <label
+            class="sr-only"
+            for="footer-message"
+            data-i18n="footer.msg_label"
+            >MENSAJE</label
+          >
           <textarea
             id="footer-message"
             name="message"
             class="footer__textarea"
             rows="5"
             placeholder="E.g. Hola, me gustaría saber más sobre tus servicios..."
+            data-i18n-placeholder="footer.msg_placeholder"
             required
           ></textarea>
 
           <div class="footer__form-actions">
             <button type="submit" class="button mainbutton">
-              Enviar
+              <span data-i18n="footer.send_btn">Enviar</span>
               <!-- SVG outline ligero para "Enviar" -->
               <svg
-                class="w-6 h-6 text-gray-800 dark:text-white"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
                 viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <path
-                  stroke="currentColor"
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 12H5m14 0-4 4m4-4-4-4"
-                />
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M6 12H18M18 12L13 7M18 12L13 17"
+                    stroke="#000000"
+                    stroke-width="0.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </g>
               </svg>
             </button>
           </div>
 
           <div class="footer__form-note">
-            Se abrirá FormSubmit en una pestaña para completar el envío. La
-            información que me llega es tu mensaje y tu dirección de correo
-            electrónico para responderte. No la guardo ni comparto con terceros.
-            <a href="https://formsubmit.co/" class="underline"
+            <span data-i18n="footer.note_part1">
+              Se abrirá FormSubmit en una pestaña para completar el envío. La
+              información que me llega es tu mensaje y tu dirección de correo
+              electrónico para responderte. No la guardo ni comparto con
+              terceros.
+            </span>
+            <a
+              href="https://formsubmit.co/"
+              class="underline"
+              data-i18n="footer.note_link"
               >Para más información, aprende sobre FormSubmit
               <svg
                 class="w-6 h-6 text-gray-800 dark:text-white"
@@ -927,7 +1026,7 @@
       </div>
 
       <div class="footer__bottom">
-        <small>© 2025 Cristian D. Acosta</small>
+        <small data-i18n="footer.rights">© 2025 Cristian D. Acosta</small>
         <a
           href="/pages/javascript.html"
           data-jslicense="1"
@@ -936,6 +1035,6 @@
         >
       </div>
     </footer>
+    <script type="module" src="./scripts/main.js"></script>
   </body>
-  <script type="module" src="./scripts/main.js"></script>
 </html>

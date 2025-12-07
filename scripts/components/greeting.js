@@ -1,49 +1,47 @@
-import { findElement } from '../utils/domUtils.js';
+import { findElement } from "../utils/domUtils.js";
 
-/**
- * Componente que genera un saludo basado en la hora actual.
- * - Comentarios y nombres de variables en español.
- * - Usa textContent en lugar de innerHTML para evitar posibles XSS.
- * - Permite pasar selector y autoInit opcionales.
- */
-export default class Saludo {
-  constructor({ selector = '.main__intro-salutations', autoInit = true } = {}) {
-    this.selector = selector;
-    this.elementoIntro = null;
-    if (autoInit) this.init();
-  }
+export function saludo({
+  selector = ".main__intro-salutations",
+  autoInit = true,
+} = {}) {
+  let elementoIntro = null;
 
-  init() {
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => this.mostrarSaludo(), { once: true });
+  function obtenerSaludoSegunHora() {
+    const hora = new Date().getHours();
+    const lang = document.documentElement.lang || navigator.language || "es";
+    const esIngles = String(lang).toLowerCase().startsWith("en");
+    if (esIngles) {
+      if (hora < 12) return "Good morning";
+      if (hora < 18) return "Good afternoon";
+      return "Good evening";
     } else {
-      this.mostrarSaludo();
+      if (hora < 12) return "Buenos días";
+      if (hora < 18) return "Buenas tardes";
+      return "Buenas noches";
     }
   }
 
-  mostrarSaludo() {
-    this.elementoIntro = findElement(this.selector);
-    if (!this.elementoIntro) {
-      console.warn(`No se encontró el elemento ${this.selector}`);
+  function mostrarSaludo() {
+    elementoIntro = findElement(selector);
+    if (!elementoIntro) {
+      console.warn(`No se encontró el elemento ${selector}`);
       return;
     }
 
-    this.elementoIntro.textContent = this.obtenerSaludoSegunHora();
+    elementoIntro.textContent = obtenerSaludoSegunHora();
   }
 
-  obtenerSaludoSegunHora() {
-    const hora = new Date().getHours();
-    const lang = document.documentElement.lang || (navigator.language || 'es');
-    const esIngles = String(lang).toLowerCase().startsWith('en');
-
-    if (esIngles) {
-      if (hora < 12) return 'Good morning';
-      if (hora < 18) return 'Good afternoon';
-      return 'Good evening';
+  function init() {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", mostrarSaludo, {
+        once: true,
+      });
     } else {
-      if (hora < 12) return 'Buenos días';
-      if (hora < 18) return 'Buenas tardes';
-      return 'Buenas noches';
+      mostrarSaludo();
     }
   }
+
+  if (autoInit) init();
+
+  return { init, mostrarSaludo };
 }

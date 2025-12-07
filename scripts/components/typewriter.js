@@ -1,50 +1,67 @@
-/**
- * Componente para crear efecto de tipeo animado
- */
-export default class Typewriter {
-  constructor(element, words, options = {}) {
-    this.element = element;
-    this.words = words;
-    this.typingSpeed = options.typingSpeed || 100;
-    this.deletingSpeed = options.deletingSpeed || 50;
-    this.pauseAfterTyping = options.pauseAfterTyping || 1000;
-    this.pauseAfterDeleting = options.pauseAfterDeleting || 500;
-    
-    this.wordIndex = 0;
-    this.charIndex = 0;
-    this.isDeleting = false;
-    
-    if (this.element) {
-      this.type();
-    } else {
-      console.warn("No se proporcionó un elemento válido para el efecto de tipeo");
+export function typewriter(
+  element,
+  words,
+  {
+    typingSpeed = 100,
+    deletingSpeed = 50,
+    pauseAfterTyping = 1000,
+    pauseAfterDeleting = 500,
+  } = {}
+) {
+  if (!element) {
+    console.warn(
+      "No se proporcionó un elemento válido para el efecto de tipeo"
+    );
+    return { start() {}, stop() {} };
+  }
+
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let timeoutId = null;
+  let isRunning = false;
+
+  function type() {
+    if (!isRunning) return;
+    const currentWord = words[wordIndex];
+    const isWordComplete = charIndex === currentWord.length;
+    const isWordEmpty = charIndex === 0;
+
+    if (!isDeleting && !isWordComplete) {
+      charIndex++;
+    } else if (isDeleting && !isWordEmpty) {
+      charIndex--;
+    }
+
+    element.textContent = currentWord.substring(0, charIndex);
+
+    let delay = isDeleting ? deletingSpeed : typingSpeed;
+
+    if (!isDeleting && isWordComplete) {
+      delay = pauseAfterTyping;
+      isDeleting = true;
+    } else if (isDeleting && isWordEmpty) {
+      isDeleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+      delay = pauseAfterDeleting;
+    }
+
+    timeoutId = setTimeout(type, delay);
+  }
+
+  function start() {
+    if (!isRunning) {
+      isRunning = true;
+      type();
     }
   }
 
-  type() {
-    const currentWord = this.words[this.wordIndex];
-    const isWordComplete = this.charIndex === currentWord.length;
-    const isWordEmpty = this.charIndex === 0;
-
-    if (!this.isDeleting && !isWordComplete) {
-      this.charIndex++;
-    } else if (this.isDeleting && !isWordEmpty) {
-      this.charIndex--;
-    }
-
-    this.element.textContent = currentWord.substring(0, this.charIndex);
-
-    let delay = this.isDeleting ? this.deletingSpeed : this.typingSpeed;
-
-    if (!this.isDeleting && isWordComplete) {
-      delay = this.pauseAfterTyping;
-      this.isDeleting = true;
-    } else if (this.isDeleting && isWordEmpty) {
-      this.isDeleting = false;
-      this.wordIndex = (this.wordIndex + 1) % this.words.length;
-      delay = this.pauseAfterDeleting;
-    }
-
-    setTimeout(() => this.type(), delay);
+  function stop() {
+    isRunning = false;
+    if (timeoutId) clearTimeout(timeoutId);
   }
+
+  start();
+
+  return { start, stop };
 }
