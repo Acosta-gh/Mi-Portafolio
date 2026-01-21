@@ -40,13 +40,13 @@ export const translations = {
     projects: {
       title: "Mis proyectos",
       intro: "Algunos proyectos personales que he realizado",
-      demo_btn: "Demo",
-      code_btn: "Código",
+      demo_btn: "Ver Proyecto",
+      code_btn: "Ver Código",
 
       // Proyecto 1
-      p1_title: "Página de artículos headless",
+      p1_title: "Aurora Labs Blog",
       p1_desc:
-        "Este es un sitio web de artículos con arquitectura headless. Permite crear y administrar artículos en Markdown, subir imágenes, gestionar usuarios y mucho más. Es ideal como base para un blog moderno o una plataforma de contenido editorial.",
+        "Este es el blog oficial de Aurora Labs, construido con una arquitectura headless. En donde se publican artículos técnicos, novedades y contenido editorial, con soporte para Markdown, gestión de imágenes y administración de usuarios, pensado como una plataforma moderna y escalable de contenidos.",
       p1_alt:
         "Captura de pantalla del proyecto Página de artículos headless en dispositivos varios",
 
@@ -57,11 +57,12 @@ export const translations = {
       p2_alt:
         "Captura de pantalla del proyecto Página Debian rediseñada en dispositivos varios",
 
-      // Proyecto 3
-      p3_title: "Portafolio Personal",
+      // Proyecto 3 (The Flare Initiative)
+      p3_title: "The Flare Initiative – Sitio institucional",
       p3_desc:
-        "Este es mi portafolio personal, diseñado y desarrollado con un enfoque en la simplicidad, el rendimiento y la accesibilidad. He utilizado herramientas esenciales para garantizar que sea liviano, eficiente y fácil de desplegar, incluso en plataformas como GitHub Pages sin sacrificar un diseño minimalista, responsivo y visualmente atractivo.",
-      p3_alt: "Vista previa del Portafolio Personal en varios dispositivos",
+        "Diseño y desarrollo de un sitio institucional para The Flare Initiative, una organización enfocada en visibilizar y prevenir el suicidio entre quienes trabajan en servicios de emergencia. El proyecto prioriza una comunicación clara, empática y accesible, con un diseño sobrio y moderno que acompaña la seriedad del mensaje. Se trabajó especialmente en la experiencia de usuario, la jerarquía visual y el rendimiento, logrando un sitio rápido, responsivo y fácil de desplegar.",
+      p3_alt:
+        "Vista previa del sitio web de The Flare Initiative en distintos dispositivos",
 
       // Proyecto 4 (YAGC)
       p4_title: "YAGC (Yet Another GUI for ClamAV)",
@@ -131,11 +132,11 @@ export const translations = {
       demo_btn: "Demo",
       code_btn: "Code",
 
-      p1_title: "Headless Articles Platform",
+      p1_title: "Aurora Labs Blog",
       p1_desc:
-        "This is a headless article website architecture. It allows creating and managing Markdown articles, uploading images, managing users, and much more. It is ideal as a base for a modern blog or an editorial content platform.",
+        "This is the official blog of Aurora Labs, built using a headless architecture. It publishes technical articles, news, and editorial content, with support for Markdown, image management, and user administration. The platform was designed as a modern, scalable content system focused on flexibility and performance.",
       p1_alt:
-        "Screenshot of the Headless Articles Platform project on various devices",
+        "Screenshot of the headless articles platform displayed across multiple devices",
 
       p2_title: "Debian Website Redesign",
       p2_desc:
@@ -143,10 +144,10 @@ export const translations = {
       p2_alt:
         "Screenshot of the Debian Website Redesign project on various devices",
 
-      p3_title: "Personal Portfolio",
+      p3_title: "The Flare Initiative – Institutional Website",
       p3_desc:
-        "This is my personal portfolio, designed and developed with a focus on simplicity, performance, and accessibility. I used essential tools to ensure it remains lightweight, efficient, and easy to deploy, even on platforms like GitHub Pages, without sacrificing a minimalist, responsive, and visually appealing design.",
-      p3_alt: "Preview of the Personal Portfolio on various devices",
+        "Design and development of an institutional website for The Flare Initiative, an organization focused on raising awareness and preventing suicide among emergency workers. The project prioritizes clear, empathetic, and accessible communication, supported by a sober, modern design that respects the sensitivity of the subject. Special attention was given to user experience, visual hierarchy, and performance, resulting in a fast, responsive, and easy-to-deploy website.",
+      p3_alt: "Preview of The Flare Initiative website across multiple devices",
 
       p4_title: "YAGC (Yet Another GUI for ClamAV)",
       p4_desc:
