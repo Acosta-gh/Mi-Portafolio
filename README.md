@@ -44,10 +44,8 @@ Este es mi portafolio personal, diseñado y desarrollado con un enfoque en la si
 ### Código:
 - **Animate on Scroll with Vanilla Javascript**: [Fuente](https://codepen.io/Jemimaabu/pen/MWbqLZy)
 - **Scroll down dude**: [Fuente](https://codepen.io/mikewagz/pen/PGXqOg)
+- **Animación de carga (spinner/pulse)**: [Fuente](https://codepen.io/alanshortis/pen/eJLVXr) 
 - **Large Languge Models (LLM)**: Se utilizaron LLMs como GitHub Copilot y ChatGPT para corregir errores y brindar ayuda en puntos muy específicos del código.
 
 ### Otros:
 - **Paleta de colores**: [Fuente](https://www.behance.net/gallery/153938039/Milray-Park)
-## Créditos
-
-- Animación de carga (spinner/pulse): basada en el pen de [Alan Shortis](https://codepen.io/alanshortis/pen/eJLVXr) bajo licencia correspondiente.
