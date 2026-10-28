@@ -1,3 +1,13 @@
+/**
+ * EN: WARNING - This file was created in whole or in part with the assistance of a Large Language Model (LLM/AI).
+ *     Tracked separately for potential legal/compliance review in case copyright, open-source licensing,
+ *     or AI code attribution rules change in the future.
+ *
+ * ES: AVISO - Este archivo fue creado total o parcialmente con la ayuda de un Modelo de Lenguaje Grande (LLM/IA).
+ *     Se lleva registrado por separado para una posible revisión legal/regulatoria en caso de que cambien
+ *     las leyes de copyright, licencias de código abierto o las reglas sobre atribución de código generado por IA.
+ */
+
 export function typewriter(
   element,
   words,

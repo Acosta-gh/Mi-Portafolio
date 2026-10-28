@@ -1,4 +1,3 @@
-@charset "UTF-8";
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -79,18 +78,6 @@ table {
   stroke-width: 2px;
 }
 
-/**
- * Este archivo contiene las animaciones utilizadas en el sitio web:
- * 1. Animaciones basadas en scroll para elementos que aparecen al entrar en el viewport
- * 2. Indicador de desplazamiento hacia abajo animado
- */
-/**
- * Animaciones activadas por scroll
- * -----------------------------
- * Permite que los elementos aparezcan con una animación suave cuando
- * entran en el viewport. La clase .scrolled es añadida mediante JavaScript
- * cuando el elemento se vuelve visible.
- */
 .scroll-container .js-scroll {
   opacity: 0;
   transform: translateY(20px);
@@ -104,24 +91,14 @@ table {
   transition: opacity 500ms ease, transform 500ms ease;
 }
 
-/**
- * Indicador de desplazamiento hacia abajo
- * -----------------------------------
- * Muestra flechas animadas que indican al usuario que debe desplazarse hacia abajo
- * para ver más contenido.
- * 
- * Basado en código de Mike Wagz (https://codepen.io/mikewagz/pen/PGXqOg)
- * Licenciado bajo la Licencia MIT
- */
 .scroll-down-indicator {
   display: block;
   margin: 0 auto;
   opacity: 0.5;
   width: 1rem;
   position: absolute;
-  bottom: 0;
-  left: 49%;
   bottom: 25%;
+  left: 49%;
 }
 
 .scroll-down-indicator:before,
@@ -143,11 +120,6 @@ table {
   animation: down-arrow-after 2.6s cubic-bezier(0.77, 0, 0.175, 1) infinite;
 }
 
-/**
- * Definiciones de animaciones @keyframes
- * ----------------------------------
- * Controlan el movimiento y opacidad de las flechas
- */
 @keyframes down-arrow-before {
   50% {
     transform: rotate(45deg) translate(70%, 70%);
@@ -169,6 +141,31 @@ table {
     opacity: 1;
   }
 }
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loading {
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  border: 0.25rem solid rgba(30, 30, 30, 0.15);
+  border-top-color: #e37e54;
+  animation: spin 0.9s infinite linear;
+}
+
+.projects__loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  padding: 1.5rem;
+}
+
 .target {
   scroll-margin-top: 60px;
 }
@@ -257,44 +254,8 @@ table {
   stroke: #ffffff;
 }
 
-.card {
-  font-family: "Open Sans", sans-serif;
-  color: #1e1e1e;
-  border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.025) 0px 3px 5px;
-}
-.card__title {
-  text-align: center;
-  font-size: 1.5rem;
-  margin: 1.5rem 1rem 1rem 1rem;
-  font-weight: 500;
-  color: #1e1e1e;
-}
-.card__paragraph {
-  text-align: center;
-  font-size: 1.125rem;
-}
-.card__pics {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
-}
-.card__pics svg, .card__pics img {
-  min-width: 4.5rem;
-  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.15));
-  margin: 0.5rem;
-  padding: 5px;
-}
-@media (max-width: 575px) {
-  .card__pics svg, .card__pics img {
-    margin: 0.5rem;
-  }
-}
-
-.tag1, .tag2 {
+.tag1,
+.tag2 {
   background-color: #eae3dc;
   border-radius: 999px;
   margin: 0.2rem 0;
@@ -334,12 +295,284 @@ table {
   margin-left: 0.5rem;
 }
 
+.header {
+  background-color: #f6f4ef;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  transition: border-radius 0.1s ease-in-out;
+  font-family: "Open Sans", sans-serif;
+}
+.header__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+@media (min-width: 992px) {
+  .header__nav {
+    flex-direction: row;
+    margin-left: 18%;
+    margin-right: 18%;
+  }
+}
+@media (min-width: 768px) {
+  .header__nav {
+    margin-left: 13%;
+    margin-right: 13%;
+  }
+}
+.header__nav-langmenu {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.header__nav-langmenu .arrow {
+  transition: transform 0.3s ease;
+}
+.header__nav-logo {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  font-size: 24px;
+  font-weight: bold;
+}
+.header__nav-logo .header__logo-img {
+  width: 35px;
+  height: auto;
+  margin-right: 10px;
+  filter: invert(12%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(12%) contrast(100%);
+}
+@media (min-width: 992px) {
+  .header__nav-logo .header__logo-img {
+    width: 40px;
+    cursor: pointer;
+  }
+}
+.header__nav-list {
+  background-color: #f6f4ef;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  padding: 0;
+  top: 60px;
+  width: 100%;
+  max-height: 0vh;
+  box-shadow: 0px 12px 20px -10px rgba(149, 157, 165, 0.2);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+@media (min-width: 992px) {
+  .header__nav-list {
+    position: static;
+    opacity: 1;
+    display: flex;
+    flex-direction: row;
+    max-height: none;
+    height: auto;
+    padding: 0;
+    overflow: visible;
+    box-shadow: 0px 12px 20px -10px rgba(149, 157, 165, 0);
+    width: auto;
+  }
+}
+.header__nav-langlist {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+  max-height: 0rem;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-in-out, border-radius 0.5s ease;
+  padding: 0.1rem;
+  margin-top: 5px;
+}
+.header__nav-langlist .header__nav-langitem {
+  margin: 10px;
+  cursor: pointer;
+}
+@media (min-width: 992px) {
+  .header__nav-langlist {
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease-in-out, border-radius 5s ease, box-shadow 1s ease;
+    opacity: 0;
+    margin-top: 0px;
+    overflow: hidden;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 3.3rem;
+    right: -25px;
+    max-height: 0px;
+    padding: 0.1rem;
+    background-color: #f6f4ef;
+    box-shadow: 0px 12px 20px -10px rgba(149, 157, 165, 0);
+    border-radius: 15px;
+  }
+}
+.header__nav-item, .header__nav-lang {
+  margin: 1rem;
+  cursor: pointer;
+}
+.header__nav-item a, .header__nav-lang a {
+  display: block;
+  width: 100vw;
+  text-decoration: none;
+  color: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+@media (min-width: 992px) {
+  .header__nav-item a, .header__nav-lang a {
+    width: 100%;
+    opacity: 1;
+  }
+  .header__nav-item, .header__nav-lang {
+    font-size: 1.125rem;
+    display: inline-block;
+    position: relative;
+  }
+  .header__nav-item::after, .header__nav-lang::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #e37e54;
+    transition: transform 0.25s ease-out;
+  }
+}
+.header__nav-burguer {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+@media (min-width: 992px) {
+  .header__nav-burguer {
+    display: none;
+  }
+}
+@media (max-width: 1399px) {
+  .header__nav-burguer-line {
+    display: block;
+    background-color: #1e1e1e;
+    width: 30px;
+    height: 2px;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+  }
+}
+
+@media (max-width: 991px) {
+  .header__nav-burguer--active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .header__nav-burguer--active span:nth-child(2) {
+    opacity: 0;
+  }
+  .header__nav-burguer--active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
+
+.header__nav--active,
+.header__nav-langlist--active {
+  max-height: 13rem;
+}
+
+.header__nav--active a {
+  opacity: 1;
+}
+
+.header__nav-langlist--active {
+  max-height: 7rem;
+  opacity: 1;
+  overflow: visible;
+}
+@media (min-width: 992px) {
+  .header__nav-langlist--active {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+}
+
+.item--active a {
+  color: #e37e54;
+}
+.item--active::after {
+  transform: scaleX(1);
+}
+
+.header__nav-langmenu--active .arrow {
+  transform: rotate(180deg);
+}
+
 .footer {
   background-color: #1e1e1e;
   padding: 2% 15%;
   padding-bottom: 7%;
   color: #ffffff;
   margin-top: auto;
+}
+.footer__contact-mail {
+  margin: 1.5rem 0 1rem 0;
+}
+.footer__socials {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.footer__social-link svg {
+  display: block;
+}
+.footer__social-link:hover {
+  border-color: #e37e54;
+  color: #e37e54;
+}
+.footer__social-link:focus-visible {
+  outline: 2px solid #e37e54;
+  outline-offset: 4px;
+}
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+  font-family: "Open Sans", sans-serif;
+}
+.footer__bottom small {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+.footer__bottom .js_license_information {
+  position: static;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
 }
 .footer .sr-only {
   margin: 0.9rem 0 0 0;
@@ -357,6 +590,11 @@ table {
   margin-top: 1rem;
   color: #eae3dc;
 }
+.footer__form {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
 .footer__form-actions {
   margin: 0 0 2rem 0;
 }
@@ -368,11 +606,6 @@ table {
   color: rgba(255, 255, 255, 0.7);
   margin-top: 1rem;
   max-width: 800px;
-}
-.footer__form {
-  display: flex;
-  flex-direction: column;
-  margin: 1rem 0;
 }
 .footer__form input,
 .footer__form textarea,
@@ -404,12 +637,6 @@ table {
   font-family: "Open Sans", sans-serif;
   opacity: 0.9;
 }
-.footer__form input,
-.footer__form textarea,
-.footer__form .footer__input,
-.footer__form .footer__textarea {
-  /* estados de foco / interacción */
-}
 .footer__form input:focus, .footer__form input:focus-visible,
 .footer__form textarea:focus,
 .footer__form textarea:focus-visible,
@@ -418,15 +645,9 @@ table {
 .footer__form .footer__textarea:focus,
 .footer__form .footer__textarea:focus-visible {
   outline: none;
-  background-size: 100% 2px; /* línea de acento completa al enfocar */
+  background-size: 100% 2px;
   box-shadow: 0 2px 0 rgba(227, 126, 84, 0.12);
-  border-bottom-color: rgba(227, 126, 84, 0.28); /* refuerza la base */
-}
-.footer__form input,
-.footer__form textarea,
-.footer__form .footer__input,
-.footer__form .footer__textarea {
-  /* si ya hay contenido (no placeholder), muestra la línea completa */
+  border-bottom-color: rgba(227, 126, 84, 0.28);
 }
 .footer__form input:not(:placeholder-shown),
 .footer__form textarea:not(:placeholder-shown),
@@ -440,335 +661,6 @@ table {
   margin-bottom: 3rem;
 }
 
-/* 
- * Componente Header - Barra de navegación principal
- * ---------------------------------------------------
- * Este archivo define la estructura, disposición y comportamientos
- * responsivos de la barra de navegación del sitio.
- */
-.header {
-  background-color: #f6f4ef;
-  position: fixed; /* Fija el header en la parte superior de la ventana */
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000; /* Asegura que el header esté por encima de otros elementos */
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; /* Sombra sutil bajo el header */
-  transition: border-radius 0.1s ease-in-out;
-  font-family: "Open Sans", sans-serif;
-}
-.header__nav {
-  display: flex;
-  justify-content: space-between; /* Distribuye los elementos al inicio y final */
-  align-items: center;
-  padding: 10px 20px;
-  /* En pantallas grandes, ajusta los márgenes laterales al 18% */
-}
-@media (min-width: 992px) {
-  .header__nav {
-    flex-direction: row;
-    margin-left: 18%;
-    margin-right: 18%;
-  }
-}
-.header__nav {
-  /* En pantallas medianas, reduce los márgenes laterales al 13% */
-}
-@media (min-width: 768px) {
-  .header__nav {
-    margin-left: 13%;
-    margin-right: 13%;
-  }
-}
-.header__nav {
-  /* 
-   * Menú de selección de idioma
-   * --------------------------
-   * Botón que controla la apertura del menú desplegable de idiomas
-   */
-}
-.header__nav-langmenu {
-  background: none;
-  border: none;
-  box-shadow: none;
-  padding: 0;
-  margin: 0;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-}
-.header__nav-langmenu .arrow {
-  transition: transform 0.3s ease; /* Animación de rotación para el icono de flecha */
-}
-.header__nav {
-  /* 
-   * Logo del sitio 
-   * ------------
-   * Contiene la imagen del logo y posiblemente el nombre del sitio
-   */
-}
-.header__nav-logo {
-  display: flex;
-  align-items: center;
-  padding: 5px;
-  font-size: 24px;
-  font-weight: bold;
-}
-.header__nav-logo .header__logo-img {
-  width: 35px;
-  height: auto;
-  margin-right: 10px;
-  /* Filtro para ajustar el color del logo si es necesario */
-  filter: invert(12%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(12%) contrast(100%);
-}
-@media (min-width: 992px) {
-  .header__nav-logo .header__logo-img {
-    width: 40px; /* Logo ligeramente más grande en pantallas grandes */
-    cursor: pointer;
-  }
-}
-.header__nav {
-  /* 
-   * Lista principal de navegación 
-   * ----------------------------
-   * En móviles se muestra como menú desplegable,
-   * en escritorio como barra horizontal
-   */
-}
-.header__nav-list {
-  background-color: #f6f4ef;
-  overflow: hidden;
-  position: absolute; /* En móviles, posicionamiento absoluto para el desplegable */
-  left: 0;
-  padding: 1rem;
-  top: 60px;
-  width: 100%;
-  max-height: 0vh; /* Inicialmente oculto (altura 0) */
-  padding: 0;
-  box-shadow: 0px 12px 20px -10px rgba(149, 157, 165, 0.2);
-  opacity: 1;
-  transition: all 0.3s ease; /* Transición suave para mostrar/ocultar */
-  /* En pantallas grandes, muestra como barra horizontal */
-}
-@media (min-width: 992px) {
-  .header__nav-list {
-    position: static;
-    opacity: 1;
-    display: flex;
-    flex-direction: row;
-    max-height: none;
-    height: auto;
-    padding: 0;
-    overflow: visible;
-    box-shadow: 0px 12px 20px -10px rgba(149, 157, 165, 0);
-    width: auto;
-  }
-}
-@media (min-width: 768px) {
-  .header__nav-list {
-    padding: 0;
-  }
-}
-.header__nav {
-  /* 
-   * Lista desplegable de idiomas 
-   * --------------------------
-   * Inicialmente oculta, se muestra al hacer clic en el botón de idiomas
-   */
-}
-.header__nav-langlist {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
-  max-height: 0rem; /* Inicialmente oculto */
-  opacity: 0;
-  overflow: hidden;
-  /* Transiciones para varios efectos al mostrar/ocultar */
-  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-in-out, border-radius 0.5s ease;
-  padding: 0.1rem;
-  margin-top: 5px;
-  /* Elementos de la lista de idiomas */
-}
-.header__nav-langlist .header__nav-langitem {
-  margin-top: 0px;
-  margin: 10px;
-  cursor: pointer;
-}
-.header__nav-langlist {
-  /* En pantallas grandes, el menú de idiomas es un desplegable posicionado */
-}
-@media (min-width: 992px) {
-  .header__nav-langlist {
-    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease-in-out, border-radius 5s ease, box-shadow 1s ease;
-    opacity: 0;
-    margin-top: 0px;
-    overflow: hidden;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    top: 3.3rem;
-    right: -25px; /* Posicionamiento ajustado */
-    max-height: 0px;
-    padding: 0.1rem;
-    background-color: #f6f4ef;
-    box-shadow: 0px 12px 20px -10px rgba(149, 157, 165, 0);
-    border-radius: 15px;
-  }
-}
-@media (min-width: 992px) {
-  .header__nav-langlist {
-    margin: 0 12%;
-  }
-}
-.header__nav {
-  /* 
-   * Elementos de navegación e idiomas
-   * -------------------------------
-   * Estilo para enlaces de navegación y opciones de idioma
-   */
-}
-.header__nav-item, .header__nav-lang {
-  margin: 1rem;
-  cursor: pointer;
-}
-.header__nav-item a, .header__nav-lang a {
-  display: block;
-  width: 100vw; /* Ancho completo en móviles */
-  text-decoration: none;
-  color: inherit;
-  opacity: 0; /* Inicialmente invisible en móviles (hasta activación) */
-  transition: opacity 0.3s ease;
-}
-.header__nav-item, .header__nav-lang {
-  /* Estilos específicos para pantallas grandes */
-}
-@media (min-width: 992px) {
-  .header__nav-item a, .header__nav-lang a {
-    width: 100%;
-    opacity: 1; /* Visible en escritorio */
-  }
-  .header__nav-item, .header__nav-lang {
-    font-size: 1.125rem;
-    display: inline-block;
-    position: relative;
-    /* Efecto de subrayado animado en hover */
-  }
-  .header__nav-item::after, .header__nav-lang::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0); /* Inicialmente escala 0 (invisible) */
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: #e37e54;
-    transition: transform 0.25s ease-out;
-  }
-}
-.header__nav {
-  /* 
-   * Botón de menú hamburguesa
-   * -----------------------
-   * Solo visible en móviles, controla la apertura del menú principal
-   */
-}
-.header__nav-burguer {
-  background: none;
-  border: none;
-  box-shadow: none;
-  padding: 0;
-  margin: 0;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-  /* Oculto en pantallas grandes */
-}
-@media (min-width: 992px) {
-  .header__nav-burguer {
-    display: none;
-  }
-}
-.header__nav {
-  /* Líneas del menú hamburguesa */
-}
-@media (max-width: 1399px) {
-  .header__nav-burguer-line {
-    display: block;
-    background-color: #1e1e1e;
-    width: 30px;
-    height: 2px;
-    margin: 5px 0;
-    transition: all 0.3s ease; /* Para animación al transformarse en X */
-  }
-}
-
-/*
- * ESTADOS ACTIVOS
- * --------------
- * Estos estilos se aplican mediante JavaScript para controlar
- * los diferentes estados de interacción de los menús
- */
-/* Animación del botón hamburguesa a forma de X cuando está activo */
-@media (max-width: 991px) {
-  .header__nav-burguer--active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px); /* Línea diagonal \ */
-  }
-  .header__nav-burguer--active span:nth-child(2) {
-    opacity: 0; /* Oculta línea del medio */
-  }
-  .header__nav-burguer--active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px); /* Línea diagonal / */
-  }
-}
-
-/* 
- * Expande la altura máxima para mostrar los menús
- * cuando están activos (burguer y lang)
- */
-.header__nav--active,
-.header__nav-langlist--active {
-  max-height: 13rem;
-}
-
-/* Hace visibles los enlaces cuando el menú móvil está activo */
-.header__nav--active a {
-  opacity: 1;
-}
-
-/* Ajustes adicionales para el menú de idiomas cuando está activo */
-.header__nav-langlist--active {
-  max-height: 7rem;
-  opacity: 1;
-  overflow: none; /* Nota: debería ser 'visible' o 'auto', 'none' no es válido */
-}
-@media (min-width: 992px) {
-  .header__nav-langlist--active {
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; /* Añade sombra cuando está desplegado */
-  }
-}
-
-/* 
- * Estilo para el ítem de navegación activo/seleccionado
- * Muestra color de acento y línea inferior animada
- */
-.item--active a {
-  color: #e37e54;
-}
-.item--active::after {
-  transform: scaleX(1); /* Muestra la línea inferior expandida */
-}
-
-/* 
- * Rotación de la flecha cuando el menú de idiomas está activo
- * para indicar visualmente el estado abierto/cerrado
- */
-.header__nav-langmenu--active .arrow {
-  transform: rotate(180deg); /* Gira la flecha hacia arriba */
-}
-
-/**
- * Estructura base del documento
- * ---------------------------
- * Establece el diseño fundamental de la página con altura completa y desplazamiento suave
- */
 html,
 .body {
   height: 100%;
@@ -779,12 +671,6 @@ html,
   scroll-behavior: smooth;
 }
 
-/**
- * Estilos específicos del cuerpo
- * ---------------------------
- * Configura el elemento body principal con color de fondo y
- * opacidad inicial para animación de aparición
- */
 .body {
   background-color: #f6f4ef;
   flex: 1;
@@ -793,19 +679,6 @@ html,
   opacity: 0;
 }
 
-/**
- * Contenedor principal de contenido
- * ------------------------------
- * Contiene todas las secciones de contenido principal del sitio web
- */
-.main {
-  /**
-   * Sección de introducción
-   * --------------------
-   * La sección hero con saludo, nombre y cargo
-   * Ocupa toda la altura de la pantalla para crear una primera impresión fuerte
-   */
-}
 .main__intro {
   padding: 1rem;
   padding-top: 7rem;
@@ -829,21 +702,9 @@ html,
     margin-right: 13%;
   }
 }
-.main__intro {
-  /**
-   * Contenedor para el texto de saludo
-   * Usa flexbox para alinear múltiples elementos de texto horizontalmente
-   */
-}
 .main__intro-salutation-container {
   display: flex;
   align-items: center;
-}
-.main__intro {
-  /**
-   * Estilo del texto de saludo
-   * Muestra un saludo dinámico basado en la hora del día mediante JavaScript
-   */
 }
 .main__intro-salutations {
   font-size: 1.125rem;
@@ -853,12 +714,6 @@ html,
   .main__intro-salutations {
     font-size: 1.5rem;
   }
-}
-.main__intro {
-  /**
-   * Estilo del nombre
-   * El encabezado principal que muestra el nombre de la persona
-   */
 }
 .main__intro-name {
   margin-top: 0.1rem;
@@ -870,12 +725,6 @@ html,
   .main__intro-name {
     font-size: 4.375rem;
   }
-}
-.main__intro {
-  /**
-   * Estilo del cargo/título
-   * Muestra el título del trabajo con un efecto de escritura dinámico
-   */
 }
 .main__intro-position {
   margin-top: 0.5rem;
@@ -889,22 +738,9 @@ html,
     font-size: 2rem;
   }
 }
-.main__intro-position {
-  /**
-   * Elemento con efecto de escritura dinámica
-   * Cambia entre diferentes títulos de trabajo mediante JavaScript
-   */
-}
 .main__intro-position--type {
   color: #e37e54;
   font-weight: 700;
-}
-.main {
-  /**
-   * Sección de "Sobre mí" / Descripción
-   * --------------------------------
-   * Contiene introducción personal e imagen
-   */
 }
 .main .description {
   padding: 2.3rem 2.5rem 5.3rem 2.5rem;
@@ -912,10 +748,6 @@ html,
   font-family: "Open Sans", sans-serif;
   font-size: 1.5rem;
   background-color: #ece3da;
-  /**
-   * Divisor visual que está oculto en móvil
-   * Solo aparece en pantallas medianas y más grandes
-   */
 }
 .main .description .divider {
   display: none;
@@ -930,22 +762,11 @@ html,
     display: block;
   }
 }
-.main .description {
-  /**
-   * Contenedor de texto de introducción
-   * Contiene el párrafo de introducción breve
-   */
-}
 @media (min-width: 768px) {
   .main .description__intro p {
     width: 60%;
     margin: 0 0 1rem 0;
   }
-}
-.main .description {
-  /**
-   * Sección de medios que contiene imagen y biografía detallada
-   */
 }
 .main .description__media {
   gap: 3rem;
@@ -955,11 +776,6 @@ html,
     display: flex;
     flex-direction: row-reverse;
   }
-}
-.main .description__media {
-  /**
-   * Texto de biografía detallada
-   */
 }
 .main .description__media p {
   margin-bottom: 3rem;
@@ -971,11 +787,6 @@ html,
     width: 60%;
     margin: 0;
   }
-}
-.main .description__media {
-  /**
-   * Estilo de la imagen de perfil
-   */
 }
 .main .description__media img {
   width: 180px;
@@ -996,13 +807,6 @@ html,
     margin: 0 auto;
   }
 }
-.main {
-  /**
-   * Sección de habilidades
-   * -------------------
-   * Muestra diferentes categorías de habilidades con insignias
-   */
-}
 .main .skills {
   padding: 2.3rem 2.5rem 5.3rem 2.5rem;
 }
@@ -1013,43 +817,23 @@ html,
     margin-bottom: 2rem;
   }
 }
-.main .skills {
-  /**
-   * Título de categoría con icono
-   */
-}
 .main .skills__category-title {
   display: flex;
   align-items: center;
   font-family: "Open Sans", sans-serif;
   font-size: 1.5rem;
   margin: 1rem 0;
-  /**
-   * Estilo del icono de categoría
-   */
 }
 .main .skills__category-title svg {
   width: 2rem;
   height: 2rem;
   margin-right: 0.5rem;
 }
-.main .skills {
-  /**
-   * Contenedor para insignias de habilidades
-   * Usa flexbox para envoltura responsiva
-   */
-}
 .main .skills__list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-}
-.main .skills {
-  /**
-   * Insignia de habilidad individual
-   * Elementos en forma de píldora que muestran cada habilidad
-   */
 }
 .main .skills__item {
   margin: 0.2rem;
@@ -1062,13 +846,6 @@ html,
   font-family: "Open Sans", sans-serif;
   font-weight: 500;
 }
-.main {
-  /**
-   * Sección de proyectos
-   * -----------------
-   * Muestra proyectos de portafolio con imágenes, descripciones y etiquetas
-   */
-}
 .main .projects {
   background-color: #ece3da;
   padding: 2.3rem 2.5rem 5.3rem 2.5rem;
@@ -1079,26 +856,11 @@ html,
     padding-right: 13%;
   }
 }
-.main .projects {
-  /**
-   * Texto de introducción de la sección
-   */
-}
 .main .projects__intro {
   margin-bottom: 2rem;
 }
-.main .projects {
-  /**
-   * Contenedor de proyecto individual
-   */
-}
 .main .projects__item {
   margin-bottom: 3.7rem;
-}
-.main .projects {
-  /**
-   * Estilo del título del proyecto
-   */
 }
 .main .projects__title {
   text-align: left;
@@ -1112,18 +874,8 @@ html,
     font-size: 2rem;
   }
 }
-.main .projects {
-  /**
-   * Texto de descripción del proyecto
-   */
-}
 .main .projects__paragraph {
   margin-bottom: 1rem;
-}
-.main .projects {
-  /**
-   * Estilo de la imagen del proyecto
-   */
 }
 .main .projects__image {
   width: 100%;
@@ -1138,38 +890,18 @@ html,
     margin: 0 auto;
   }
 }
-.main .projects {
-  /**
-   * Contenedor para detalles de descripción del proyecto
-   */
-}
 .main .projects__description {
   border-radius: 15px;
   padding: 0.5rem;
   margin-top: 5px;
-}
-.main .projects {
-  /**
-   * Contenedor para etiquetas de tecnología
-   */
 }
 .main .projects__tags {
   display: flex;
   flex-wrap: wrap;
   font-family: "Open Sans", sans-serif;
 }
-.main .projects {
-  /**
-   * Etiqueta de tecnología individual
-   */
-}
 .main .projects__tag {
   margin-right: 5px;
-}
-.main .projects {
-  /**
-   * Contenedor para botones de acción del proyecto (demo/código)
-   */
 }
 .main .projects__buttons {
   margin: 1rem 0;
@@ -1180,18 +912,14 @@ html,
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: start;
-}
-@media (min-width: 768px) {
-  .main .projects__more-projects {
-    align-items: center;
-  }
-}
-.main .projects__more-projects {
+  align-items: center;
   font-family: "Open Sans", sans-serif;
 }
 .main .projects__more-projects-title {
   font-size: 2rem;
+  text-align: center;
+  width: 100%;
+  margin: 2rem 0 1.3rem 0;
 }
 
 /*# sourceMappingURL=main.css.map */

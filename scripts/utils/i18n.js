@@ -1,3 +1,13 @@
+/**
+ * EN: WARNING - This file was created in whole or in part with the assistance of a Large Language Model (LLM/AI).
+ *     Tracked separately for potential legal/compliance review in case copyright, open-source licensing,
+ *     or AI code attribution rules change in the future.
+ *
+ * ES: AVISO - Este archivo fue creado total o parcialmente con la ayuda de un Modelo de Lenguaje Grande (LLM/IA).
+ *     Se lleva registrado por separado para una posible revisión legal/regulatoria en caso de que cambien
+ *     las leyes de copyright, licencias de código abierto o las reglas sobre atribución de código generado por IA.
+ */
+
 import { translations } from "../data/locales.js";
 
 let currentLang =
@@ -56,8 +66,8 @@ function updateAttributes() {
 
   const cvBtn = document.getElementById("cv-download-btn");
   if (cvBtn) {
-    const cvFile = currentLang === "en" ? "cvEN.pdf" : "cvES.pdf";
-    cvBtn.href = `assets/docs/${cvFile}`;
+    const cvFile = getNestedTranslation(translations[currentLang], "hero.cv_file");
+    if (cvFile) cvBtn.href = `assets/docs/${cvFile}`;
   }
 }
 

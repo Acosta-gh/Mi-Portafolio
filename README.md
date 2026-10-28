@@ -48,3 +48,6 @@ Este es mi portafolio personal, diseñado y desarrollado con un enfoque en la si
 
 ### Otros:
 - **Paleta de colores**: [Fuente](https://www.behance.net/gallery/153938039/Milray-Park)
+## Créditos
+
+- Animación de carga (spinner/pulse): basada en el pen de [Alan Shortis](https://codepen.io/alanshortis/pen/eJLVXr) bajo licencia correspondiente.
